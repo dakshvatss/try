@@ -72,3 +72,31 @@ document.addEventListener("DOMContentLoaded", function () {
         nextSlide();
     }, 5000);
 });
+
+// Add this to your try.js file or in a script tag at the end of your HTML
+document.addEventListener('DOMContentLoaded', function() {
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'english'; // Default language
+    
+    langToggle.addEventListener('click', function() {
+        if (currentLang === 'english') {
+            currentLang = 'kannada';
+            langToggle.classList.remove('english');
+            langToggle.classList.add('kannada');
+            // Here you would add code to change website text to Kannada
+            // translateToKannada();
+        } else {
+            currentLang = 'english';
+            langToggle.classList.remove('kannada');
+            langToggle.classList.add('english');
+            // Here you would add code to change website text to English
+            // translateToEnglish();
+        }
+    });
+    
+    // Initialize with English as active
+    langToggle.classList.add('english');
+});
+
+// Note: You'll need to implement the actual translation functions
+// translateToKannada() and translateToEnglish() based on your requirements
