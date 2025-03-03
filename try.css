@@ -28,7 +28,7 @@
         .islide {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: 80vh;
             overflow: hidden;
         }
 
@@ -233,7 +233,7 @@
 /* About Us Section */
 .about-section{
     position:relative;
-    padding:120px 0px;
+    padding:100px 0px;
 }
 .about-section .content-column{
     position:relative;
@@ -543,4 +543,117 @@
         right: 7.5rem;
         top: 1.3rem;
     }
+}
+/* Enhanced Button Styling */
+.sec-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sec-title button {
+    margin: 30px 10px;
+    top: 40px;
+    background-color: #8B4513; /* A warm brown color that complements music theme */
+    color: #fff;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+  
+  .sec-title button:hover {
+    background-color: #6B3100;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sec-title button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Optional: Add a subtle musical note animation on hover */
+  .sec-title button::after {
+    content: "🎵";
+    position: absolute;
+    right: -30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .sec-title button:hover::after {
+    right: 15px;
+    opacity: 1;
+  }
+
+  .border {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    background-color: #8B4513; /* Warm brown as primary color - adjust to match your site's theme */
+    margin-top: 0; /* Ensures it sits directly below the slider */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds drop shadow below */
+    z-index: 5; /* Ensures the border appears above other elements */
+}
+/* Vision statement - elegant, italic style */
+.vision-statement {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #8B4513;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+/* Founder name - bold, prominent */
+.founder-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #5D3954;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Line below founder name */
+.founder-name:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #8B4513;
+}
+
+/* School history - clean, readable */
+.school-history {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* School evolution - slightly different to distinguish */
+.school-evolution {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+    border-left: 3px solid #8B4513;
+    padding-left: 15px;
 }
