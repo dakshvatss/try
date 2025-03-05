@@ -28,7 +28,7 @@
         .islide {
             position: relative;
             width: 100%;
-            height: 80vh;
+            height: 65vh;
             overflow: hidden;
         }
 
@@ -554,7 +554,7 @@
 
 .sec-title button {
     margin: 30px 10px;
-    top: 40px;
+    top: 20px;
     background-color: #8B4513; /* A warm brown color that complements music theme */
     color: #fff;
     font-family: 'Georgia', serif;
