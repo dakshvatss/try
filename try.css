@@ -680,3 +680,165 @@
     cursor: pointer;
     transform: translateY(-2px);
 }
+
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.header h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+}
+
+.header .subtitle {
+    color: var(--color-dark);
+    font-size: 1.2rem;
+}
+
+/* Class Sections */
+.classes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 40px;
+}
+
+.class-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.class-section h2 {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Class Cards */
+.class-card {
+    background: var(--color-light);
+    padding: 20px;
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform var(--td) var(--te);
+}
+
+.class-card:hover {
+    transform: translateY(-5px);
+    background: var(--color-secondary);
+    color: var(--color-dark);
+}
+
+.class-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-dark);
+}
+
+.class-detail {
+    font-size: 1rem;
+    color: var(--color-dark);
+    margin-top: 5px;
+}
+
+/* Training Modules */
+.training-modules {
+    padding: 40px;
+}
+
+.training-modules h2 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.training-modules ul {
+    list-style: none;
+    padding: 0;
+}
+
+.training-modules li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--color-light);
+    color: var(--color-dark);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--color-primary);
+    transition: transform var(--td) var(--te);
+}
+
+.training-modules li:hover {
+    transform: translateY(-5px);
+    background: var(--color-secondary);
+    color: var(--color-dark);
+}
+
+.training-modules .icon {
+    font-size: 1.5rem;
+}
+
+
+
+/* Training Modules */
+.training-modules {
+    padding: 40px;
+    text-align: center;
+}
+
+.training-modules h2 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.training-modules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.training-modules li {
+    display: block; /* Stack elements vertically */
+    padding: 15px 0;
+    font-size: 1.2rem;
+    color: var(--color-dark);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none; /* Removes any border */
+    outline: none; /* Removes outline */
+    background: none; /* Ensure no background color */
+}
+
+/* Brown underline (50% width) */
+.training-modules li::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: brown;
+    width: 50%; /* Make the underline 50% shorter */
+    margin: 5px auto 0 auto; /* Center the underline */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Only the underline changes to double and pops down */
+.training-modules li:hover {
+    background: none; /* No background change */
+}
+
+.training-modules li:hover::after {
+    height: 6px; 
+    background: linear-gradient(to bottom, brown 0%, brown 40%, transparent 40%, transparent 60%, brown 60%, brown 100%);
+}
