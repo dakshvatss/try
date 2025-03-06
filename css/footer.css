@@ -1,0 +1,128 @@
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: #f4efe4;
+    padding: 60px 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 50px;
+    border: none;
+}
+
+.footer-about p {
+    margin-bottom: 20px;
+    color: #c8a27a;
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    font-family: 'Goudy Old Style', serif;
+    color: var(--secondary-color);
+}
+
+.footer-heading::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: var(--secondary-color);
+    bottom: 0;
+    left: 0;
+}
+
+.quick-links,
+.contact-links {
+    list-style: none;
+}
+
+.quick-links li,
+.contact-links li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.quick-links li::before,
+.contact-links li::before {
+    content: "❯";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-size: 0.8rem;
+}
+
+.quick-links a,
+.contact-links a {
+    color: #c8a27a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.quick-links a:hover,
+.contact-links a:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    background-color: rgba(200, 162, 122, 0.2);
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--secondary-color);
+}
+
+.social-links a:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(200, 162, 122, 0.2);
+    font-size: 0.9rem;
+    color: #c8a27a;
+}

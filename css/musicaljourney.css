@@ -1,0 +1,308 @@
+  /* Musical Journey Section - Stylish Version */
+  .musical-journey {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.photo-collage-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('path-to-your-collage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.journey-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(156, 51, 40, 0.85) 0%, rgba(72, 44, 29, 0.75) 100%);
+    z-index: 2;
+}
+
+.journey-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    z-index: 3;
+    color: white;
+}
+
+.journey-title {
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.journey-title .highlight {
+    color: var(--color-secondary);
+    display: block;
+}
+
+.journey-description {
+    font-size: 1.4rem;
+    max-width: 650px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.journey-accent {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 15px solid rgba(232, 185, 35, 0.2);
+    border-radius: 50%;
+    top: -100px;
+    right: 10%;
+}
+
+.journey-accent::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 8px;
+    background-color: var(--color-secondary);
+    top: 50%;
+    right: -50%;
+    transform: translateY(-50%);
+}
+
+/* Creative Album Release Gallery */
+.album-release {
+    padding: 100px 0;
+    background-color: var(--color-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.album-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.album-title {
+    font-size: 3rem;
+    color: var(--color-primary);
+    display: inline-block;
+    position: relative;
+}
+
+.album-title-accent {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 8px;
+    background-color: var(--color-secondary);
+}
+
+.vinyl-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 20px;
+}
+
+.vinyl-record {
+    flex: 0 0 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.vinyl-album {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 50px;
+    perspective: 1000px;
+    transition: transform 0.6s ease;
+}
+
+.vinyl-record:hover .vinyl-album {
+    transform: rotateY(45deg);
+}
+
+.vinyl-cover {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    transition: transform 0.6s ease;
+    overflow: hidden;
+}
+
+.vinyl-record:hover .vinyl-cover {
+    transform: translateX(-50px);
+}
+
+.vinyl-disc {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #333 0%, #111 100%);
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+.vinyl-disc::before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-dark) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.vinyl-disc::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--color-light);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.vinyl-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.vinyl-cover:hover .vinyl-info {
+    opacity: 1;
+}
+
+.vinyl-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.vinyl-info p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.album-details {
+    text-align: center;
+    padding: 20px;
+}
+
+.album-details h3 {
+    font-size: 1.8rem;
+    color: var(--color-dark);
+    margin-bottom: 15px;
+}
+
+.album-details p {
+    color: #5a3e2f;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.listen-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all var(--td) var(--te);
+}
+
+.listen-btn:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .journey-title {
+        font-size: 4rem;
+    }
+    
+    .journey-accent {
+        display: none;
+    }
+    
+    .vinyl-container {
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .journey-title {
+        font-size: 3rem;
+    }
+    
+    .journey-description {
+        font-size: 1.2rem;
+    }
+    
+    .vinyl-record {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .journey-content {
+        padding: 0 30px;
+    }
+    
+    .journey-title {
+        font-size: 2.5rem;
+    }
+    
+    .journey-description {
+        font-size: 1rem;
+    }
+    
+    .album-title {
+        font-size: 2.2rem;
+    }
+}

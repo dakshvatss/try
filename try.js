@@ -100,3 +100,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Note: You'll need to implement the actual translation functions
 // translateToKannada() and translateToEnglish() based on your requirements
+    // Simple tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const classCards = document.querySelectorAll('.class-card');
+        
+        tabButtons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            // Update active tab
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Show appropriate cards
+            classCards.forEach(card => {
+              card.style.display = 'none';
+            });
+            
+            if (index === 0) { // Online Classes
+              classCards[0].style.display = 'flex';
+              classCards[1].style.display = 'flex';
+              classCards[2].style.display = 'flex';
+            } else { // In-Person Classes
+              classCards[3].style.display = 'flex';
+              classCards[4].style.display = 'flex';
+              classCards[5].style.display = 'flex';
+            }
+          });
+        });
+      });

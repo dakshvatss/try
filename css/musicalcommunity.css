@@ -1,0 +1,211 @@
+  /* Musical Community Section */
+  .musical-community {
+    padding: 80px 0;
+    background-color: var(--color-light);
+    position: relative;
+}
+
+.musical-community::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('path-to-subtle-pattern.png'); /* Optional: subtle pattern background */
+    background-size: 200px;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.community-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-dark);
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.community-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-primary);
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.community-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.community-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Calendar Card Styles */
+.calendar-card {
+    display: flex;
+    align-items: stretch;
+}
+
+.card-icon {
+    background-color: var(--color-primary);
+    color: white;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.calendar-icon {
+    font-size: 3rem;
+}
+
+.card-content {
+    padding: 30px;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    color: var(--color-primary);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.card-description p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #5a3e2f;
+}
+
+.view-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Social Media Card Styles */
+.social-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-card .card-title {
+    padding: 30px;
+    margin: 0;
+    background-color: var(--color-dark);
+    color: white;
+}
+
+.social-feeds {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.social-feed {
+    flex: 1;
+    padding: 20px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instagram-feed {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.youtube-feed {
+    background-color: #fafafa;
+}
+
+.feed-placeholder {
+    color: #999;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 40px;
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .community-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+    
+    .community-card {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-card {
+        flex-direction: column;
+    }
+    
+    .card-icon {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .community-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .musical-community {
+        padding: 60px 0;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .community-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+}
