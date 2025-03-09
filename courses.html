@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+        }
+        :root {
+            --color-primary: #9c3328;
+            --color-secondary: #e8b923;
+            --color-dark: #482c1d;
+            --color-light: #f4efe4;
+            --td: 150ms;
+            --te: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        body {
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            padding: 1.5rem 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--color-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/400') center/cover no-repeat;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+        .hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+        }
+
+        /* Course Tabs */
+        .course-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all var(--td) var(--te);
+        }
+        .tab.active {
+            background-color: var(--color-primary);
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .tab:hover {
+            background-color: var(--color-primary);
+        }
+
+        /* Course Section */
+        .course-section {
+            display: none;
+        }
+        .course-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Course Cards */
+        .courses {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .course-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform var(--td) var(--te), box-shadow var(--td) var(--te);
+            width: 100%;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .course-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1rem;
+            position: relative;
+        }
+        .course-header h3 {
+            color: white;
+            margin: 0;
+        }
+        .course-type {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+            padding: 0.3rem 0.7rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-bottom-left-radius: 8px;
+        }
+        .course-content {
+            padding: 1.5rem;
+        }
+        .course-objectives {
+            margin: 1rem 0;
+        }
+        .course-fee {
+            background-color: var(--color-light);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        .course-batches {
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin: 1rem;
+        }
+        .footer-section h3 {
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+        }
+        .veena-icon {
+            font-size: 3rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .courses {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="nav.css"> 
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo-removebg-preview.png" alt="Logo">
+        </div>
+        <input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation" />
+        <label for="main-navigation-toggle">
+            <span></span>
+        </label>
+        <nav id="main-navigation" class="nav-main">
+            <div class="logo">
+                <img src="images/logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="language-toggle">
+                <button class="lang-btn" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text">English</span>
+                    <span class="lang-separator">/</span>
+                    <span class="lang-text">ಕನ್ನಡ</span>
+                </button>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/raghuleela" target="_blank" class="social-icon" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/raghuleela" target="_blank" class="social-icon" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </a>
+            </div>
+            <ul class="menu">
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Home</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Story</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Classes</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Events</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="#0">Contact</a>
+              </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Experience the Rich Heritage of Kannada Light Music</h1>
+        <p>Join our specialized programs designed to cultivate musical excellence in students of all ages</p>
+    </div>
+
+    <main class="container">
+        <div class="course-tabs">
+            <button class="tab active" data-type="online" onclick="showCourses('online')">Online Classes</button>
+            <button class="tab" data-type="offline" onclick="showCourses('offline')">In-Person Classes</button>
+        </div>
+
+        <section id="online-courses" class="course-section active">
+            <h2>Online Classes</h2>
+            <p>Learn from the comfort of your home with our structured online courses guided by expert instructors.</p>
+            
+            <div class="courses">
+                <!-- Layathmboori -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Layathmboori</h3>
+                        <div class="course-type">Beginner</div>
+                    </div>
+                    <div class="course-content">
+                        <p>A structured course designed for students aged 8 and above to acquire foundational basics of Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, and thorough learning of a new song every four classes.</p>
+                        
+                        <div class="course-objectives">
+                            <h4>Learning Objectives:</h4>
+                            <ul>
+                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="course-fee">
+                            <h4>Fee Structure:</h4>
+                            <p>One-time Admission Fee: ₹3000 (Non-refundable)</p>
+                            <p>Recurring Fee: Monthly ₹1200 / Quarterly: ₹3500 (To be decided)</p>
+                        </div>
+                        
+                        <div class="course-batches">
+                            <p><strong>Batches:</strong></p>
+                            <p>Layathamboori 1 – for Male Maestros</p>
+                            <p>Layathamboori 2 – for Female Maestros</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Raagathamboori -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Raagathamboori</h3>
+                        <div class="course-type">Intermediate</div>
+                    </div>
+                    <div class="course-content">
+                        <p>A structured course designed for students aged 8 and above to learn and master Kannada Light Music. The curriculum features in-depth training in voice modulation, Kai Thaala perfection, vocal expression and thorough learning of a new song every four classes.</p>
+                        
+                        <div class="course-objectives">
+                            <h4>Learning Objectives:</h4>
+                            <ul>
+                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="course-fee">
+                            <h4>Fee Structure:</h4>
+                            <p>Recurring Fee: Monthly ₹1400 / Quarterly: ₹4000 (To be decided)</p>
+                        </div>
+                        
+                        <div class="course-batches">
+                            <p><strong>Batches:</strong></p>
+                            <p>Raagathamboori 1 – for Male Maestros</p>
+                            <p>Raagathamboori 2 – for Female Maestros</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Swarathamboori -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Swarathamboori</h3>
+                        <div class="course-type">Kids</div>
+                    </div>
+                    <div class="course-content">
+                        <p>A structured course designed for students between 8-14 years, to learn Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, voice modulation, vocal expression and thorough learning of new songs every four classes.</p>
+                        
+                        <div class="course-objectives">
+                            <h4>Learning Objectives:</h4>
+                            <ul>
+                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="course-fee">
+                            <h4>Fee Structure:</h4>
+                            <p>Recurring Fee: Monthly ₹1200 / Quarterly: ₹3500 (To be decided)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="offline-courses" class="course-section">
+            <h2>In-Person Classes</h2>
+            <p>Join our in-person classes for a more personalized learning experience with direct interaction with our expert instructors.</p>
+            
+            <div class="courses">
+                <!-- Naadathamboori -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Naadathamboori</h3>
+                        <div class="course-type">Beginner</div>
+                    </div>
+                    <div class="course-content">
+                        <p>A structured course designed for students aged 8 and above to acquire foundational basics of Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, and thorough learning of a new song every four classes.</p>
+                        
+                        <div class="course-objectives">
+                            <h4>Learning Objectives:</h4>
+                            <ul>
+                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="course-fee">
+                            <h4>Fee Structure:</h4>
+                            <p>One-time Admission Fee: ₹3000 (Non-refundable)</p>
+                            <p>Recurring Fee: Monthly ₹750 / Quarterly: ₹2250 (To be decided)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bhaavathamboori -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Bhaavathamboori</h3>
+                        <div class="course-type">Intermediate</div>
+                    </div>
+                    <div class="course-content">
+                        <p>A structured course designed for students aged 8 and above to learn and master Kannada Light Music. The curriculum features in-depth training in voice modulation, Kai Thaala perfection, vocal expression and thorough learning of a new song every four classes.</p>
+                        
+                        <div class="course-objectives">
+                            <h4>Learning Objectives:</h4>
+                            <ul>
+                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="course-fee">
+                            <h4>Fee Structure:</h4>
+                            <p>Recurring Fee: Monthly ₹1000 / Quarterly: ₹3000 (To be decided)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jeevathamboori -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>Jeevathamboori</h3>
+                        <div class="course-type">Kids</div>
+                    </div>
+                    <div class="course-content">
+                        <p>A structured course designed for students between 8-14 years, to learn Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, voice modulation, vocal expression and thorough learning of new songs every four classes.</p>
+                        
+                        <div class="course-objectives">
+                            <h4>Learning Objectives:</h4>
+                            <ul>
+                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="course-fee">
+                            <h4>Fee Structure:</h4>
+                            <p>Recurring Fee: Monthly ₹1000 / Quarterly: ₹3000 (To be decided)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.jpg" alt="Raghuleela School of Music Logo">
+                    </div>
+                    <p>Raghuleela School of Music has been imparting quality music education since 2005, with a commitment to preserving musical traditions while nurturing new talent.</p>
+                    <div class="social-links">
+                        <a href="#">F</a>
+                        <a href="#">I</a>
+                        <a href="#">Y</a>
+                        <a href="#">T</a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="quick-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#albums">Albums</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-heading">Programs</h4>
+                    <ul class="quick-links">
+                        <li><a href="#">Vocal Training</a></li>
+                        <li><a href="#">Guitar Classes</a></li>
+                        <li><a href="#">Piano Lessons</a></li>
+                        <li><a href="#">Tabla Training</a></li>
+                        <li><a href="#">Violin Courses</a></li>
+                        <li><a href="#">Music Theory</a></li>
+                        <li><a href="#">Sitar Classes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="contact-links">
+                        <li><a href="#">123 Music Avenue, New Delhi</a></li>
+                        <li><a href="tel:+919876543210">+91 9876543210</a></li>
+                        <li><a href="mailto:info@raghuleela.com">info@raghuleela.com</a></li>
+                        <li><a href="#">Mon-Fri: 9AM - 7PM</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Raghuleela School of Music. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showCourses(type) {
+            // Hide all course sections
+            const sections = document.querySelectorAll('.course-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section
+            const selectedSection = document.getElementById(type + '-courses');
+            selectedSection.classList.add('active');
+            
+            // Update tab styling
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Find the clicked tab using data attribute and make it active
+            document.querySelector(`.tab[data-type="${type}"]`).classList.add('active');
+        }
+
+        // JavaScript for language toggle functionality
+        document.getElementById('langToggle').addEventListener('click', function() {
+            // Toggle between languages - implementation would depend on your language switching approach
+            console.log('Language toggle clicked');
+            // Example implementation placeholder:
+            // toggleLanguage();
+        });
+    </script>
+</body>
+</html>
