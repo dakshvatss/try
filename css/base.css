@@ -61,6 +61,7 @@ body {
     z-index: 5;
 }
 
+
 /* Responsive styles for layout */
 @media (max-width: 991px) {
     .col-md-6 {
