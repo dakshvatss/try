@@ -26,7 +26,6 @@ body {
     width: 100%;
     max-width: 1170px;
     margin: 0 auto;
-    padding: 0 15px;
 }
 
 .row {
@@ -68,3 +67,26 @@ body {
         width: 100%;
     }
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* This will remove spacing from specific elements that often create gaps */
+  html, body, div, section, h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Force containers to have no extra spacing */
+  .vinyl-container, .vinyl-row, .musical-journey, .journey-content, .album-gallery {
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Only add spacing where explicitly needed */
+  .vinyl-record {
+    margin: 20px !important;
+  }

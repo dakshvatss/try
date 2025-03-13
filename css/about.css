@@ -1,103 +1,125 @@
-
 /* About Us Section Styles */
 .about-section {
     position: relative;
-    padding: 0px 0px;
+    padding: 0;
 }
 
 .about-section .content-column {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 0;
 }
 
 .about-section .content-column .inner-column {
     position: relative;
-    padding-top: 50px;
-    padding-right: 100px;
+    padding-top: 30px;
+    padding-right: 30px;
 }
 
 .about-section .content-column .text {
     position: relative;
     color: #777777;
     font-size: 15px;
-    line-height: 2em;
-    margin-bottom: 40px;
+    line-height: 1.8;
+    margin-bottom: 20px;
 }
 
 .about-section .content-column .email {
     position: relative;
     color: #252525;
     font-weight: 700;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .about-section .image-column {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 0;
 }
 
+/* Modified image column to create equal ratio */
 .about-section .image-column .inner-column {
     position: relative;
-    padding: 40px 40px 0px 0px;
-    margin-left: 50px;
+    padding: 20px 20px 0 0;
+    margin-left: 20px;
+    /* Set a specific aspect ratio */
+    max-width: 100%;
+    max-height: 100%;
 }
 
+/* Adjust the decorative border to be proportional */
 .about-section .image-column .inner-column:after {
     position: absolute;
     content: '';
-    right: 0px;
-    top: 0px;
-    left: 40px;
-    bottom: 100px;
+    right: 0;
+    top: 0;
+    left: 20px;
+    /* Match the height of the text area */
+    bottom: 20%;
     z-index: -1;
     border: 2px solid var(--color-secondary);
 }
 
 .about-section .image-column .inner-column .image {
     position: relative;
+    width: 100%;
+    height: 0;
+    /* Create square aspect ratio */
+    padding-bottom: 100%;
+    overflow: hidden;
 }
 
+/* Adjust the background pattern size */
 .about-section .image-column .inner-column .image:before {
     position: absolute;
     content: '';
-    left: -50px;
-    bottom: -50px;
-    width: 299px;
-    height: 299px;
+    left: -25px;
+    bottom: -25px;
+    width: 50%;
+    height: 50%;
     background: url(img/pattern-2.png) no-repeat;
+    background-size: contain;
 }
 
+/* Make the image fill the container while maintaining aspect ratio */
 .about-section .image-column .inner-column .image img {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
+/* Adjust the overlay box positioning */
 .about-section .image-column .inner-column .image .overlay-box {
     position: absolute;
-    left: 40px;
-    bottom: 48px;
+    left: 20px;
+    bottom: 20px;
+    /* Scale proportionally */
+    transform: scale(0.8);
+    transform-origin: bottom left;
 }
 
 .about-section .image-column .inner-column .image .overlay-box .year-box {
     position: relative;
     color: #252525;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.4em;
-    padding-left: 125px;
+    padding-left: 100px;
 }
 
+/* Reduce the size of the year number box */
 .about-section .image-column .inner-column .image .overlay-box .year-box .number {
     position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 110px;
-    height: 110px;
+    left: 0;
+    top: 0;
+    width: 90px;
+    height: 90px;
     color: var(--color-secondary);
-    font-size: 68px;
+    font-size: 54px;
     font-weight: 700;
-    line-height: 105px;
+    line-height: 90px;
     text-align: center;
     background-color: #ffffff;
     border: 1px solid #000000;
@@ -106,12 +128,13 @@
 .about-section .btn-style-three:before {
     position: absolute;
     content: '';
-    left: 10px;
-    top: 10px;
+    left: 8px;
+    top: 8px;
     z-index: -1;
-    right: -10px;
-    bottom: -10px;
+    right: -8px;
+    bottom: -8px;
     background: url(https://i.ibb.co/DKn55Qz/pattern-1.jpg) repeat;
+    background-size: 50px;
 }
 
 .about-section .btn-style-three:hover {
@@ -127,7 +150,7 @@
     font-weight: 700;
     background: none;
     display: inline-block;
-    padding: 11px 40px;
+    padding: 10px 30px;
     background-color: #ffffff;
     text-transform: capitalize;
     border: 2px solid var(--color-secondary);
@@ -136,7 +159,7 @@
 
 .sec-title {
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: 25px;
 }
 
 .sec-title2 {
@@ -149,7 +172,7 @@
     font-size: 18px;
     font-weight: 700;
     padding-right: 50px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     display: inline-block;
     text-transform: capitalize;
 }
@@ -157,41 +180,59 @@
 .sec-title .title:before {
     position: absolute;
     content: '';
-    right: 0px;
+    right: 0;
     bottom: 7px;
     width: 40px;
     height: 1px;
     background-color: #bbbbbb;
 }
 
+/* Row flex container to ensure equal heights */
+.row.equal-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.equal-height > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
 /* Responsive styles for about section */
 @media (max-width: 991px) {
     .about-section .content-column .inner-column {
         padding-right: 0;
+        padding-bottom: 30px;
     }
     .about-section .image-column .inner-column {
         margin-left: 0;
+        max-width: 80%;
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 767px) {
     .about-section {
-        padding: 60px 0;
+        padding: 30px 0;
     }
     .about-section .content-column .inner-column {
         padding-top: 0;
+    }
+    .about-section .image-column .inner-column {
+        max-width: 100%;
     }
 }
 
 @media (max-width: 575px) {
     .about-section .image-column .inner-column:after {
-        left: 20px;
+        left: 15px;
     }
     .about-section .image-column .inner-column {
-        padding: 20px 20px 0 0;
+        padding: 15px 15px 0 0;
     }
     .about-section .image-column .inner-column .image .overlay-box {
-        left: 20px;
+        left: 15px;
+        transform: scale(0.7);
     }
 }
 
@@ -199,20 +240,20 @@
 .vision-statement {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 18px;
+    font-size: 16px;
     color: #8B4513;
     margin-bottom: 5px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .founder-name {
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: #5D3954;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .founder-name:after {
@@ -220,40 +261,40 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 50px;
+    width: 40px;
     height: 2px;
     background-color: #8B4513;
 }
 
 .school-history {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
     color: #333;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .school-evolution {
     font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
     color: #555;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     border-left: 3px solid #8B4513;
-    padding-left: 15px;
+    padding-left: 12px;
 }
 
 .text-link-container {
     display: flex;
     justify-content: flex-end;
-    margin: 20px;
+    margin: 15px 0;
 }
 
 .about-us-link {
     color: #8B4513;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: 0.5px;
     padding: 5px;

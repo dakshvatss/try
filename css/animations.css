@@ -1,0 +1,457 @@
+
+/* Global Animation Styles */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Header and Navigation Animations */
+header .logo img {
+    transition: transform 0.5s ease;
+}
+
+header .logo img:hover {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 0 5px rgba(139, 69, 19, 0.5));
+}
+
+.menu__link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.menu__link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #8B4513;
+    transition: width 0.4s ease;
+}
+
+.menu__link:hover::after {
+    width: 100%;
+}
+
+.social-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px) scale(1.15);
+    color: #8B4513;
+}
+
+.lang-btn {
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Slider Animations */
+.islide .item {
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.islide .item.active {
+    opacity: 1;
+}
+
+.islide .btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.islide .btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(139, 69, 19, 0.8);
+}
+
+.pagination {
+    transition: all 0.3s ease;
+}
+
+/* About Section Animations */
+.about-section {
+    overflow: hidden;
+}
+
+.about-section .content-column {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeInLeft 1s forwards;
+    animation-delay: 0.2s;
+}
+
+.about-section .image-column {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: fadeInRight 1s forwards;
+    animation-delay: 0.4s;
+}
+
+.about-section .image {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-section .image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.theme-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.theme-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+}
+
+.theme-btn:hover:before {
+    left: 100%;
+}
+
+.theme-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+}
+
+/* Classes Section Animations */
+.class-card {
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+
+.class-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.class-icon {
+    transition: transform 0.5s ease;
+}
+
+.class-card:hover .class-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.tab-button {
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.tab-button:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #8B4513;
+    transition: all 0.4s ease;
+}
+
+.tab-button.active:after,
+.tab-button:hover:after {
+    width: 80%;
+    left: 10%;
+}
+
+/* Musical Journey Animations */
+.journey-title {
+    position: relative;
+    animation: textFadeIn 1s forwards;
+}
+
+.journey-title .highlight {
+    position: relative;
+}
+
+.journey-title .highlight:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    bottom: -5px;
+    left: 0;
+    background-color: rgba(139, 69, 19, 0.7);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    animation: lineDrawing 1.5s forwards;
+    animation-delay: 1s;
+}
+
+.vinyl-album {
+    transition: all 0.6s ease;
+}
+
+.vinyl-record:hover .vinyl-album {
+    transform: translateY(-15px);
+}
+
+.vinyl-record:hover .vinyl-disc {
+    transform: rotate(45deg) translateX(30px);
+}
+
+.vinyl-disc {
+    transition: all 0.6s ease;
+}
+
+/* Musical Community Animations */
+.calendar-container, .embed-card {
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-container:hover, .embed-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.social-links a {
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) rotate(5deg);
+    color: #8B4513;
+}
+
+.view-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.view-btn:after {
+    content: '→';
+    position: absolute;
+    right: 15px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.view-btn:hover {
+    padding-right: 30px;
+}
+
+.view-btn:hover:after {
+    opacity: 1;
+    right: 10px;
+}
+
+/* Footer Animations */
+footer .footer-logo img {
+    transition: all 0.5s ease;
+}
+
+footer .footer-logo img:hover {
+    transform: rotate(3deg) scale(1.05);
+}
+
+.quick-links li a, .contact-links li a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.quick-links li a:before, .contact-links li a:before {
+    content: '•';
+    position: absolute;
+    left: -15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.quick-links li a:hover, .contact-links li a:hover {
+    padding-left: 5px;
+    color: #8B4513;
+}
+
+.quick-links li a:hover:before, .contact-links li a:hover:before {
+    opacity: 1;
+    left: -10px;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineDrawing {
+    0% {
+        transform: scaleX(0);
+        transform-origin: bottom right;
+    }
+    50% {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+}
+
+/* Scroll Animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pulse Animation for Action Elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(139, 69, 19, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(139, 69, 19, 0);
+    }
+}
+
+.sec-title button {
+    animation: pulse 2s infinite;
+}
+
+/* Animate Dropdown Menus */
+.menu__item {
+    position: relative;
+}
+
+.dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.menu__item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Page Loading Animation */
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: pageLoad 0.8s ease-out;
+}
+
+/* Music Note Animation */
+@keyframes floatingNotes {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) rotate(var(--rot));
+    }
+}
+
+.music-note {
+    position: absolute;
+    opacity: 0;
+    font-size: 1.5rem;
+    color: #8B4513;
+    pointer-events: none;
+    animation: floatingNotes 3s forwards;
+    --tx: 0px;
+    --ty: 0px;
+    --rot: 0deg;
+}
+
+/* Hover animation for Listen Now buttons */
+.listen-btn {
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.listen-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(139, 69, 19, 0.2);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.listen-btn:hover:before {
+    width: 100%;
+}
+
+.listen-btn:hover {
+    letter-spacing: 1px;
+}

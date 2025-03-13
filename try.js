@@ -129,4 +129,56 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
+      // Scroll animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollElements = document.querySelectorAll('.content-column, .image-column, .class-card, .journey-content, .vinyl-record, .calendar-container, .embed-card');
+        
+        function addScrollClass() {
+            scrollElements.forEach(el => {
+                if(isElementInViewport(el)) {
+                    el.classList.add('scroll-animate');
+                    el.classList.add('visible');
+                }
+            });
+        }
+        
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+            );
+        }
+        
+        // Initial check
+        addScrollClass();
+        
+        // Check on scroll
+        window.addEventListener('scroll', addScrollClass);
+        
+        // Music notes animation on hover
+        const musicElements = document.querySelectorAll('.class-card, .vinyl-record, .listen-btn');
+        const notes = ['♪', '♫', '𝄞', '♩', '𝅘𝅥𝅮'];
+        
+        musicElements.forEach(el => {
+            el.addEventListener('mouseover', function(e) {
+                createMusicNote(e.clientX, e.clientY);
+            });
+        });
+        
+        function createMusicNote(x, y) {
+            const note = document.createElement('span');
+            note.className = 'music-note';
+            note.textContent = notes[Math.floor(Math.random() * notes.length)];
+            note.style.setProperty('--tx', (Math.random() * 100 - 50) + 'px');
+            note.style.setProperty('--ty', (-50 - Math.random() * 50) + 'px');
+            note.style.setProperty('--rot', (Math.random() * 180 - 90) + 'deg');
+            note.style.left = x + 'px';
+            note.style.top = y + 'px';
+            document.body.appendChild(note);
+            
+            setTimeout(() => {
+                note.remove();
+            }, 3000);
+        }
+    });
       

@@ -1,11 +1,11 @@
 /* Musical Journey Section - Stylish Version */
 .musical-journey {
   position: relative;
-  height: 80vh;
-  min-height: 600px;
+  height: auto;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .photo-collage-backdrop {
@@ -36,7 +36,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 50px;
+  padding: 80px 50px;
   z-index: 3;
   color: white;
 }
@@ -84,49 +84,57 @@
   transform: translateY(-50%);
 }
 
-/* Creative Album Release Gallery */
-.album-release {
-  padding: 100px 0;
-  background-color: var(--color-light);
+/* Album Gallery inside Musical Journey */
+.album-gallery {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  z-index: 3;
+  padding: 50px 0 100px;
 }
 
 .album-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   position: relative;
 }
 
-.album-title {
-  font-size: 3rem;
-  color: var(--color-primary);
+.gallery-title {
+  font-size: 2.5rem;
+  color: white;
   display: inline-block;
   position: relative;
+  margin-bottom: 20px;
 }
 
-.album-title-accent {
+.gallery-title::after {
+  content: "";
   position: absolute;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
-  height: 8px;
+  width: 80px;
+  height: 4px;
   background-color: var(--color-secondary);
 }
 
 .vinyl-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 100px;
+  flex-direction: column;
+  gap: 80px;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1600px;
   padding: 0 20px;
 }
 
+.vinyl-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
 .vinyl-record {
-  flex: 0 0 350px;
+  flex: 0 0 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,49 +143,49 @@
 
 .vinyl-album {
   position: relative;
-  width: 280px;
-  height: 280px;
-  margin-bottom: 50px;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 30px;
   transition: all 0.6s ease;
 }
 
 .vinyl-cover {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: 200px;
+  height: 200px;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
   z-index: 3;
   transition: transform 0.6s ease;
   overflow: hidden;
 }
 
 .vinyl-record:hover .vinyl-cover {
-  transform: translateX(-40px);
+  transform: translateX(-30px);
 }
 
 .vinyl-disc {
   position: absolute;
-  width: 260px;
-  height: 260px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   background: linear-gradient(145deg, #333 0%, #111 100%);
-  top: 10px;
-  left: 10px;
+  top: 5px;
+  left: 5px;
   z-index: 2;
   transition: transform 0.6s ease;
 }
 
 .vinyl-record:hover .vinyl-disc {
-  transform: translateX(20px);
+  transform: translateX(15px);
 }
 
 .vinyl-disc::before {
   content: "";
   position: absolute;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--color-secondary) 0%, var(--color-dark) 70%);
   top: 50%;
@@ -189,8 +197,8 @@
 .vinyl-disc::after {
   content: "";
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: var(--color-light);
   top: 50%;
@@ -204,8 +212,8 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, transparent 100%);
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -216,51 +224,73 @@
 }
 
 .vinyl-info h3 {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin-bottom: 5px;
 }
 
 .vinyl-info p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.8;
 }
 
 .album-details {
   text-align: center;
-  padding: 20px;
-}
-
-.album-details h3 {
-  font-size: 1.8rem;
-  color: var(--color-dark);
-  margin-bottom: 15px;
-}
-
-.album-details p {
-  color: #5a3e2f;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 .listen-btn {
   display: inline-block;
-  padding: 10px 25px;
-  background-color: var(--color-primary);
-  color: white;
+  padding: 8px 20px;
+  background-color: var(--color-secondary);
+  color: var(--color-dark);
   text-decoration: none;
   border-radius: 50px;
   font-weight: bold;
+  font-size: 0.9rem;
   transition: all var(--td) var(--te);
 }
 
 .listen-btn:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-dark);
+  background-color: white;
   transform: translateY(-3px);
 }
 
 /* Responsive adjustments */
+@media (max-width: 1440px) {
+  .vinyl-record {
+    flex: 0 0 180px;
+  }
+  
+  .vinyl-album, .vinyl-cover {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .vinyl-disc {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .vinyl-row {
+    gap: 30px;
+  }
+  
+  .vinyl-record {
+    flex: 0 0 160px;
+  }
+  
+  .vinyl-album, .vinyl-cover {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .vinyl-disc {
+    width: 150px;
+    height: 150px;
+  }
+}
+
 @media (max-width: 991px) {
   .journey-title {
     font-size: 4rem;
@@ -270,8 +300,8 @@
     display: none;
   }
   
-  .vinyl-container {
-    gap: 60px;
+  .vinyl-row {
+    justify-content: center;
   }
 }
 
@@ -284,14 +314,18 @@
     font-size: 1.2rem;
   }
   
-  .vinyl-record {
-    margin-bottom: 40px;
+  .gallery-title {
+    font-size: 2rem;
+  }
+  
+  .vinyl-container {
+    gap: 50px;
   }
 }
 
 @media (max-width: 576px) {
   .journey-content {
-    padding: 0 30px;
+    padding: 60px 30px;
   }
   
   .journey-title {
@@ -302,7 +336,27 @@
     font-size: 1rem;
   }
   
-  .album-title {
-    font-size: 2.2rem;
+  .gallery-title {
+    font-size: 1.8rem;
+  }
+  
+  .vinyl-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .vinyl-record {
+    flex: 0 0 auto;
+  }
+  
+  .vinyl-album, .vinyl-cover {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .vinyl-disc {
+    width: 190px;
+    height: 190px;
   }
 }
