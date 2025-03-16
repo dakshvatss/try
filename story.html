@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thynk Unlimited</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+    --color-primary: #9c3328;
+    --color-secondary: #e8b923;
+    --color-dark: #482c1d;
+    --color-light: #f4efe4;
+    --td: 150ms;
+    --te: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+body {
+    background-color: var(--color-light);
+    color: #5a3e2f;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+  .container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+        
+        /* Header styles */
+        header {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        .logo i {
+            background-color: #6B8E67;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .menu {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+        
+        .menu a:hover {
+            color: #6B8E67;
+        }
+        
+        .contact-btn {
+            background-color: #6B8E67;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: #597457;
+        }
+        
+        /* Hero section */
+        .hero {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Content section */
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        /* Content details */
+        .content-details {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .content-details h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .content-details p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .content-btn {
+            background-color: #6B8E67;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .content-btn:hover {
+            background-color: #597457;
+        }
+        
+        /* Cards section */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .card {
+            position: relative;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: filter 0.3s;
+        }
+        
+        .card:hover img {
+            filter: brightness(0.5);
+        }
+        
+        .card-title {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Animation classes */
+        .fade-out {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .fade-in {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        /* Active card state */
+        .card.active {
+            border: 3px solid #6B8E67;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 900px) {
+            .content-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .cards-grid {
+                order: -1;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-text {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu {
+                display: none;
+            }
+            
+            .hero-text {
+                font-size: 2rem;
+            }  
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <i>🌱</i>
+                <span>Thynk Unlimited</span>
+            </div>
+            <div class="menu">
+                <a href="#">HOME</a>
+                <a href="#">SERVICE</a>
+            </div>
+            <button class="contact-btn">Contact us</button>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="hero">
+        <img src="/api/placeholder/1200/300" alt="Nature with water drops">
+        <div class="hero-text">HER VIDEO</div>
+    </div>
+    
+    <div class="content-section">
+        <div class="content-details fade-in" id="contentDetails">
+            <h2>SUNITHA MAM</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <p>With over 15 years of experience in education, Sunitha Mam has established herself as a visionary leader dedicated to transforming the lives of students through innovative teaching methodologies and personalized attention.</p>
+            <p>Her passion for education and commitment to excellence has been the driving force behind the success of our institution.</p>
+            <a href="#" class="content-btn">Learn more</a>
+        </div>
+        
+        <div class="cards-grid">
+            <div class="card active" data-content="founder">
+                <img src="/api/placeholder/400/200" alt="Sunitha Mam">
+                <div class="card-title">SUNITHA MAM</div>
+            </div>
+            <div class="card" data-content="school">
+                <img src="/api/placeholder/400/200" alt="Cherry blossoms">
+                <div class="card-title">ABOUT SCHOOL</div>
+            </div>
+            <div class="card" data-content="trust">
+                <img src="/api/placeholder/400/200" alt="Palm trees">
+                <div class="card-title">ABOUT THE TRUST</div>
+            </div>
+            <div class="card" data-content="community">
+                <img src="/api/placeholder/400/200" alt="Cherry blossoms closeup">
+                <div class="card-title">OUR COMMUNITY</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contentDetails = document.getElementById('contentDetails');
+        const cards = document.querySelectorAll('.card');
+        
+        // Content for each card
+        const contents = {
+            founder: {
+                title: "SUNITHA MAM",
+                paragraphs: [
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                    "With over 15 years of experience in education, Sunitha Mam has established herself as a visionary leader dedicated to transforming the lives of students through innovative teaching methodologies and personalized attention.",
+                    "Her passion for education and commitment to excellence has been the driving force behind the success of our institution."
+                ]
+            },
+            school: {
+                title: "ABOUT SCHOOL",
+                paragraphs: [
+                    "Founded in 2005, our school has grown from a small establishment to one of the most respected educational institutions in the region.",
+                    "We provide a holistic learning environment that focuses not just on academic excellence but also on character development, creativity, and physical well-being.",
+                    "Our state-of-the-art facilities include modern classrooms, fully equipped laboratories, expansive sports grounds, and specialized rooms for performing arts."
+                ]
+            },
+            trust: {
+                title: "ABOUT THE TRUST",
+                paragraphs: [
+                    "The Educational Trust was established with the vision of providing quality education to all sections of society regardless of their socio-economic background.",
+                    "Over the years, the trust has expanded its reach and now manages five educational institutions across the state, serving more than 5,000 students.",
+                    "Through various scholarship programs and community initiatives, the trust continues to make education accessible to underprivileged children."
+                ]
+            },
+            community: {
+                title: "OUR COMMUNITY",
+                paragraphs: [
+                    "Our vibrant community consists of dedicated educators, supportive parents, and enthusiastic students who work together to create a nurturing learning environment.",
+                    "Regular community events, parent-teacher meetings, and alumni gatherings help strengthen the bond between all stakeholders and foster a sense of belonging.",
+                    "Through various outreach programs, our community actively participates in social service activities, environmental conservation efforts, and cultural exchanges."
+                ]
+            }
+        };
+        
+        // Function to update content
+        function updateContent(content) {
+            contentDetails.classList.remove('fade-in');
+            contentDetails.classList.add('fade-out');
+            
+            setTimeout(() => {
+                let html = `<h2>${content.title}</h2>`;
+                content.paragraphs.forEach(paragraph => {
+                    html += `<p>${paragraph}</p>`;
+                });
+                html += `<a href="#" class="content-btn">Learn more</a>`;
+                
+                contentDetails.innerHTML = html;
+                
+                contentDetails.classList.remove('fade-out');
+                contentDetails.classList.add('fade-in');
+            }, 500);
+        }
+        
+        // Add click event to cards
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all cards
+                cards.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked card
+                this.classList.add('active');
+                
+                // Get content type
+                const contentType = this.getAttribute('data-content');
+                
+                // Update content
+                updateContent(contents[contentType]);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
