@@ -2,6 +2,7 @@
 .about-section {
     position: relative;
     padding: 0;
+    padding-bottom: 50px;
 }
 
 .about-section .content-column {
@@ -35,59 +36,61 @@
     margin-bottom: 0;
 }
 
-/* Modified image column to create equal ratio */
+/* Image Container */
 .about-section .image-column .inner-column {
     position: relative;
-    padding: 20px 20px 0 0;
+    max-width: 400px; /* Adjust width as needed */
+    max-height: 800px; /* Adjust height as needed */
     margin-left: 20px;
-    /* Set a specific aspect ratio */
-    max-width: 100%;
-    max-height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Adjust the decorative border to be proportional */
+/* Image Container */
+.about-section .image-column .inner-column .image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Adjust as needed */
+    overflow: hidden;
+}
+
+/* Image Border */
 .about-section .image-column .inner-column:after {
     position: absolute;
     content: '';
-    right: 0;
-    top: 0;
-    left: 20px;
-    /* Match the height of the text area */
-    bottom: 20%;
+    width: 80%;
+    height: 90%;
+    top: 10px; /* Moves down */
+    left: 10px; /* Moves left */
     z-index: -1;
     border: 2px solid var(--color-secondary);
 }
 
-.about-section .image-column .inner-column .image {
-    position: relative;
-    width: 100%;
-    height: 0;
-    /* Create square aspect ratio */
-    padding-bottom: 100%;
-    overflow: hidden;
-}
-
-/* Adjust the background pattern size */
-.about-section .image-column .inner-column .image:before {
-    position: absolute;
-    content: '';
-    left: -25px;
-    bottom: -25px;
-    width: 50%;
-    height: 50%;
-    background: url(img/pattern-2.png) no-repeat;
-    background-size: contain;
-}
-
-/* Make the image fill the container while maintaining aspect ratio */
+/* Image Styling */
 .about-section .image-column .inner-column .image img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures the image scales properly */
     display: block;
+}
+
+/* Adjust Image Position */
+.about-section .image-column .inner-column .image.img-left img {
+    object-position: left;
+}
+
+.about-section .image-column .inner-column .image.img-right img {
+    object-position: right;
+}
+
+.about-section .image-column .inner-column .image.img-top img {
+    object-position: top;
+}
+
+.about-section .image-column .inner-column .image.img-bottom img {
+    object-position: bottom;
 }
 
 /* Adjust the overlay box positioning */
@@ -95,7 +98,6 @@
     position: absolute;
     left: 20px;
     bottom: 20px;
-    /* Scale proportionally */
     transform: scale(0.8);
     transform-origin: bottom left;
 }
@@ -282,28 +284,4 @@
     margin-bottom: 20px;
     border-left: 3px solid #8B4513;
     padding-left: 12px;
-}
-
-.text-link-container {
-    display: flex;
-    justify-content: flex-end;
-    margin: 15px 0;
-}
-
-.about-us-link {
-    color: #8B4513;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    padding: 5px;
-    transition: all 0.3s ease;
-}
-
-.about-us-link:hover {
-    color: #8B4513;
-    text-decoration: underline;
-    cursor: pointer;
-    transform: translateY(-2px);
 }

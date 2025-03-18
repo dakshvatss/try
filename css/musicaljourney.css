@@ -1,38 +1,95 @@
 /* Musical Journey Section - Stylish Version */
+/* Background Video Section */
 .musical-journey {
   position: relative;
   width: 100%;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
   overflow: hidden;
 }
 
-.photo-collage-backdrop {
+.background-video {
   position: absolute;
-  inset: 0;
-  background: url('path-to-your-collage.jpg') no-repeat center center / cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 1;
 }
 
 .journey-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(156, 51, 40, 0.85) 0%, rgba(72, 44, 29, 0.75) 100%);
-    z-index: 2;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, transparent 50%, rgba(0, 0, 0, 0.7) 90%);
+  z-index: 2;
 }
 
+/* Title and Description Styling */
 .journey-content {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 50px;
-  z-index: 3;
+  max-width: 1000px;
+  text-align: center;
   color: white;
+  z-index: 3;
+  margin-bottom: 40px;
 }
+
+.journey-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.journey-description {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* Album Gallery */
+.album-gallery {
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  padding: 50px 0;
+}
+
+.vinyl-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.vinyl-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.vinyl-cover {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.vinyl-info {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
 
 /* Original title style (kept for reference) */
 .journey-title {
