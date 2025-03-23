@@ -1,11 +1,12 @@
 /* Footer */
 footer {
-    background-color: #482c1d; /* var(--color-dark) */
+    background-color: #482c1d; /* Dark brown */
     color: #f4efe4;
     padding: 60px 0 20px;
     position: relative;
     overflow: hidden;
 }
+
 footer::before {
     content: "";
     position: absolute;
@@ -15,98 +16,111 @@ footer::before {
     height: 10px;
     background: linear-gradient(to right, #9c3328, #e8b923, #9c3328);
 }
+
+/* Footer Layout */
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     margin-bottom: 40px;
-    position: relative;
+    align-items: start;
+    padding: 0 20px;
 }
+
+/* Logo and About Section */
+.footer-about {
+    text-align: center;
+}
+
 .footer-logo {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
+
 .footer-logo img {
-    height: 50px;
+    height: 100px;
     border: none;
 }
+
 .footer-about p {
-    margin-bottom: 20px;
     color: #c8a27a;
+    font-size: 1rem;
+    padding: 0 10px;
 }
+
+/* Quick Links (2x2 Layout) */
+/* Quick Links Section - Proper Center Alignment */
+.footer-link {
+    text-align: center; /* Center the heading */
+}
+
+.quick-link {
+    display: flex;
+    justify-content: center; /* Center align the links */
+    flex-wrap: wrap; /* Ensures proper wrapping if needed */
+    gap: 40px 50px; /* Adjust spacing for a balanced look */
+    list-style: none;
+    padding: 0;
+}
+
+.quick-link li {
+    min-width: 120px; /* Ensures even spacing */
+    text-align: center; /* Centers the individual links */
+}
+
+
+.quick-link a {
+    color: #c8a27a;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.quick-link a:hover {
+    color: #e8b923;
+    padding-left: 5px;
+}
+
+/* Contact Info Section */
+.footer-contact {
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Matched with quick links */
+    padding: 0 10px;
+}
+
+/* Address in Three Lines */
+.contact-left p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #c8a27a;
+    white-space: pre-line; /* Ensures correct line breaks */
+}
+
+/* Spacing Between Phone and Email */
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Increased spacing between phone number and email */
+}
+
+.contact-right a {
+    color: #c8a27a;
+    text-decoration: none;
+}
+
+.contact-right a:hover {
+    color: #e8b923;
+}
+
+/* Footer Headings (Removed Underline) */
 .footer-heading {
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
+    margin-bottom: 15px;
     font-family: 'Goudy Old Style', serif;
-    color: #e8b923; /* var(--color-secondary) */
-}
-.footer-heading::after {
-    content: "";
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background: #e8b923; /* var(--color-secondary) */
-    bottom: 0;
-    left: 0;
-}
-.quick-links,
-.contact-links {
-    list-style: none;
-}
-.quick-links li,
-.contact-links li {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 15px;
-}
-.quick-links li::before,
-.contact-links li::before {
-    content: "❯";
-    position: absolute;
-    left: 0;
-    color: #e8b923; /* var(--color-secondary) */
-    font-size: 0.8rem;
-}
-.quick-links a,
-.contact-links a {
-    color: #c8a27a;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.quick-links a:hover,
-.contact-links a:hover {
-    color: #e8b923; /* var(--color-secondary) */
-    padding-left: 5px;
-}
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-.social-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 0;
-    background-color: rgba(200, 162, 122, 0.2);
-    color: #e8b923; /* var(--color-secondary) */
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid #e8b923; /* var(--color-secondary) */
-}
-.social-links a:hover {
-    background-color: #e8b923; /* var(--color-secondary) */
-    color: #482c1d; /* var(--color-dark) */
-    transform: translateY(-3px);
-}
-.copyright {
+    color: #e8b923;
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(200, 162, 122, 0.2);
-    font-size: 0.9rem;
-    color: #c8a27a;
 }
