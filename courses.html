@@ -64,7 +64,7 @@
             align-items: center;
             text-align: center;
             color: white;
-            padding: 2rem;
+            padding: 0; /* Changed padding to 0 to remove distance */
             transition: all var(--td) var(--te);
         }
         .hero h1 {
@@ -82,8 +82,7 @@
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
-        min-height: auto;
-
+            min-height: auto;
         }
 
         /* Left Sidebar - Increased width */
@@ -302,6 +301,7 @@
                     activeSection.style.opacity = 1;
                 }, 50);
                 
+                // Update tab styling
                 // Update tab styling
                 const tabs = document.querySelectorAll('.type-tab');
                 tabs.forEach(tab => {
