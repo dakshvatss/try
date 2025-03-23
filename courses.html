@@ -53,16 +53,10 @@
             margin-bottom: 1rem;
         }
 
-        /* Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/images/classes.JPG') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/classes.JPG') center/cover no-repeat;
+
             height: 300px;
             display: flex;
             flex-direction: column;
@@ -72,11 +66,6 @@
             color: white;
             padding: 2rem;
             transition: all var(--td) var(--te);
-        }
-        .hero.hidden {
-            height: 0;
-            padding: 0;
-            overflow: hidden;
         }
         .hero h1 {
             color: white;
@@ -88,114 +77,143 @@
             max-width: 800px;
         }
 
-        /* Course Tabs - MUCH BIGGER */
-        .course-tabs {
+        /* Two-column Layout */
+        .course-container {
             display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-            gap: 1.5rem;
-            transition: all var(--td) var(--te);
+            max-width: 1400px;
+            margin: 0 auto;
+        min-height: auto;
+
         }
-        .course-tabs.top-position {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--color-light);
-            z-index: 100;
-            padding: 1rem 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin: 0;
+
+        /* Left Sidebar - Increased width */
+        .sidebar {
+            width: 350px; /* Increased from 300px */
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
         }
-        .tab {
-            padding: 1.25rem 2.5rem;
+
+        /* Course Type Tabs */
+        .course-type-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 1rem;
+        }
+        .type-tab {
+            padding: 0.75rem 1.25rem;
             background-color: var(--color-dark);
             color: var(--color-light);
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 1.4rem;
+            font-size: 1rem;
             font-weight: bold;
             transition: all var(--td) var(--te);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
-        .tab.active {
+        .type-tab.active {
             background-color: var(--color-primary);
-            transform: translateY(-5px) scale(0.95);
+            transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .tab:hover {
+        .type-tab:hover {
             background-color: var(--color-primary);
-            transform: translateY(-5px);
-        }
-        .course-tabs.top-position .tab {
-            padding: 0.75rem 1.5rem;
-            font-size: 1.1rem;
-            transform: scale(0.85);
-        }
-        .course-tabs.top-position .tab.active {
-            transform: scale(0.85) translateY(-3px);
         }
 
-        /* Course Section */
-        .course-section {
-            display: none;
+        /* Course List */
+        .course-list {
+            list-style: none;
         }
-        .course-section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Course Cards - Vertical Layout */
-        .courses {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        .course-card {
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all var(--td) var(--te);
-            width: 100%;
+        .course-list-item {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background-color: var(--color-light);
+            border-radius: 8px;
             cursor: pointer;
+            transition: all var(--td) var(--te);
+            font-weight: bold;
             position: relative;
-            z-index: 1;
         }
-        .course-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        .course-list-item:hover {
+            background-color: #ebe5da;
+            transform: translateX(5px);
         }
-        .course-card.expanded {
-            position: fixed;
-            top: 0;
+        .course-list-item.active {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        .course-list-item .course-level {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        .course-list-item.active .course-level {
+            background-color: white;
+            color: var(--color-primary);
+        }
+
+        /* Course Type Sections */
+        .course-type-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .course-type-section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Right Content Area */
+        .course-details {
+            flex: 1;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+            position: relative;
+            min-height: fit-content; /* Ensure it expands to fit content */
+        }
+        .course-detail {
+            display: none;
+            position: absolute;
+            width: 100%;
+            left: 100%;
+            opacity: 0;
+            transition: left 0.4s ease-out, opacity 0.4s ease-out;
+        }
+        /* Course Detail Content - Add this property */
+        .course-detail.active {
+            display: block;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            border-radius: 0;
-            z-index: 1000;
-            overflow-y: auto;
-            transform: none;
-            box-shadow: none;
+            opacity: 1;
+            position: relative; /* Change from absolute to relative */
+            width: 100%;
         }
+
+        /* Course Detail Content */
         .course-header {
             background-color: var(--color-primary);
             color: white;
             padding: 1.5rem;
+            border-radius: 8px 8px 0 0;
             position: relative;
+            margin-bottom: 1rem;
         }
         .course-header h3 {
             color: white;
             margin: 0;
             font-size: 2rem;
         }
-        .course-type {
+        .course-type-label {
             position: absolute;
             top: 0;
             right: 0;
@@ -206,18 +224,19 @@
             font-weight: bold;
             border-bottom-left-radius: 8px;
         }
-        .course-content {
-            padding: 1.5rem;
-            max-height: 200px;
-            overflow: hidden;
-            transition: max-height var(--td) var(--te);
-        }
-        .course-card.expanded .course-content {
-            max-height: none;
-            padding: 2rem;
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .course-objectives {
             margin: 1.5rem 0;
+            background-color: var(--color-light);
+            padding: 1.5rem;
+            border-radius: 8px;
         }
         .course-fee {
             background-color: var(--color-light);
@@ -228,82 +247,179 @@
         .course-batches {
             margin-top: 1.5rem;
             font-style: italic;
+            padding: 1rem;
+            border-left: 3px solid var(--color-secondary);
         }
-
-        /* Close Button for Expanded Card */
-        .close-btn {
-            display: none;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: var(--color-dark);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: all var(--td) var(--te);
-        }
-        .close-btn:hover {
-            background-color: var(--color-secondary);
-            transform: rotate(90deg);
-        }
-        .course-card.expanded .close-btn {
-            display: block;
-        }
-
-        /* Overlay for when card is expanded */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 999;
-        }
-        .overlay.active {
-            display: block;
-        }
-
-        /* Spacer for when tabs are fixed at top */
-        .tabs-spacer {
-            height: 0;
-            transition: height var(--td) var(--te);
-        }
-        .tabs-spacer.active {
-            height: 80px; /* Adjust to match your tabs height */
+        .course-description {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .course-tabs {
+            .course-container {
                 flex-direction: column;
-                align-items: center;
             }
-            .tab {
-                width: 90%;
-                text-align: center;
+            .sidebar {
+                width: 100%;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .course-details {
+                box-shadow: none;
             }
             .hero h1 {
                 font-size: 2rem;
             }
-            .course-tabs.top-position {
-                padding: 0.5rem 0;
-            }
-            .tabs-spacer.active {
-                height: 120px; /* Adjusted for mobile */
-            }
         }
     </style>
-    <link rel="stylesheet" href="nav.css"> 
+    <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="css/header.css">
+    <script>
+        // Function to show course type (online/offline)
+        function showCourseType(type) {
+            // Prepare the transition by setting opacity to 0 first
+            const sections = document.querySelectorAll('.course-type-section');
+            sections.forEach(section => {
+                if (section.classList.contains('active')) {
+                    section.style.opacity = 0;
+                }
+            });
+            
+            // After a short delay, update the active class
+            setTimeout(() => {
+                // Hide all course type sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the selected section
+                const activeSection = document.getElementById(type + '-list');
+                activeSection.classList.add('active');
+                
+                // Fade it in
+                setTimeout(() => {
+                    activeSection.style.opacity = 1;
+                }, 50);
+                
+                // Update tab styling
+                const tabs = document.querySelectorAll('.type-tab');
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Make the clicked tab active
+                document.querySelector(`.type-tab[data-type="${type}"]`).classList.add('active');
+                
+                // Select default course for the type
+                if (type === 'online') {
+                    // Select first online course
+                    const firstOnlineCourse = document.querySelector('#online-list .course-list-item');
+                    showCourseDetail(firstOnlineCourse, firstOnlineCourse.getAttribute('data-course'));
+                } else {
+                    // Select naadathamboori for offline by default
+                    const naadaCourse = document.querySelector('#offline-list .course-list-item[data-course="naadathamboori"]');
+                    showCourseDetail(naadaCourse, 'naadathamboori');
+                }
+            }, 300);
+        }
+
+        // Function to show course detail with sliding animation
+        function showCourseDetail(listItem, courseId) {
+            // Update active class on list items
+            document.querySelectorAll('.course-list-item').forEach(item => {
+                item.classList.remove('active');
+            });
+                    
+            // Add active class to clicked item
+            listItem.classList.add('active');
+                    
+            // Hide empty state if visible
+            document.getElementById('empty-state').style.display = 'none';
+                    
+            // Get current active detail and all details
+            const allDetails = document.querySelectorAll('.course-detail');
+            const currentDetail = document.querySelector('.course-detail.active');
+                    
+            if (currentDetail) {
+                // Slide current detail out to the left
+                
+                currentDetail.style.opacity = '0';
+                        
+                // After animation completes, remove active class
+                setTimeout(() => {
+                    currentDetail.classList.remove('active');
+                    
+                    // Show selected detail with slide-in from right
+                    const selectedDetail = document.getElementById(courseId + '-detail');
+                    if (selectedDetail) {
+                        selectedDetail.style.left = '100%';
+                        selectedDetail.classList.add('active');
+                        
+                        // Trigger animation after a short delay
+                        setTimeout(() => {
+                            selectedDetail.style.left = '0';
+                            selectedDetail.style.opacity = '1';
+                        }, 30);
+                    }
+                }, 200); // Match transition duration
+            } else {
+                // No active detail yet, just show the selected one immediately
+                const selectedDetail = document.getElementById(courseId + '-detail');
+                if (selectedDetail) {
+                    selectedDetail.classList.add('active');
+                    selectedDetail.style.left = '0';
+                    selectedDetail.style.opacity = '1';
+                }
+            }
+        }
+
+        // Initialize: Select default course (Naadathamboori)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set offline tab as active by default
+            const offlineTab = document.querySelector('.type-tab[data-type="offline"]');
+            offlineTab.classList.add('active');
+            
+            // Show offline courses section
+            const offlineSection = document.getElementById('offline-list');
+            offlineSection.classList.add('active');
+            offlineSection.style.opacity = '1';
+            
+            // Set Naadathamboori as active by default
+            const defaultCourse = document.querySelector('.course-list-item[data-course="naadathamboori"]');
+            defaultCourse.classList.add('active');
+            
+            // Show Naadathamboori details
+            const defaultDetail = document.getElementById('naadathamboori-detail');
+            defaultDetail.classList.add('active');
+            defaultDetail.style.opacity = '1';
+            defaultDetail.style.left = '0';
+            
+            // Hide empty state
+            document.getElementById('empty-state').style.display = 'none';
+        });
+
+        // Optional Enhancement: Language Toggle Functionality
+        document.getElementById('langToggle').addEventListener('click', function() {
+            // Here you would implement language switching logic
+            // For now, just toggle active class
+            this.classList.toggle('active');
+            
+            // You could trigger language change here
+            // switchLanguage();
+        });
+
+        // Function to switch language (placeholder)
+        function switchLanguage() {
+            // This function would be implemented to switch between English and Kannada
+            console.log('Language switch requested');
+            // Example implementation would involve changing text content
+            // or loading a different language version of the page
+        }
+    </script>
 </head>
 <body>
+
     <header>
         <div class="logo">
             <img src="images\logo-removebg-preview.png" alt="Logo">
@@ -331,7 +447,7 @@
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
-                <a href="hhttps://www.youtube.com/@RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="YouTube">
+                <a href="https://www.youtube.com/@RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
@@ -362,330 +478,362 @@
         <p>Join our specialized programs designed to cultivate musical excellence in students of all ages</p>
     </div>
 
-    <div class="tabs-spacer" id="tabs-spacer"></div>
-
-    <div class="course-tabs" id="course-tabs">
-        <button class="tab active" data-type="online" onclick="showCourses('online')">Online Classes</button>
-        <button class="tab" data-type="offline" onclick="showCourses('offline')">In-Person Classes</button>
+    <div class="course-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="course-type-tabs">
+                <button class="type-tab" data-type="online" onclick="showCourseType('online')">Online Classes</button>
+                <button class="type-tab active" data-type="offline" onclick="showCourseType('offline')">In-Person Classes</button>
+            </div>
+            
+            <!-- Online Courses List -->
+            <div id="online-list" class="course-type-section">
+                <ul class="course-list">
+                    <li class="course-list-item" data-course="layathmboori" onclick="showCourseDetail(this, 'layathmboori')">
+                        Layathmboori
+                        <span class="course-level">Beginner</span>
+                    </li>
+                    <li class="course-list-item" data-course="raagathamboori" onclick="showCourseDetail(this, 'raagathamboori')">
+                        Raagathamboori
+                        <span class="course-level">Intermediate</span>
+                    </li>
+                    <li class="course-list-item" data-course="swarathamboori" onclick="showCourseDetail(this, 'swarathamboori')">
+                        Swarathamboori
+                        <span class="course-level">Kids</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Offline Courses List -->
+            <div id="offline-list" class="course-type-section active">
+                <ul class="course-list">
+                    <li class="course-list-item active" data-course="naadathamboori" onclick="showCourseDetail(this, 'naadathamboori')">
+                        Naadathamboori
+                        <span class="course-level">Beginner</span>
+                    </li>
+                    <li class="course-list-item" data-course="bhaavathamboori" onclick="showCourseDetail(this, 'bhaavathamboori')">
+                        Bhaavathamboori
+                        <span class="course-level">Intermediate</span>
+                    </li>
+                    <li class="course-list-item" data-course="jeevathamboori" onclick="showCourseDetail(this, 'jeevathamboori')">
+                        Jeevathamboori
+                        <span class="course-level">Kids</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Right Content Area -->
+        <div class="course-details">
+            <!-- Empty State - Now hidden by default -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <h3>Select a Course</h3>
+                <p>Click on any course from the left menu to view detailed information about it.</p>
+            </div>
+            
+            <!-- Layathmboori Details -->
+            <div id="layathmboori-detail" class="course-detail">
+                <div class="course-header">
+                    <h3>Layathmboori</h3>
+                    <div class="course-type-label">Beginner</div>
+                </div>
+                <img src="/api/placeholder/800/200" alt="Layathmboori Class" class="course-image">
+                <div class="course-description">
+                    <p>A structured course designed for students aged 8 and above to acquire foundational basics of Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, and thorough learning of a new song every four classes.</p>
+                </div>
+                <div class="course-objectives">
+                    <h4>Learning Objectives:</h4>
+                    <ul>
+                        <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                        <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                        <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                    </ul>
+                </div>
+                <div class="course-fee">
+                    <h4>Fee Structure:</h4>
+                    <p>One-time Admission Fee: ₹3000 (Non-refundable)</p>
+                    <p>Recurring Fee: Monthly ₹1200 / Quarterly: ₹3500 (To be decided)</p>
+                </div>
+                <div class="course-batches">
+                    <p><strong>Batches:</strong></p>
+                    <p>Layathamboori 1 – for Male Maestros</p>
+                    <p>Layathamboori 2 – for Female Maestros</p>
+                </div>
+            </div>
+            
+            <!-- Raagathamboori Details -->
+            <div id="raagathamboori-detail" class="course-detail">
+                <div class="course-header">
+                    <h3>Raagathamboori</h3>
+                    <div class="course-type-label">Intermediate</div>
+                </div>
+                <img src="/api/placeholder/800/200" alt="Raagathamboori Class" class="course-image">
+                <div class="course-description">
+                    <p>A structured course designed for students aged 8 and above to learn and master Kannada Light Music. The curriculum features in-depth training in voice modulation, Kai Thaala perfection, vocal expression and thorough learning of a new song every four classes.</p>
+                </div>
+                <div class="course-objectives">
+                    <h4>Learning Objectives:</h4>
+                    <ul>
+                        <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                        <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                        <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                        <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                    </ul>
+                </div>
+                <div class="course-fee">
+                    <h4>Fee Structure:</h4>
+                    <p>Recurring Fee: Monthly ₹1400 / Quarterly: ₹4000 (To be decided)</p>
+                </div>
+                <div class="course-batches">
+                    <p><strong>Batches:</strong></p>
+                    <p>Raagathamboori 1 – for Male Maestros</p>
+                    <p>Raagathamboori 2 – for Female Maestros</p>
+                </div>
+            </div>
+            
+            <!-- Swarathamboori Details -->
+            <div id="swarathamboori-detail" class="course-detail">
+                <div class="course-header">
+                    <h3>Swarathamboori</h3>
+                    <div class="course-type-label">Kids</div>
+                </div>
+                <img src="/api/placeholder/800/200" alt="Swarathamboori Class" class="course-image">
+                <div class="course-description">
+                    <p>A structured course designed for students between 8-14 years, to learn Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, voice modulation, vocal expression and thorough learning of new songs every four classes.</p>
+                </div>
+                <div class="course-objectives">
+                    <h4>Learning Objectives:</h4>
+                    <ul>
+                        <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                        <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                        <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                        <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                        <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                    </ul>
+                </div>
+                <div class="course-fee">
+                    <h4>Fee Structure:</h4>
+                    <p>Recurring Fee: Monthly ₹1200 / Quarterly: ₹3500 (To be decided)</p>
+                </div>
+            </div>
+            
+            <!-- Naadathamboori Details -->
+            <div id="naadathamboori-detail" class="course-detail active">
+                <div class="course-header">
+                    <h3>Naadathamboori</h3>
+                    <div class="course-type-label">Beginner</div>
+                </div>
+                <img src="/api/placeholder/800/200" alt="Naadathamboori Class" class="course-image">
+                <div class="course-description">
+                    <p>A structured course designed for students aged 8 and above to acquire foundational basics of Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, and thorough learning of a new song every four classes.</p>
+                </div>
+                <div class="course-objectives">
+                    <h4>Learning Objectives:</h4>
+                    <ul>
+                        <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                        <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                        <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                    </ul>
+                </div>
+                <div class="course-fee">
+                    <h4>Fee Structure:</h4>
+                    <p>One-time Admission Fee: ₹3000 (Non-refundable)</p>
+                    <p>Recurring Fee: Monthly ₹750 / Quarterly: ₹2250 (To be decided)</p>
+                </div>
+            </div>
+            
+            <!-- Bhaavathamboori Details -->
+            <div id="bhaavathamboori-detail" class="course-detail">
+                <div class="course-header">
+                    <h3>Bhaavathamboori</h3>
+                    <div class="course-type-label">Intermediate</div>
+                </div>
+                <img src="/api/placeholder/800/200" alt="Bhaavathamboori Class" class="course-image">
+                <div class="course-description">
+                    <p>A structured course designed for students aged 8 and above to learn and master Kannada Light Music. The curriculum features in-depth training in voice modulation, Kai Thaala perfection, vocal expression and thorough learning of a new song every four classes.</p>
+                </div>
+                <div class="course-objectives">
+                    <h4>Learning Objectives:</h4>
+                    <ul>
+                        <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                        <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                        <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                        <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                    </ul>
+                </div>
+                <div class="course-fee">
+                    <h4>Fee Structure:</h4>
+                    <p>Recurring Fee: Monthly ₹1000 / Quarterly: ₹3000 (To be decided)</p>
+                </div>
+            </div>
+            
+            <!-- Jeevathamboori Details -->
+            <div id="jeevathamboori-detail" class="course-detail">
+                <div class="course-header">
+                    <h3>Jeevathamboori</h3>
+                    <div class="course-type-label">Kids</div>
+                </div>
+                <img src="/api/placeholder/800/200" alt="Jeevathamboori Class" class="course-image">
+                <div class="course-description">
+                    <p>A structured course designed for students between 8-14 years, to learn Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, voice modulation, vocal expression and thorough learning of new songs every four classes.</p>
+                </div>
+                <div class="course-objectives">
+                    <h4>Learning Objectives:</h4>
+                    <ul>
+                        <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
+                        <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
+                        <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
+                        <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
+                        <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
+                    </ul>
+                </div>
+                <div class="course-fee">
+                    <h4>Fee Structure:</h4>
+                    <p>Recurring Fee: Monthly ₹1000 / Quarterly: ₹3000 (To be decided)</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <main class="container">
-        <section id="online-courses" class="course-section active">
-            <h2>Online Classes</h2>
-            <p>Learn from the comfort of your home with our structured online courses guided by expert instructors.</p>
-            
-            <div class="courses">
-                <!-- Layathmboori -->
-                <div class="course-card" onclick="expandCard(this)">
-                    <button class="close-btn" onclick="collapseCard(event, this.parentElement)">&times;</button>
-                    <div class="course-header">
-                        <h3>Layathmboori</h3>
-                        <div class="course-type">Beginner</div>
-                    </div>
-                    <div class="course-content">
-                        <p>A structured course designed for students aged 8 and above to acquire foundational basics of Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, and thorough learning of a new song every four classes.</p>
-                        
-                        <div class="course-objectives">
-                            <h4>Learning Objectives:</h4>
-                            <ul>
-                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
-                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
-                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="course-fee">
-                            <h4>Fee Structure:</h4>
-                            <p>One-time Admission Fee: ₹3000 (Non-refundable)</p>
-                            <p>Recurring Fee: Monthly ₹1200 / Quarterly: ₹3500 (To be decided)</p>
-                        </div>
-                        
-                        <div class="course-batches">
-                            <p><strong>Batches:</strong></p>
-                            <p>Layathamboori 1 – for Male Maestros</p>
-                            <p>Layathamboori 2 – for Female Maestros</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Raagathamboori -->
-                <div class="course-card" onclick="expandCard(this)">
-                    <button class="close-btn" onclick="collapseCard(event, this.parentElement)">&times;</button>
-                    <div class="course-header">
-                        <h3>Raagathamboori</h3>
-                        <div class="course-type">Intermediate</div>
-                    </div>
-                    <div class="course-content">
-                        <p>A structured course designed for students aged 8 and above to learn and master Kannada Light Music. The curriculum features in-depth training in voice modulation, Kai Thaala perfection, vocal expression and thorough learning of a new song every four classes.</p>
-                        
-                        <div class="course-objectives">
-                            <h4>Learning Objectives:</h4>
-                            <ul>
-                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
-                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
-                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
-                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="course-fee">
-                            <h4>Fee Structure:</h4>
-                            <p>Recurring Fee: Monthly ₹1400 / Quarterly: ₹4000 (To be decided)</p>
-                        </div>
-                        
-                        <div class="course-batches">
-                            <p><strong>Batches:</strong></p>
-                            <p>Raagathamboori 1 – for Male Maestros</p>
-                            <p>Raagathamboori 2 – for Female Maestros</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Swarathamboori -->
-                <div class="course-card" onclick="expandCard(this)">
-                    <button class="close-btn" onclick="collapseCard(event, this.parentElement)">&times;</button>
-                    <div class="course-header">
-                        <h3>Swarathamboori</h3>
-                        <div class="course-type">Kids</div>
-                    </div>
-                    <div class="course-content">
-                        <p>A structured course designed for students between 8-14 years, to learn Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, voice modulation, vocal expression and thorough learning of new songs every four classes.</p>
-                        
-                        <div class="course-objectives">
-                            <h4>Learning Objectives:</h4>
-                            <ul>
-                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
-                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
-                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
-                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
-                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="course-fee">
-                            <h4>Fee Structure:</h4>
-                            <p>Recurring Fee: Monthly ₹1200 / Quarterly: ₹3500 (To be decided)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="offline-courses" class="course-section">
-            <h2>In-Person Classes</h2>
-            <p>Join our in-person classes for a more personalized learning experience with direct interaction with our expert instructors.</p>
-            
-            <div class="courses">
-                <!-- Naadathamboori -->
-                <div class="course-card" onclick="expandCard(this)">
-                    <button class="close-btn" onclick="collapseCard(event, this.parentElement)">&times;</button>
-                    <div class="course-header">
-                        <h3>Naadathamboori</h3>
-                        <div class="course-type">Beginner</div>
-                    </div>
-                    <div class="course-content">
-                        <p>A structured course designed for students aged 8 and above to acquire foundational basics of Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, and thorough learning of a new song every four classes.</p>
-                        
-                        <div class="course-objectives">
-                            <h4>Learning Objectives:</h4>
-                            <ul>
-                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
-                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
-                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="course-fee">
-                            <h4>Fee Structure:</h4>
-                            <p>One-time Admission Fee: ₹3000 (Non-refundable)</p>
-                            <p>Recurring Fee: Monthly ₹750 / Quarterly: ₹2250 (To be decided)</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Bhaavathamboori -->
-                <div class="course-card" onclick="expandCard(this)">
-                    <button class="close-btn" onclick="collapseCard(event, this.parentElement)">&times;</button>
-                    <div class="course-header">
-                        <h3>Bhaavathamboori</h3>
-                        <div class="course-type">Intermediate</div>
-                    </div>
-                    <div class="course-content">
-                        <p>A structured course designed for students aged 8 and above to learn and master Kannada Light Music. The curriculum features in-depth training in voice modulation, Kai Thaala perfection, vocal expression and thorough learning of a new song every four classes.</p>
-                        
-                        <div class="course-objectives">
-                            <h4>Learning Objectives:</h4>
-                            <ul>
-                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
-                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
-                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
-                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="course-fee">
-                            <h4>Fee Structure:</h4>
-                            <p>Recurring Fee: Monthly ₹1000 / Quarterly: ₹3000 (To be decided)</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Jeevathamboori -->
-                <div class="course-card" onclick="expandCard(this)">
-                    <button class="close-btn" onclick="collapseCard(event, this.parentElement)">&times;</button>
-                    <div class="course-header">
-                        <h3>Jeevathamboori</h3>
-                        <div class="course-type">Kids</div>
-                    </div>
-                    <div class="course-content">
-                        <p>A structured course designed for students between 8-14 years, to learn Kannada Light Music. The curriculum features in-depth training in pitch control, rhythm mastery, voice modulation, vocal expression and thorough learning of new songs every four classes.</p>
-                        
-                        <div class="course-objectives">
-                            <h4>Learning Objectives:</h4>
-                            <ul>
-                                <li><strong>Voice & Pitch Control:</strong> Developing control over vocal expressions through an adapted form of 'Sa Pa Sa' practice from Carnatic classical music.</li>
-                                <li><strong>Rhythm Mastery:</strong> Introduction of Gere Guruthina Thaala, a teaching technique developed exclusively to internalise our natural rhythm and connect it to that of music.</li>
-                                <li><strong>Kai Thaala Integration:</strong> Developing practical execution of hand beats to aid in timing improvisations (Paluku, Swara Kalpane, Akaara) with the tala cycle.</li>
-                                <li><strong>Expression & Emotion in Singing:</strong> Understanding lyrical depth and developing the modulation to effectively convey its meaning as a vocal expression while singing.</li>
-                                <li><strong>Group & Solo Performance Skills:</strong> Enhancing confidence and stage presence needed to perform seamlessly in group settings with coordination and adaptability, while also strengthening their skills as solo performers.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="course-fee">
-                            <h4>Fee Structure:</h4>
-                            <p>Recurring Fee: Monthly ₹1000 / Quarterly: ₹3000 (To be decided)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="overlay" id="overlay" onclick="closeAllCards()"></div>
-
     <script>
-        function showCourses(type) {
-            // Hide all course sections
-            const sections = document.querySelectorAll('.course-section');
+        // Function to show course type (online/offline)
+        function showCourseType(type) {
+            // Prepare the transition by setting opacity to 0 first
+            const sections = document.querySelectorAll('.course-type-section');
             sections.forEach(section => {
-                section.classList.remove('active');
+                if (section.classList.contains('active')) {
+                    section.style.opacity = 0;
+                }
             });
             
-            // Show the selected section
-            const selectedSection = document.getElementById(type + '-courses');
-            selectedSection.classList.add('active');
-            
-            // Update tab styling
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Find the clicked tab using data attribute and make it active
-            document.querySelector(`.tab[data-type="${type}"]`).classList.add('active');
-        }
-
-        function expandCard(card) {
-            // Prevent expanding if already expanded
-            if (card.classList.contains('expanded')) {
-                return;
-            }
-
-            // Close any open cards first
-            closeAllCards();
-            
-            // Save the scroll position
-            const scrollPosition = window.scrollY;
-            card.setAttribute('data-scroll', scrollPosition);
-            
-            // Hide hero image
-            document.getElementById('hero').classList.add('hidden');
-            
-            // Move tabs to top position
-            document.getElementById('course-tabs').classList.add('top-position');
-            document.getElementById('tabs-spacer').classList.add('active');
-            
-            // Disable body scroll
-            document.body.style.overflow = 'hidden';
-            
-            // Expand the card
-            card.classList.add('expanded');
-            document.getElementById('overlay').classList.add('active');
-
-            // Add some animation effect
-            card.style.transition = 'all 300ms cubic-bezier(0.215, 0.61, 0.355, 1)';
-        }
-
-        function collapseCard(event, card) {
-            // Stop the event from propagating to parent elements
-            event.stopPropagation();
-            
-            // Enable body scroll
-            document.body.style.overflow = '';
-            
-            // Show hero image back
-            document.getElementById('hero').classList.remove('hidden');
-            
-            // Move tabs back to original position
-            document.getElementById('course-tabs').classList.remove('top-position');
-            document.getElementById('tabs-spacer').classList.remove('active');
-            
-            // Collapse the card
-            card.classList.remove('expanded');
-            document.getElementById('overlay').classList.remove('active');
-            
-            // Scroll back to original position
-            const scrollPosition = parseInt(card.getAttribute('data-scroll') || '0');
-            window.scrollTo(0, scrollPosition);
-        }
-
-        function closeAllCards() {
-            // Close all expanded cards
-            const expandedCards = document.querySelectorAll('.course-card.expanded');
-            if (expandedCards.length > 0) {
-                document.body.style.overflow = '';
-                expandedCards.forEach(card => {
-                    card.classList.remove('expanded');
+            // After a short delay, update the active class
+            setTimeout(() => {
+                // Hide all course type sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
                 });
-                document.getElementById('overlay').classList.remove('active');
                 
-                // Show hero image back
-                document.getElementById('hero').classList.remove('hidden');
+                // Show the selected section
+                const activeSection = document.getElementById(type + '-list');
+                activeSection.classList.add('active');
                 
-                // Move tabs back to original position
-                document.getElementById('course-tabs').classList.remove('top-position');
-                document.getElementById('tabs-spacer').classList.remove('active');
-            }
+                // Fade it in
+                setTimeout(() => {
+                    activeSection.style.opacity = 1;
+                }, 50);
+                
+                // Update tab styling
+                const tabs = document.querySelectorAll('.type-tab');
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Make the clicked tab active
+                document.querySelector(`.type-tab[data-type="${type}"]`).classList.add('active');
+                
+                // Select default course for the type
+                if (type === 'online') {
+                    // Select first online course
+                    const firstOnlineCourse = document.querySelector('#online-list .course-list-item');
+                    showCourseDetail(firstOnlineCourse, firstOnlineCourse.getAttribute('data-course'));
+                } else {
+                    // Select naadathamboori for offline by default
+                    const naadaCourse = document.querySelector('#offline-list .course-list-item[data-course="naadathamboori"]');
+                    showCourseDetail(naadaCourse, 'naadathamboori');
+                }
+            }, 300);
         }
 
-        // Add click event to tabs to make them shrink and move up
-        const tabs = document.querySelectorAll('.tab');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                this.classList.add('active');
-            });
-        });
+        // Function to show course detail with sliding animation
+        // Function to show course detail with sliding animation
+function showCourseDetail(listItem, courseId) {
+    // Update active class on list items
+    document.querySelectorAll('.course-list-item').forEach(item => {
+        item.classList.remove('active');
+    });
+            
+    // Add active class to clicked item
+    listItem.classList.add('active');
+            
+    // Hide empty state if visible
+    document.getElementById('empty-state').style.display = 'none';
+            
+    // Get current active detail and all details
+    const allDetails = document.querySelectorAll('.course-detail');
+    const currentDetail = document.querySelector('.course-detail.active');
+            
+    if (currentDetail) {
+        // Slide current detail out to the left
+        currentDetail.style.left = '-100%';
+        currentDetail.style.opacity = '0';
+                
+        // After animation completes, remove active class
+        setTimeout(() => {
+            currentDetail.classList.remove('active');
+            
+            // Show selected detail with slide-in from right
+            const selectedDetail = document.getElementById(courseId + '-detail');
+            if (selectedDetail) {
+                selectedDetail.style.left = '100%';
+                selectedDetail.classList.add('active');
+                
+                // Trigger animation after a short delay
+                setTimeout(() => {
+                    selectedDetail.style.left = '0';
+                    selectedDetail.style.opacity = '1';
+                }, 50);
+            }
+        }, 300); // Match transition duration
+    } else {
+        // No active detail yet, just show the selected one immediately
+        const selectedDetail = document.getElementById(courseId + '-detail');
+        if (selectedDetail) {
+            selectedDetail.classList.add('active');
+            selectedDetail.style.left = '0';
+            selectedDetail.style.opacity = '1';
+        }
+    }
+}
 
-        // Scroll event listener to move tabs to top when scrolling past hero
-        window.addEventListener('scroll', function() {
-            // Check if any card is expanded
-            const expandedCards = document.querySelectorAll('.course-card.expanded');
-            if (expandedCards.length > 0) {
-                return; // Don't change tabs position if a card is expanded
-            }
-            
-            const hero = document.getElementById('hero');
-            const heroHeight = hero.offsetHeight;
-            const scrollPosition = window.scrollY;
-            
-            if (scrollPosition > heroHeight) {
-                document.getElementById('course-tabs').classList.add('top-position');
-                document.getElementById('tabs-spacer').classList.add('active');
-            } else {
-                document.getElementById('course-tabs').classList.remove('top-position');
-                document.getElementById('tabs-spacer').classList.remove('active');
-            }
-        });
-    </script>
-</body>
-</html>
+// Initialize: Select default course (Naadathamboori)
+document.addEventListener('DOMContentLoaded', function() {
+    // Set offline tab as active by default
+    const offlineTab = document.querySelector('.type-tab[data-type="offline"]');
+    offlineTab.classList.add('active');
+    
+    // Show offline courses section
+    const offlineSection = document.getElementById('offline-list');
+    offlineSection.classList.add('active');
+    offlineSection.style.opacity = '1';
+    
+    // Set Naadathamboori as active by default
+    const defaultCourse = document.querySelector('.course-list-item[data-course="naadathamboori"]');
+    defaultCourse.classList.add('active');
+    
+    // Show Naadathamboori details
+    const defaultDetail = document.getElementById('naadathamboori-detail');
+    defaultDetail.classList.add('active');
+    defaultDetail.style.opacity = '1';
+    defaultDetail.style.left = '0';
+    
+    // Hide empty state
+    document.getElementById('empty-state').style.display = 'none';
+});
+
+// Optional Enhancement: Language Toggle Functionality
+document.getElementById('langToggle').addEventListener('click', function() {
+    // Here you would implement language switching logic
+    // For now, just toggle active class
+    this.classList.toggle('active');
+    
+    // You could trigger language change here
+    // switchLanguage();
+});
+
+// Function to switch language (placeholder)
+function switchLanguage() {
+    // This function would be implemented to switch between English and Kannada
+    console.log('Language switch requested');
+    // Example implementation would involve changing text content
+    // or loading a different language version of the page
+}

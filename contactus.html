@@ -1,0 +1,332 @@
+<style>
+    :root {
+        --color-primary: #9c3328;
+        --color-secondary: #e8b923;
+        --color-dark: #482c1d;
+        --color-light: #f4efe4;
+        --td: 150ms;
+        --te: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    
+
+    .contact-container {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+        background-color: var(--color-light);
+        color: var(--color-dark);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--color-primary);
+        position: relative;
+        font-size: 1.8rem;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: var(--color-secondary);
+        margin: 0.5rem auto;
+    }
+
+    /* Social Media Feeds */
+    .social-section {
+        margin-bottom: 3rem;
+    }
+
+    .social-feeds {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .social-feed {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .feed-header {
+        padding: 1rem;
+        background-color: var(--color-primary);
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    .feed-icon {
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        color: var(--color-primary);
+        font-weight: bold;
+    }
+
+    .feed-title {
+        font-weight: 600;
+    }
+
+    .feed-content {
+        height: 400px;
+        overflow: hidden;
+        background-color: #f9f9f9;
+    }
+
+    .feed-content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .feed-footer {
+        padding: 1rem;
+        text-align: center;
+        border-top: 1px solid #eee;
+    }
+
+    .btn-social {
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color var(--td) var(--te);
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-social:hover {
+        background-color: var(--color-secondary);
+    }
+
+    /* Contact Information */
+    .contact-info-section {
+        margin: 3rem 0;
+    }
+
+    .contact-card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        width: 100%;
+    }
+
+    .contact-details h2 {
+        color: var(--color-primary);
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .contact-info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .contact-item {
+        display: flex;
+        margin-bottom: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+        font-size: 1.2rem;
+    }
+
+    .contact-text h3 {
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    .contact-text p {
+        color: var(--color-dark);
+        line-height: 1.8;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Map Section */
+    .map-section {
+        margin: 3rem 0;
+    }
+
+    .map-container {
+        height: 450px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .map-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        .social-feeds {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-feed {
+            width: 100%;
+        }
+        
+        .contact-info-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+<div class="contact-container">
+    <!-- Social Media Feeds -->
+    <div class="social-section">
+        <h2 class="section-title">Follow Us</h2>
+        
+        <div class="social-feeds">
+            <div class="social-feed">
+                <div class="feed-header">
+                    <div class="feed-icon">f</div>
+                    <div class="feed-title">Facebook</div>
+                </div>
+                <div class="feed-content">
+                    <!-- Facebook Page Plugin -->
+                    <!-- Replace this comment with: -->
+                    <!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRaghuleelaMusicSchool&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
+                    <img src="/api/placeholder/400/400" alt="Facebook feed placeholder">
+                </div>
+                <div class="feed-footer">
+                    <a href="https://www.facebook.com/RaghuleelaMusicSchool" target="_blank" class="btn-social">Visit Facebook</a>
+                </div>
+            </div>
+            
+            <div class="social-feed">
+                <div class="feed-header">
+                    <div class="feed-icon">ig</div>
+                    <div class="feed-title">Instagram</div>
+                </div>
+                <div class="feed-content">
+                    <!-- Instagram Feed -->
+                    <!-- Note: Instagram no longer provides simple embedding. You would need a third-party service or Instagram Basic Display API -->
+                    <img src="/api/placeholder/400/400" alt="Instagram feed placeholder">
+                </div>
+                <div class="feed-footer">
+                    <a href="https://www.instagram.com/raghuleelamusic" target="_blank" class="btn-social">Visit Instagram</a>
+                </div>
+            </div>
+            
+            <div class="social-feed">
+                <div class="feed-header">
+                    <div class="feed-icon">yt</div>
+                    <div class="feed-title">YouTube</div>
+                </div>
+                <div class="feed-content">
+                    <!-- YouTube Channel -->
+                    <!-- Replace this comment with: -->
+                    <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/?listType=user_uploads&list=RaghuleelaMusicSchool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                    <img src="/api/placeholder/400/400" alt="YouTube feed placeholder">
+                </div>
+                <div class="feed-footer">
+                    <a href="https://www.youtube.com/c/RaghuleelaMusicSchool" target="_blank" class="btn-social">Visit YouTube</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Information - Expanded -->
+    <div class="contact-info-section">
+        <div class="contact-card contact-details">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-info-grid">
+                <div class="contact-column">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h3>Address</h3>
+                            <p>123 Music Avenue, Harmony District</p>
+                            <p>Mumbai, Maharashtra 400001</p>
+                            <p>India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h3>Phone</h3>
+                            <p>+91 98765 43210</p>
+                            <p>+91 22 1234 5678</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-column">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>info@raghuleela.com</p>
+                            <p>admissions@raghuleela.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div class="contact-text">
+                            <h3>Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
+                            <p>Saturday: 9:00 AM - 5:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Map Section -->
+    <div class="map-section">
+        <h2 class="section-title">Find Us</h2>
+        
+        <div class="map-container">
+            <!-- Google Maps Embed -->
+            <!-- Replace this comment with: -->
+            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.0123456789012!2d72.82345678901234!3d19.0123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAwJzQ0LjQiTiA3MsKwNDknMzQuNCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+            <img src="/api/placeholder/1200/450" alt="Map location">
+        </div>
+    </div>
+</div>
