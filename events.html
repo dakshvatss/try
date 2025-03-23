@@ -3,845 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raghuleela School of Music - Upcoming Events</title>
+    <title>Music School Events</title>
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-
-
     <style>
-        
-    
-        .page-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        /* Decorative elements */
-        .decorative-line {
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            border: 3px solid rgba(169, 216, 245, 0.3);
-            border-radius: 50%;
-            z-index: -1;
-        }
-        
-        .line-1 {
-            top: -50px;
-            right: -90px;
-        }
-        
-        .line-2 {
-            bottom: -50px;
-            left: -90px;
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            z-index: 100;
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f5f5f0;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            display: flex;
             justify-content: center;
         }
         
-        .back-to-top.visible {
-            opacity: 1;
-        }
-        
-        .back-to-top:hover {
-            background-color: #555;
-            transform: translateY(-5px);
-        }
-        
-        h1 {
-            font-size: 48px;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .events-title {
-            display: flex;
-            align-items: baseline;
-        }
-        
-        .events-title span {
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
-            font-size: 48px;
-            margin-left: 15px;
-            color: #666;
-        }
-        
-        /* Ticket styling */
-        .ticket-container {
-            perspective: 1000px;
-            margin-bottom: 30px;
-        }
-        
-        .ticket {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .ticket:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .ticket-stub {
-            display: flex;
-            padding: 15px;
-            border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        .ticket-stub:after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 15px;
-            right: 15px;
-            height: 2px;
-            background: repeating-linear-gradient(
-                90deg,
-                rgba(0, 0, 0, 0.1),
-                rgba(0, 0, 0, 0.1) 10px,
-                transparent 10px,
-                transparent 20px
-            );
-        }
-        
-        .ticket-image {
-            width: 120px;
-            height: 80px;
-            min-width: 120px;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-        
-        .ticket-image img {
+        .page-container {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
         }
         
-        .ticket-main-info {
-            flex-grow: 1;
-            margin-left: 15px;
+        .events-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f0efe8;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .calendar-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f0efe8;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .calendar-placeholder {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #ddd;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
         }
         
-        .ticket-category {
-            font-family: 'Times New Roman', serif;
+        .calendar-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .heading h1 {
+            font-size: 36px;
+            margin: 0;
+            font-weight: normal;
+        }
+        
+        .heading h1 span {
             font-style: italic;
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 5px;
-            line-height: 1.2;
+            font-weight: lighter;
         }
         
-        .ticket-date-time {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        .ticket-badge {
+        .curve {
             position: absolute;
-            right: -8px;
-            top: -8px;
-            background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transform: rotate(5deg);
+            top: 10px;
+            right: 30px;
+            width: 80px;
+            height: 60px;
+            border-top: 2px solid #aaa;
+            border-right: 2px solid #aaa;
+            border-radius: 0 80px 0 0;
         }
         
-        .ticket-number {
-            position: absolute;
-            bottom: 5px;
-            right: 10px;
-            font-size: 12px;
-            font-family: monospace;
-            color: #999;
-        }
-        
-        .ticket-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            padding: 0 15px;
-            background-color: rgba(245, 245, 245, 0.5);
-        }
-        
-        .ticket-details.expanded {
-            max-height: 300px;
-            padding: 15px;
-        }
-        
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .details-item {
-            margin-bottom: 10px;
-        }
-        
-        .details-item h4 {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 3px;
-        }
-        
-        .details-item p {
-            font-size: 16px;
-            color: #333;
-        }
-        
-        .ticket-actions {
+        .event-card {
             display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-primary {
-            background-color: #4a90e2;
-            color: white;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid #666;
-            color: #666;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Filter and sort section */
-        .filter-container {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .event-image {
+            width: 150px;
+            min-width: 150px;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .event-details {
             padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .filter-title {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 10px;
             display: flex;
-            align-items: center;
-        }
-        
-        .filter-title i {
-            margin-right: 5px;
-            color: #666;
-        }
-        
-        .filter-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-option {
-            padding: 5px 15px;
-            background-color: #f5f5f5;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .filter-option:hover {
-            background-color: #e0e0e0;
-        }
-        
-        .filter-option.active {
-            background-color: #333;
-            color: white;
-        }
-        
-        /* Musical notes animation */
-        .musical-note {
-            position: absolute;
-            font-size: 1.5rem;
-            color: rgba(0, 0, 0, 0.1);
-            animation: float 15s linear infinite;
-            z-index: -1;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.5;
-            }
-            100% {
-                transform: translateY(-500px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-        
-        /* Newsletter signup */
-        .newsletter {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            padding: 25px;
-            color: white;
-            margin-top: 40px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .newsletter h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        
-        .newsletter p {
-            margin-bottom: 20px;
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        
-        .newsletter-input {
             flex-grow: 1;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 25px 0 0 25px;
-            font-size: 14px;
+            position: relative;
         }
         
-        .newsletter-btn {
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 0 25px 25px 0;
-            padding: 0 20px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
+        .event-info {
+            flex-grow: 1;
         }
         
-        .newsletter-btn:hover {
-            background-color: #555;
-        }
-        
-        /* Footer */
-        .website-url {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            font-size: 14px;
+        .event-time {
             color: #666;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            margin-bottom: 5px;
         }
         
-        /* Loading animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.9);
+        .event-title {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            font-size: 22px;
+            margin: 5px 0;
+            color: #333;
+        }
+        
+        .event-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+        
+        .event-date {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s ease;
+            justify-content: center;
+            padding-left: 20px;
+            position: relative;
         }
         
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #333;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .event-date:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 25%;
+            height: 50%;
+            border-left: 1px dotted #ccc;
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .event-month {
+            font-style: italic;
+            font-size: 16px;
+            color: #666;
         }
         
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #333;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            transform: translateX(120%);
-            transition: transform 0.3s ease;
-            z-index: 1000;
+        .event-day {
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 1;
         }
         
-        .notification.show {
-            transform: translateX(0);
+        .event-year {
+            font-size: 14px;
+            color: #888;
+        }
+        
+
+        
+        @media (max-width: 768px) {
+            .page-container {
+                flex-direction: column;
+            }
+            
+            .calendar-container {
+                min-height: 400px;
+            }
         }
     </style>
 </head>
-<header>
-    <div class="logo">
-        <img src="images\logo-removebg-preview.png" alt="Logo">
-    </div>
-    <input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation" />
-    <label for="main-navigation-toggle">
-        <span></span>
-    </label>
-    <nav id="main-navigation" class="nav-main">
+
+<body>
+    <header>
         <div class="logo">
             <img src="images\logo-removebg-preview.png" alt="Logo">
         </div>
-        <div class="language-toggle">
-            <button class="lang-btn" id="langToggle" aria-label="Toggle language">
-                <span class="lang-text">English</span>
-                <span class="lang-separator">/</span>
-                <span class="lang-text">ಕನ್ನಡ</span>
-            </button>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/raghuleelaschoolofmusic/?hl=en" target="_blank" class="social-icon" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-            </a>
-            <a href="hhttps://www.youtube.com/@RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="YouTube">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                </svg>
-            </a>
-        </div>
-        <ul class="menu">
-          <li class="menu__item">
-            <a class="menu__link" href="index.html">Home</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#0">Story</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="courses.html">Classes</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#0">Events</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link" href="#0">Contact</a>
-          </li>
-        </ul>
-    </nav>
-</header>
-<body>
-    <!-- Loading overlay -->
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
+        <input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation" />
+        <label for="main-navigation-toggle">
+            <span></span>
+        </label>
+        <nav id="main-navigation" class="nav-main">
+            <div class="logo">
+                <img src="images\logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="language-toggle">
+                <button class="lang-btn" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text">English</span>
+                    <span class="lang-separator">/</span>
+                    <span class="lang-text">ಕನ್ನಡ</span>
+                </button>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/raghuleelaschoolofmusic/?hl=en" target="_blank" class="social-icon" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                    </svg>
+                </a>
+            </div>
+            <ul class="menu">
+              <li class="menu__item">
+                <a class="menu__link" href="index.html">Home</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="story.html">Story</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="courses.html">Classes</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="events.html">Events</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="contactus.html">Contact</a>
+              </li>
+            </ul>
+        </nav>
+    </header>
     
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        Ticket details saved!
-    </div>
+    <main>
+        <div class="page-container">
+            <!-- Left side - Events -->
+            <div class="events-container">
+                <div class="heading">
+                    <h1>Our <span>Events</span></h1>
+                    <div class="curve"></div>
+                </div>
+                
+                <div class="event-card">
+                    <img src="images/qr.png" alt="Student Recital" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <div class="event-time">Saturday, 04:00pm</div>
+                            <h2 class="event-title">Student Recital</h2>
+                            <p class="event-description">This event showcases our talented piano and violin students performing classical pieces.</p>
+                        </div>
+                        <div class="event-date">
+                            <div class="event-month">Apr</div>
+                            <div class="event-day">15</div>
+                            <div class="event-year">2030</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src="images/qr.png" alt="Summer Music Camp" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <div class="event-time">Monday-Friday, 09:00am</div>
+                            <h2 class="event-title">Summer Music Camp</h2>
+                            <p class="event-description">A week-long intensive program for young musicians to develop their skills and collaborate with peers.</p>
+                        </div>
+                        <div class="event-date">
+                            <div class="event-month">Jun</div>
+                            <div class="event-day">20</div>
+                            <div class="event-year">2030</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <img src="images/qr.png" alt="Faculty Concert" class="event-image">
+                    <div class="event-details">
+                        <div class="event-info">
+                            <div class="event-time">Friday, 07:30pm</div>
+                            <h2 class="event-title">Faculty Concert</h2>
+                            <p class="event-description">Our talented instructors perform a variety of musical styles in this special evening showcase.</p>
+                        </div>
+                        <div class="event-date">
+                            <div class="event-month">Aug</div>
+                            <div class="event-day">8</div>
+                            <div class="event-year">2030</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side - Calendar -->
+            <div class="calendar-container">
+                <div class="heading">
+                    <h1>EVENTS <span>Calendar</span></h1>
+                    <div class="curve"></div>
+                </div>
+                
+                <iframe src="https://calendar.google.com/calendar/embed?height=800&wkst=1&ctz=Asia%2FKolkata&showPrint=0&mode=WEEK&src=ZGFrc2gudmF0c0Bic2Njc2guY2hyaXN0dW5pdmVyc2l0eS5pbg&src=ZGFrc2h2YXRzMTJAZ21haWwuY29t&src=Y19jbGFzc3Jvb202M2JmNWM2ZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb21kZjE1ZmQ4M0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb21lMDA3NzljZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb204ZjI0ZGYwYUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb21lNGRkOTgzNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb20xY2I2MmE1NUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=Y19jbGFzc3Jvb20yMDVjOTQ0MEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%23EF6C00&color=%23174ea6&color=%23c26401&color=%23202124&color=%23007b83&color=%230047a8&color=%23007b83&color=%230B8043&color=%230047a8" 
+                style="border:solid 1px #ddd; border-radius:12px; width:100%; max-width:500px;" 
+                width="100%" 
+                height="500" 
+                frameborder="0" 
+                scrolling="no">
+        </iframe>        </div>
+    </main>
     
-    <div class="page-container">
-        <!-- Decorative elements -->
-        <div class="decorative-line line-1"></div>
-        <div class="decorative-line line-2"></div>
-        
-        <!-- Floating musical notes -->
-        <div class="musical-note" style="left: 10%; top: 20%;">♪</div>
-        <div class="musical-note" style="left: 85%; top: 40%;">♫</div>
-        <div class="musical-note" style="left: 30%; top: 70%;">♩</div>
-        <div class="musical-note" style="left: 70%; top: 80%;">♬</div>
-        <div class="musical-note" style="left: 50%; top: 10%;">𝄞</div>
-        
-        <!-- Back to top button -->
-        <button class="back-to-top">↑</button>
-        
-        <div class="events-title">
-            <h1>UPCOMING</h1>
-            <span>Events</span>
-        </div>
-        
-        <!-- Filter and sort section -->
-        <div class="filter-container">
-            <div class="filter-title">
-                <i>📅</i> Filter by month
-            </div>
-            <div class="filter-options">
-                <div class="filter-option active" data-filter="all">All</div>
-                <div class="filter-option" data-filter="Jul">July</div>
-                <div class="filter-option" data-filter="Aug">August</div>
-                <div class="filter-option" data-filter="Sep">September</div>
-            </div>
-        </div>
-        
-        <!-- Event Tickets -->
-        <div class="tickets-container">
-            <div class="ticket-container" data-month="Jul">
-                <div class="ticket">
-                    <div class="ticket-stub">
-                        <div class="ticket-image">
-                            <img src="images/qr.png" alt="Tabla Workshop">
-                        </div>
-                        <div class="ticket-main-info">
-                            <div class="ticket-category">Tabla Master Class</div>
-                            <div class="ticket-date-time">July 15, 2025 • 10:00am</div>
-                        </div>
-                        <div class="ticket-badge">Featured</div>
-                        <div class="ticket-number">№ TBL-0725</div>
-                    </div>
-                    <div class="ticket-details">
-                        <div class="details-grid">
-                            <div class="details-item">
-                                <h4>Location</h4>
-                                <p>Main Auditorium, 3rd Floor</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Duration</h4>
-                                <p>3 hours</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Instructor</h4>
-                                <p>Pandit Sharma</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Seating</h4>
-                                <p>Limited (30 spots)</p>
-                            </div>
-                        </div>
-                        <p style="margin: 15px 0;">An intensive workshop for tabla enthusiasts. Learn the fundamentals of North Indian classical percussion from renowned maestros. All levels welcome. Materials provided.</p>
-                        <div class="ticket-actions">
-                            <button class="btn btn-outline share-btn">Share</button>
-                            <button class="btn btn-primary book-btn">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ticket-container" data-month="Aug">
-                <div class="ticket">
-                    <div class="ticket-stub">
-                        <div class="ticket-image">
-                            <img src="images/qr.png" alt="Vocal Concert">
-                        </div>
-                        <div class="ticket-main-info">
-                            <div class="ticket-category">Classical Vocal Recital</div>
-                            <div class="ticket-date-time">August 22, 2025 • 6:30pm</div>
-                        </div>
-                        <div class="ticket-number">№ VCL-0825</div>
-                    </div>
-                    <div class="ticket-details">
-                        <div class="details-grid">
-                            <div class="details-item">
-                                <h4>Location</h4>
-                                <p>Concert Hall</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Duration</h4>
-                                <p>2 hours</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Performers</h4>
-                                <p>Students & Faculty</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Seating</h4>
-                                <p>General Admission</p>
-                            </div>
-                        </div>
-                        <p style="margin: 15px 0;">A special evening featuring talented vocalists from the Raghuleela School. Experience the rich traditions of Hindustani and Carnatic vocal styles with performances by our advanced students and faculty members.</p>
-                        <div class="ticket-actions">
-                            <button class="btn btn-outline share-btn">Share</button>
-                            <button class="btn btn-primary book-btn">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ticket-container" data-month="Sep">
-                <div class="ticket">
-                    <div class="ticket-stub">
-                        <div class="ticket-image">
-                            <img src="images/qr.png" alt="Music Festival">
-                        </div>
-                        <div class="ticket-main-info">
-                            <div class="ticket-category">Annual Music Festival</div>
-                            <div class="ticket-date-time">September 10-12, 2025 • All Day</div>
-                        </div>
-                        <div class="ticket-badge">Special</div>
-                        <div class="ticket-number">№ FES-0925</div>
-                    </div>
-                    <div class="ticket-details">
-                        <div class="details-grid">
-                            <div class="details-item">
-                                <h4>Location</h4>
-                                <p>Multiple Venues</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Duration</h4>
-                                <p>3 Days</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Performers</h4>
-                                <p>International Artists</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Seating</h4>
-                                <p>Reserved & General</p>
-                            </div>
-                        </div>
-                        <p style="margin: 15px 0;">Join us for our three-day celebration of Indian classical music featuring performances from sitar, tabla, flute, and vocal masters from around the world. Special workshops, food stalls, and instrument exhibitions also available.</p>
-                        <div class="ticket-actions">
-                            <button class="btn btn-outline share-btn">Share</button>
-                            <button class="btn btn-primary book-btn">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="ticket-container" data-month="Sep">
-                <div class="ticket">
-                    <div class="ticket-stub">
-                        <div class="ticket-image">
-                            <img src="images/qr.png" alt="Sitar Workshop">
-                        </div>
-                        <div class="ticket-main-info">
-                            <div class="ticket-category">Sitar Beginners Workshop</div>
-                            <div class="ticket-date-time">September 18, 2025 • 2:00pm</div>
-                        </div>
-                        <div class="ticket-number">№ STR-0925</div>
-                    </div>
-                    <div class="ticket-details">
-                        <div class="details-grid">
-                            <div class="details-item">
-                                <h4>Location</h4>
-                                <p>Studio B, 2nd Floor</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Duration</h4>
-                                <p>4 hours</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Instructor</h4>
-                                <p>Ravi Mishra</p>
-                            </div>
-                            <div class="details-item">
-                                <h4>Instruments</h4>
-                                <p>Limited Rentals Available</p>
-                            </div>
-                        </div>
-                        <p style="margin: 15px 0;">Perfect for beginners interested in learning the sitar. This hands-on workshop covers basic techniques, posture, and simple melodies. A great introduction to one of India's most beloved instruments.</p>
-                        <div class="ticket-actions">
-                            <button class="btn btn-outline share-btn">Share</button>
-                            <button class="btn btn-primary book-btn">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Newsletter signup -->
-        <div class="newsletter">
-            <h3>Stay in Tune</h3>
-            <p>Subscribe to our newsletter for the latest events, workshops, and performances</p>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Your email address">
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
-        </div>
-        
-        <div class="website-url">www.raghuleela-music.com</div>
-    </div>
     <footer>
-        Footer 
+        
+footer 
     </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Remove loading overlay
-            setTimeout(function() {
-                document.querySelector('.loading-overlay').style.opacity = '0';
-                setTimeout(function() {
-                    document.querySelector('.loading-overlay').style.display = 'none';
-                }, 500);
-            }, 1000);
-            
-            // Add more musical notes animation
-            setInterval(createNote, 3000);
-            
-            // Back to top button functionality
-            const backToTopButton = document.querySelector('.back-to-top');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
-            
-            backToTopButton.addEventListener('click', function() {
-                window.scrollTo({top: 0, behavior: 'smooth'});
-            });
-            
-            // Function for creating random musical notes
-            function createNote() {
-                const note = document.createElement('div');
-                note.className = 'musical-note';
-                note.textContent = ['♩', '♪', '♫', '♬', '𝄞'][Math.floor(Math.random() * 5)];
-                note.style.left = Math.random() * 100 + '%';
-                note.style.top = Math.random() * 100 + '%';
-                note.style.animationDuration = 10 + Math.random() * 15 + 's';
-                document.body.appendChild(note);
-                
-                setTimeout(() => {
-                    note.remove();
-                }, 15000);
-            }
-            
-            // Toggle ticket details
-            document.querySelectorAll('.ticket-stub').forEach(stub => {
-                stub.addEventListener('click', function() {
-                    const details = this.nextElementSibling;
-                    const isExpanded = details.classList.contains('expanded');
-                    
-                    // Close all other expanded tickets
-                    document.querySelectorAll('.ticket-details.expanded').forEach(expandedDetails => {
-                        if (expandedDetails !== details) {
-                            expandedDetails.classList.remove('expanded');
-                        }
-                    });
-                    
-                    // Toggle current ticket
-                    if (isExpanded) {
-                        details.classList.remove('expanded');
-                    } else {
-                        details.classList.add('expanded');
-                        
-                        // Scroll to the expanded ticket
-                        const ticketContainer = this.closest('.ticket-container');
-                        setTimeout(() => {
-                            ticketContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }, 100);
-                    }
-                });
-            });
-            
-            // Button actions
-            document.querySelectorAll('.book-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    showNotification('Booking successful! Check your email for details.');
-                });
-            });
-            
-            document.querySelectorAll('.share-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    showNotification('Event details copied to clipboard!');
-                });
-            });
-            
-            // Newsletter form
-            document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const emailInput = this.querySelector('.newsletter-input');
-                
-                if (emailInput.value.trim() !== '') {
-                    showNotification('Thank you for subscribing!');
-                    emailInput.value = '';
-                }
-            });
-            
-            // Filter functionality
-            document.querySelectorAll('.filter-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    // Update active class
-                    document.querySelectorAll('.filter-option').forEach(opt => {
-                        opt.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    // Filter tickets
-                    const filter = this.getAttribute('data-filter');
-                    document.querySelectorAll('.ticket-container').forEach(ticket => {
-                        if (filter === 'all' || ticket.getAttribute('data-month') === filter) {
-                            ticket.style.display = '';
-                        } else {
-                            ticket.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Show notification
-            function showNotification(message) {
-                const notification = document.getElementById('notification');
-                notification.textContent = message;
-                notification.classList.add('show');
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-            }
-        });
-    </script>
 </body>
 </html>
