@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Details</title>
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/base.css">
     <style>
         /* Global Styles */
         * {
@@ -12,14 +13,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-        }
-        :root {
-            --color-primary: #9c3328;
-            --color-secondary: #e8b923;
-            --color-dark: #482c1d;
-            --color-light: #f4efe4;
-            --td: 300ms;
-            --te: cubic-bezier(0.215, 0.61, 0.355, 1);
         }
         body {
             background-color: var(--color-light);
@@ -57,6 +50,8 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/classes.JPG') center/cover no-repeat;
+            background-color: var(--color-light);
+
 
             height: 300px;
             display: flex;
@@ -108,6 +103,8 @@
             padding: 0.75rem 1.25rem;
             background-color: var(--color-dark);
             color: var(--color-light);
+
+            color: var(--color-light);
             border: none;
             border-radius: 8px;
             cursor: pointer;
@@ -139,7 +136,8 @@
             position: relative;
         }
         .course-list-item:hover {
-            background-color: #ebe5da;
+            background-color: var(--color-light);
+
             transform: translateX(5px);
         }
         .course-list-item.active {
@@ -159,6 +157,8 @@
         }
         .course-list-item.active .course-level {
             background-color: white;
+            color: var(--color-primary);
+
             color: var(--color-primary);
         }
 
