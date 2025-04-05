@@ -53,7 +53,7 @@
     top: 50%;
     left: 10%;
     transform: translateY(-50%);
-    color: white;
+    color: var(--white);
     z-index: 2;
     max-width: 500px;
 }
@@ -83,7 +83,7 @@
 .read-more {
     padding: 12px 28px;
     background: var(--color-primary);
-    color: white;
+    color: var(--white);
     border: none;
     cursor: pointer;
     font-weight: 500;
@@ -117,7 +117,7 @@
 
 .btn {
     background-color: rgba(255,255,255,0.15);
-    color: white;
+    color: var(--white);
     border: none;
     width: 40px;
     height: 40px;

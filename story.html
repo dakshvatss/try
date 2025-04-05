@@ -102,7 +102,8 @@
         /* Content details */
         .content-details {
             padding: 20px;
-            background-color: white;
+            background-color: var(--color-dark);
+            border-color: var(--color-secondary);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, opacity 0.5s;
@@ -117,7 +118,7 @@
         
         .content-details p {
             line-height: 1.6;
-            color: #666;
+            color: var(--color-light);
             margin-bottom: 20px;
         }
         
@@ -136,7 +137,7 @@
         }
         
         .content-btn:hover {
-            background-color: var(--color-dark);
+            background-color: var(--nav);
         }
         
         /* Card section enhancements */
@@ -191,7 +192,7 @@
 
 /* Card details section */
 .card-details-section {
-    background-color: white;
+    background-color: var(--color-dark);
     border-radius: 10px;
     padding: 25px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -215,7 +216,7 @@
     text-align: center;
     padding: 15px;
     border-radius: 8px;
-    background-color: var(--color-light);
+    background-color: var(--nav);
     transition: transform 0.3s;
 }
 
@@ -236,7 +237,7 @@
 
 .highlight-item p {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-light);
 }
 
 /* Testimonials section */
@@ -273,7 +274,7 @@
 }
 
 .testimonial-content {
-    background-color: white;
+    background-color: var(--nav);
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -288,14 +289,14 @@
     left: 50px;
     width: 20px;
     height: 20px;
-    background-color: white;
+    background-color: var(--nav);
     transform: rotate(45deg);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
 }
 
 .testimonial-content p {
     font-style: italic;
-    color: #555;
+    color: var(--color-light);
     line-height: 1.6;
 }
 
@@ -316,7 +317,7 @@
 
 .testimonial-info h4 {
     margin: 0;
-    color: var(--color-dark);
+    color: var(--color-secondary);
 }
 
 .testimonial-info p {
@@ -333,7 +334,7 @@
 }
 
 .carousel-control {
-    background-color: var(--color-primary);
+    background-color: var(--color-dark);
     color: white;
     border: none;
     width: 40px;
@@ -345,7 +346,7 @@
 }
 
 .carousel-control:hover {
-    background-color: var(--color-dark);
+    background-color: var(--color-primary);
 }
 
 /* Upcoming events section */
@@ -407,7 +408,7 @@
 
 .event-details h3 {
     margin: 0 0 10px;
-    color: var(--color-dark);
+    color: var(--color-primary);
     font-size: 1.1rem;
 }
 
@@ -485,14 +486,7 @@
             transform: translateX(0);
         }
         
-        /* Footer styles */
-        footer {
-            background-color: var(--color-dark);
-            color: white;
-            padding: 20px 0;
-            margin-top: 50px;
-            text-align: center;
-        }
+        
         
         /* Responsive styles */
         @media (max-width: 900px) {

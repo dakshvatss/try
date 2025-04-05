@@ -52,12 +52,12 @@
   .month-title {
     font-size: 18px;
     font-weight: 600;
-    color: #8B4513;
+    color: var(--color-brown);
   }
 
   .month-nav {
     cursor: pointer;
-    color: #d4af37;
+    color: var(--color-secondary);
     font-size: 24px;
     font-weight: bold;
     width: 30px;
@@ -82,7 +82,7 @@
   }
 
   .weekday {
-    color: #8B4513;
+    color: var(--color-brown);
     font-weight: 700;
     padding: 5px 0;
     font-size: 14px;
@@ -115,12 +115,12 @@
   }
 
   .day.event {
-    background: #d4af37;
+    background: var(--color-secondary);
     color: #fff;
   }
 
   .day.selected {
-    background: #8B4513;
+    background: var(--color-brown);
     color: #fff;
   }
 
@@ -139,7 +139,7 @@
   }
 
   .event .date {
-    color: #8B4513;
+    color: var(--color-brown);
     font-weight: 600;
     margin-bottom: 5px;
   }
@@ -173,7 +173,7 @@
   }
 
   .feed-placeholder {
-    color: #8B4513;
+    color: var(--color-brown);
     font-weight: 600;
     font-size: 16px;
   }

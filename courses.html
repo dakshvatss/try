@@ -15,8 +15,8 @@
             font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
         }
         body {
-            background-color: var(--color-light);
-            color: var(--color-dark);
+            background-color: var(--color-dark);
+            color: var(--color-light);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -84,7 +84,7 @@
         /* Left Sidebar - Increased width */
         .sidebar {
             width: 350px; /* Increased from 300px */
-            background-color: white;
+            background-color: var(--color-dark);
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
             padding: 2rem 1rem;
             display: flex;
@@ -128,7 +128,7 @@
         .course-list-item {
             padding: 1rem;
             margin-bottom: 0.5rem;
-            background-color: var(--color-light);
+            background-color: var(--nav);
             border-radius: 8px;
             cursor: pointer;
             transition: all var(--td) var(--te);
@@ -136,7 +136,7 @@
             position: relative;
         }
         .course-list-item:hover {
-            background-color: var(--color-light);
+            background-color: var(--nav);
 
             transform: translateX(5px);
         }
@@ -177,7 +177,7 @@
         .course-details {
             flex: 1;
             padding: 2rem;
-            background-color: #fff;
+            background-color: var(--color-dark);
             box-shadow: -2px 0 10px rgba(0,0,0,0.05);
             position: relative;
             min-height: fit-content; /* Ensure it expands to fit content */
@@ -234,12 +234,12 @@
         }
         .course-objectives {
             margin: 1.5rem 0;
-            background-color: var(--color-light);
+            background-color: var(--nav);
             padding: 1.5rem;
             border-radius: 8px;
         }
         .course-fee {
-            background-color: var(--color-light);
+            background-color: var(--nav);
             padding: 1.5rem;
             border-radius: 8px;
             margin-top: 1.5rem;

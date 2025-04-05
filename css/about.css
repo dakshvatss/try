@@ -123,7 +123,7 @@
     font-weight: 700;
     line-height: 90px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: var(--white);
     border: 1px solid #000000;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .about-section .btn-style-three:hover {
-    color: #ffffff;
+    color: var(--white);
     background: var(--color-secondary);
 }
 
@@ -153,7 +153,7 @@
     background: none;
     display: inline-block;
     padding: 10px 30px;
-    background-color: #ffffff;
+    background-color: var(--white);
     text-transform: capitalize;
     border: 2px solid var(--color-secondary);
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
@@ -165,7 +165,7 @@
 }
 
 .sec-title2 {
-    color: #fff;
+    color: var(--white);
 }
 
 .sec-title .title {
@@ -243,7 +243,7 @@
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 16px;
-    color: #8B4513;
+    color: var(--color-brown);
     margin-bottom: 5px;
     letter-spacing: 0.5px;
 }
@@ -252,7 +252,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 22px;
     font-weight: 700;
-    color: #5D3954;
+    color: var(--color-primary);
     margin-bottom: 15px;
     position: relative;
     padding-bottom: 8px;
@@ -265,14 +265,14 @@
     bottom: 0;
     width: 40px;
     height: 2px;
-    background-color: #8B4513;
+    background-color: var(--color-brown);
 }
 
 .school-history {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     line-height: 1.6;
-    color: #333;
+    color: var(--color-dark-gray);
     margin-bottom: 12px;
 }
 
@@ -280,9 +280,9 @@
     font-family: 'Lato', sans-serif;
     font-size: 15px;
     line-height: 1.6;
-    color: #555;
+    color: var(--color-dark-gray);
     margin-bottom: 20px;
-    border-left: 3px solid #8B4513;
+    border-left: 3px solid var(--color-brown);
     padding-left: 12px;
 }
 

@@ -9,7 +9,7 @@
 .sec-title button {
     margin: 30px 10px;
     top: 20px;
-    background-color: #8B4513;
+    background-color: var(--color-brown);
     color: #fff;
     font-family: 'Georgia', serif;
     font-size: 16px;
@@ -27,7 +27,7 @@
 }
   
 .sec-title button:hover {
-    background-color: #6B3100;
+    background-color: var(--color-brown);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
