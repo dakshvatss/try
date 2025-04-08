@@ -417,7 +417,7 @@
 }
 
 .events-info {
-  background-color: var(--color-secondary);
+  background-color: #333;
   border-radius: 10px;
   padding: 30px;
   color: var(--color-dark);
