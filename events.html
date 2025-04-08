@@ -445,6 +445,81 @@
         max-width: 100%;
     }
 }
+main {
+        flex: 1;
+        padding: 40px 5px; /* Reduced horizontal padding */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .page-container {
+        width: 100%;
+        max-width: 100%; /* Expanded to fill available width */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Reduced gap between containers */
+        padding: 0 20px; /* Added padding to the container instead */
+    }
+    
+    /* Container adjustments */
+    .calendar-container, .events-container, .album-container {
+        flex: 1;
+        min-width: 28%; /* Ensure more even distribution */
+        background-color: var(--nav);
+        border-radius: 15px;
+        padding: 25px 20px; /* Adjusted padding */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Event card adjustments */
+    .event-card {
+        width: 100%; /* Take full width of container */
+        margin-bottom: 20px;
+    }
+    
+    .event-image {
+        width: 130px; /* Slightly smaller */
+        min-width: 130px;
+        height: 120px;
+        object-fit: cover;
+    }
+    
+    /* Calendar adjustments */
+    iframe {
+        width: 100% !important;
+        height: 450px;
+    }
+    
+    /* Album adjustments */
+    .album-slideshow {
+        width: 100%;
+        height: 300px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+        .page-container {
+            flex-direction: column;
+        }
+        
+        .calendar-container, .events-container, .album-container {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+    
+    @media (min-width: 1201px) and (max-width: 1600px) {
+        .calendar-container, .events-container, .album-container {
+            min-width: 30%;
+        }
+    }
+    
+    @media (min-width: 1601px) {
+        .page-container {
+            max-width: 1800px; /* Limit extremely wide screens */
+            margin: 0 auto;
+        }
+    }
     </style>
 </head>
 
