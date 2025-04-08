@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Details</title>
-    <link rel="stylesheet" href="css/footer.css">
+    <title>Kannada Light Music Courses</title>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
     <style>
-        /* Global Styles */
-        * {
+       * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
         }
+        /* Define CSS variables */
+
         body {
             background-color: var(--color-dark);
             color: var(--color-light);
@@ -51,8 +54,6 @@
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/classes.JPG') center/cover no-repeat;
             background-color: var(--color-light);
-
-
             height: 300px;
             display: flex;
             flex-direction: column;
@@ -60,7 +61,7 @@
             align-items: center;
             text-align: center;
             color: white;
-            padding: 0; /* Changed padding to 0 to remove distance */
+            padding: 0;
             transition: all var(--td) var(--te);
         }
         .hero h1 {
@@ -73,12 +74,67 @@
             max-width: 800px;
         }
 
+        /* Initial Selection - Fixed styling */
+        .course-type-selection {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background-color: var(--nav);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        
+        .course-type-selection .course-type-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .course-type-selection .type-tab {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+        
+        .course-type-selection .type-tab:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+        
+        .course-type-selection .type-tab.active {
+            background-color: var(--color-primary);
+        }
+        
+        .course-type-selection p {
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
         /* Two-column Layout */
         .course-container {
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
             min-height: auto;
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .course-container.visible {
+            opacity: 1;
+            visibility: visible;
+            height: auto;
         }
 
         /* Left Sidebar - Increased width */
@@ -102,8 +158,6 @@
         .type-tab {
             padding: 0.75rem 1.25rem;
             background-color: var(--color-dark);
-            color: var(--color-light);
-
             color: var(--color-light);
             border: none;
             border-radius: 8px;
@@ -137,7 +191,6 @@
         }
         .course-list-item:hover {
             background-color: var(--nav);
-
             transform: translateX(5px);
         }
         .course-list-item.active {
@@ -157,8 +210,6 @@
         }
         .course-list-item.active .course-level {
             background-color: white;
-            color: var(--color-primary);
-
             color: var(--color-primary);
         }
 
@@ -190,7 +241,7 @@
             opacity: 0;
             transition: left 0.4s ease-out, opacity 0.4s ease-out;
         }
-        /* Course Detail Content - Add this property */
+        /* Course Detail Content */
         .course-detail.active {
             display: block;
             left: 0;
@@ -256,6 +307,14 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Footer */
+        footer {
+            background-color: var(--nav);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .course-container {
@@ -271,157 +330,18 @@
             .hero h1 {
                 font-size: 2rem;
             }
-        }
-    </style>
-    <link rel="stylesheet" href="nav.css">
-    <link rel="stylesheet" href="css/header.css">
-    <script>
-        // Function to show course type (online/offline)
-        function showCourseType(type) {
-            // Prepare the transition by setting opacity to 0 first
-            const sections = document.querySelectorAll('.course-type-section');
-            sections.forEach(section => {
-                if (section.classList.contains('active')) {
-                    section.style.opacity = 0;
-                }
-            });
-            
-            // After a short delay, update the active class
-            setTimeout(() => {
-                // Hide all course type sections
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                // Show the selected section
-                const activeSection = document.getElementById(type + '-list');
-                activeSection.classList.add('active');
-                
-                // Fade it in
-                setTimeout(() => {
-                    activeSection.style.opacity = 1;
-                }, 50);
-                
-                // Update tab styling
-                // Update tab styling
-                const tabs = document.querySelectorAll('.type-tab');
-                tabs.forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                
-                // Make the clicked tab active
-                document.querySelector(`.type-tab[data-type="${type}"]`).classList.add('active');
-                
-                // Select default course for the type
-                if (type === 'online') {
-                    // Select first online course
-                    const firstOnlineCourse = document.querySelector('#online-list .course-list-item');
-                    showCourseDetail(firstOnlineCourse, firstOnlineCourse.getAttribute('data-course'));
-                } else {
-                    // Select naadathamboori for offline by default
-                    const naadaCourse = document.querySelector('#offline-list .course-list-item[data-course="naadathamboori"]');
-                    showCourseDetail(naadaCourse, 'naadathamboori');
-                }
-            }, 300);
-        }
-
-        // Function to show course detail with sliding animation
-        function showCourseDetail(listItem, courseId) {
-            // Update active class on list items
-            document.querySelectorAll('.course-list-item').forEach(item => {
-                item.classList.remove('active');
-            });
-                    
-            // Add active class to clicked item
-            listItem.classList.add('active');
-                    
-            // Hide empty state if visible
-            document.getElementById('empty-state').style.display = 'none';
-                    
-            // Get current active detail and all details
-            const allDetails = document.querySelectorAll('.course-detail');
-            const currentDetail = document.querySelector('.course-detail.active');
-                    
-            if (currentDetail) {
-                // Slide current detail out to the left
-                
-                currentDetail.style.opacity = '0';
-                        
-                // After animation completes, remove active class
-                setTimeout(() => {
-                    currentDetail.classList.remove('active');
-                    
-                    // Show selected detail with slide-in from right
-                    const selectedDetail = document.getElementById(courseId + '-detail');
-                    if (selectedDetail) {
-                        selectedDetail.style.left = '100%';
-                        selectedDetail.classList.add('active');
-                        
-                        // Trigger animation after a short delay
-                        setTimeout(() => {
-                            selectedDetail.style.left = '0';
-                            selectedDetail.style.opacity = '1';
-                        }, 30);
-                    }
-                }, 200); // Match transition duration
-            } else {
-                // No active detail yet, just show the selected one immediately
-                const selectedDetail = document.getElementById(courseId + '-detail');
-                if (selectedDetail) {
-                    selectedDetail.classList.add('active');
-                    selectedDetail.style.left = '0';
-                    selectedDetail.style.opacity = '1';
-                }
+            .course-type-selection .course-type-tabs {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .course-type-selection .type-tab {
+                width: 100%;
             }
         }
-
-        // Initialize: Select default course (Naadathamboori)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set offline tab as active by default
-            const offlineTab = document.querySelector('.type-tab[data-type="offline"]');
-            offlineTab.classList.add('active');
-            
-            // Show offline courses section
-            const offlineSection = document.getElementById('offline-list');
-            offlineSection.classList.add('active');
-            offlineSection.style.opacity = '1';
-            
-            // Set Naadathamboori as active by default
-            const defaultCourse = document.querySelector('.course-list-item[data-course="naadathamboori"]');
-            defaultCourse.classList.add('active');
-            
-            // Show Naadathamboori details
-            const defaultDetail = document.getElementById('naadathamboori-detail');
-            defaultDetail.classList.add('active');
-            defaultDetail.style.opacity = '1';
-            defaultDetail.style.left = '0';
-            
-            // Hide empty state
-            document.getElementById('empty-state').style.display = 'none';
-        });
-
-        // Optional Enhancement: Language Toggle Functionality
-        document.getElementById('langToggle').addEventListener('click', function() {
-            // Here you would implement language switching logic
-            // For now, just toggle active class
-            this.classList.toggle('active');
-            
-            // You could trigger language change here
-            // switchLanguage();
-        });
-
-        // Function to switch language (placeholder)
-        function switchLanguage() {
-            // This function would be implemented to switch between English and Kannada
-            console.log('Language switch requested');
-            // Example implementation would involve changing text content
-            // or loading a different language version of the page
-        }
-    </script>
+    </style>
 </head>
 <body>
-
-    <header>
+        <header>
         <div class="logo">
             <img src="images\logo-removebg-preview.png" alt="Logo">
         </div>
@@ -479,7 +399,17 @@
         <p>Join our specialized programs designed to cultivate musical excellence in students of all ages</p>
     </div>
 
-    <div class="course-container">
+    <!-- Initial full-width course type selection -->
+    <div id="initial-selection" class="course-type-selection">
+        <div class="course-type-tabs">
+            <button class="type-tab" data-type="online">Online Classes</button>
+            <button class="type-tab active" data-type="offline">In-Person Classes</button>
+        </div>
+        <p>Select a class type to view our course offerings</p>
+    </div>
+
+    <!-- Course container that appears after selection -->
+    <div class="course-container" id="course-container">
         <!-- Left Sidebar -->
         <div class="sidebar">
             <div class="course-type-tabs">
@@ -532,6 +462,7 @@
                 <p>Click on any course from the left menu to view detailed information about it.</p>
             </div>
             
+            <!-- Course details sections -->
             <!-- Layathmboori Details -->
             <div id="layathmboori-detail" class="course-detail">
                 <div class="course-header">
@@ -737,144 +668,90 @@
     </footer>
 
     <script>
+        // Hide course container initially
+        document.getElementById('course-container').style.opacity = '0';
+        document.getElementById('course-container').style.visibility = 'hidden';
+        
+        // Initial selection handling
+        document.querySelectorAll('#initial-selection .type-tab').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active state for initial buttons
+                document.querySelectorAll('#initial-selection .type-tab').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Update corresponding button in sidebar
+                const courseType = this.getAttribute('data-type');
+                document.querySelectorAll('.sidebar .type-tab').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-type') === courseType) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Show course type in sidebar
+                showCourseType(courseType);
+                
+                // Hide initial selection
+                document.getElementById('initial-selection').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('initial-selection').style.display = 'none';
+                    
+                    // Show course container
+                    document.getElementById('course-container').style.visibility = 'visible';
+                    document.getElementById('course-container').style.height = 'auto';
+                    document.getElementById('course-container').style.opacity = '1';
+                    document.getElementById('course-container').classList.add('visible');
+                }, 500);
+            });
+        });
+
         // Function to show course type (online/offline)
         function showCourseType(type) {
-            // Prepare the transition by setting opacity to 0 first
-            const sections = document.querySelectorAll('.course-type-section');
-            sections.forEach(section => {
-                if (section.classList.contains('active')) {
-                    section.style.opacity = 0;
+            // Hide all course type sections
+            document.querySelectorAll('.course-type-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected course type section
+            document.getElementById(type + '-list').classList.add('active');
+            
+            // Update active state for tabs
+            document.querySelectorAll('.type-tab').forEach(tab => {
+                if (tab.getAttribute('data-type') === type) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
                 }
             });
             
-            // After a short delay, update the active class
-            setTimeout(() => {
-                // Hide all course type sections
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                
-                // Show the selected section
-                const activeSection = document.getElementById(type + '-list');
-                activeSection.classList.add('active');
-                
-                // Fade it in
-                setTimeout(() => {
-                    activeSection.style.opacity = 1;
-                }, 50);
-                
-                // Update tab styling
-                const tabs = document.querySelectorAll('.type-tab');
-                tabs.forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                
-                // Make the clicked tab active
-                document.querySelector(`.type-tab[data-type="${type}"]`).classList.add('active');
-                
-                // Select default course for the type
-                if (type === 'online') {
-                    // Select first online course
-                    const firstOnlineCourse = document.querySelector('#online-list .course-list-item');
-                    showCourseDetail(firstOnlineCourse, firstOnlineCourse.getAttribute('data-course'));
-                } else {
-                    // Select naadathamboori for offline by default
-                    const naadaCourse = document.querySelector('#offline-list .course-list-item[data-course="naadathamboori"]');
-                    showCourseDetail(naadaCourse, 'naadathamboori');
-                }
-            }, 300);
-        }
-
-        // Function to show course detail with sliding animation
-        // Function to show course detail with sliding animation
-function showCourseDetail(listItem, courseId) {
-    // Update active class on list items
-    document.querySelectorAll('.course-list-item').forEach(item => {
-        item.classList.remove('active');
-    });
-            
-    // Add active class to clicked item
-    listItem.classList.add('active');
-            
-    // Hide empty state if visible
-    document.getElementById('empty-state').style.display = 'none';
-            
-    // Get current active detail and all details
-    const allDetails = document.querySelectorAll('.course-detail');
-    const currentDetail = document.querySelector('.course-detail.active');
-            
-    if (currentDetail) {
-        // Slide current detail out to the left
-        currentDetail.style.left = '-100%';
-        currentDetail.style.opacity = '0';
-                
-        // After animation completes, remove active class
-        setTimeout(() => {
-            currentDetail.classList.remove('active');
-            
-            // Show selected detail with slide-in from right
-            const selectedDetail = document.getElementById(courseId + '-detail');
-            if (selectedDetail) {
-                selectedDetail.style.left = '100%';
-                selectedDetail.classList.add('active');
-                
-                // Trigger animation after a short delay
-                setTimeout(() => {
-                    selectedDetail.style.left = '0';
-                    selectedDetail.style.opacity = '1';
-                }, 50);
+            // Show the first course in the selected type
+            const firstCourse = document.querySelector('#' + type + '-list .course-list-item');
+            if (firstCourse) {
+                showCourseDetail(firstCourse, firstCourse.getAttribute('data-course'));
             }
-        }, 300); // Match transition duration
-    } else {
-        // No active detail yet, just show the selected one immediately
-        const selectedDetail = document.getElementById(courseId + '-detail');
-        if (selectedDetail) {
-            selectedDetail.classList.add('active');
-            selectedDetail.style.left = '0';
-            selectedDetail.style.opacity = '1';
         }
-    }
-}
 
-// Initialize: Select default course (Naadathamboori)
-document.addEventListener('DOMContentLoaded', function() {
-    // Set offline tab as active by default
-    const offlineTab = document.querySelector('.type-tab[data-type="offline"]');
-    offlineTab.classList.add('active');
-    
-    // Show offline courses section
-    const offlineSection = document.getElementById('offline-list');
-    offlineSection.classList.add('active');
-    offlineSection.style.opacity = '1';
-    
-    // Set Naadathamboori as active by default
-    const defaultCourse = document.querySelector('.course-list-item[data-course="naadathamboori"]');
-    defaultCourse.classList.add('active');
-    
-    // Show Naadathamboori details
-    const defaultDetail = document.getElementById('naadathamboori-detail');
-    defaultDetail.classList.add('active');
-    defaultDetail.style.opacity = '1';
-    defaultDetail.style.left = '0';
-    
-    // Hide empty state
-    document.getElementById('empty-state').style.display = 'none';
-});
-
-// Optional Enhancement: Language Toggle Functionality
-document.getElementById('langToggle').addEventListener('click', function() {
-    // Here you would implement language switching logic
-    // For now, just toggle active class
-    this.classList.toggle('active');
-    
-    // You could trigger language change here
-    // switchLanguage();
-});
-
-// Function to switch language (placeholder)
-function switchLanguage() {
-    // This function would be implemented to switch between English and Kannada
-    console.log('Language switch requested');
-    // Example implementation would involve changing text content
-    // or loading a different language version of the page
-}
+        // Function to show course detail
+        function showCourseDetail(element, courseId) {
+            // Hide all course details
+            document.querySelectorAll('.course-detail').forEach(detail => {
+                detail.classList.remove('active');
+            });
+            
+            // Show selected course detail
+            document.getElementById(courseId + '-detail').classList.add('active');
+            
+            // Update active state for course list items
+            document.querySelectorAll('.course-list-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            // Hide empty state
+            document.getElementById('empty-state').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
