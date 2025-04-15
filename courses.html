@@ -159,7 +159,7 @@
             padding: 0.75rem 1.25rem;
             background-color: var(--color-dark);
             color: var(--color-light);
-            border: none;
+            border: 2px solid var(--color-primary);
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
@@ -374,6 +374,14 @@
                         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                     </svg>
                 </a>
+                <a href="https://open.spotify.com/artist/RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="Spotify">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M6 12.5a6 6 0 0 1 10 0"></path>
+                        <path d="M8 15a4 4 0 0 1 6 0"></path>
+                        <path d="M10 17.5a2 2 0 0 1 2 0"></path>
+                    </svg>
+                </a>
             </div>
             <ul class="menu">
                 <li class="menu__item">
@@ -403,7 +411,7 @@
     <div id="initial-selection" class="course-type-selection">
         <div class="course-type-tabs">
             <button class="type-tab" data-type="online">Online Classes</button>
-            <button class="type-tab active" data-type="offline">In-Person Classes</button>
+            <button class="type-tab" data-type="offline">In-Person Classes</button>
         </div>
         <p>Select a class type to view our course offerings</p>
     </div>
@@ -414,7 +422,7 @@
         <div class="sidebar">
             <div class="course-type-tabs">
                 <button class="type-tab" data-type="online" onclick="showCourseType('online')">Online Classes</button>
-                <button class="type-tab active" data-type="offline" onclick="showCourseType('offline')">In-Person Classes</button>
+                <button class="type-tab" data-type="offline" onclick="showCourseType('offline')">In-Person Classes</button>
             </div>
             
             <!-- Online Courses List -->
