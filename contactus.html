@@ -1,382 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="nav.css">
     <style>
-    :root {
-        --color-primary: #9c3328;
-        --color-secondary: #e8b923;
-        --color-dark: #482c1d;
-        --color-light: #f4efe4;
-        --td: 150ms;
-        --te: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
+        /* Using your existing color scheme */
+ 
 
-    
 
-    .contact-container {
-        max-width: 1200px;
-        margin: 3rem auto;
-        padding: 0 2rem;
-        background-color: var(--color-light);
-        color: var(--color-dark);
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .section-title {
-        text-align: center;
-        margin-bottom: 2rem;
-        color: var(--color-primary);
-        position: relative;
-        font-size: 1.8rem;
-    }
-
-    .section-title::after {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 3px;
-        background-color: var(--color-secondary);
-        margin: 0.5rem auto;
-    }
-
-    /* Social Media Feeds */
-    .social-section {
-        margin-bottom: 3rem;
-    }
-
-    .social-feeds {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: center;
-    }
-
-    .social-feed {
-        flex: 1;
-        min-width: 300px;
-        max-width: 500px;
-        background-color: white;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .feed-header {
-        padding: 1rem;
-        background-color: var(--color-primary);
-        color: white;
-        display: flex;
-        align-items: center;
-    }
-
-    .feed-icon {
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1rem;
-        color: var(--color-primary);
-        font-weight: bold;
-    }
-
-    .feed-title {
-        font-weight: 600;
-    }
-
-    .feed-content {
-        height: 400px;
-        overflow: hidden;
-        background-color: #f9f9f9;
-    }
-
-    .feed-content img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .feed-footer {
-        padding: 1rem;
-        text-align: center;
-        border-top: 1px solid #eee;
-    }
-
-    .btn-social {
-        background-color: var(--color-primary);
-        color: white;
-        border: none;
-        padding: 0.6rem 1.2rem;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: background-color var(--td) var(--te);
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .btn-social:hover {
-        background-color: var(--color-secondary);
-    }
-
-    /* Contact Information */
-    .contact-info-section {
-        margin: 3rem 0;
-    }
-
-    .contact-card {
-        background-color: white;
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        width: 100%;
-    }
-
-    .contact-details h2 {
-        color: var(--color-primary);
-        margin-bottom: 2rem;
-        font-size: 1.8rem;
-        text-align: center;
-    }
-
-    .contact-info-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-
-    .contact-item {
-        display: flex;
-        margin-bottom: 1.5rem;
-        align-items: flex-start;
-    }
-
-    .contact-icon {
-        width: 50px;
-        height: 50px;
-        background-color: var(--color-primary);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        margin-right: 1.5rem;
-        flex-shrink: 0;
-        font-size: 1.2rem;
-    }
-
-    .contact-text h3 {
-        color: var(--color-primary);
-        margin-bottom: 0.5rem;
-        font-size: 1.3rem;
-    }
-
-    .contact-text p {
-        color: var(--color-dark);
-        line-height: 1.8;
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    /* Map Section */
-    .map-section {
-        margin: 3rem 0;
-    }
-
-    .map-container {
-        height: 450px;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
-
-    .map-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-        .social-feeds {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .social-feed {
+        .container {
             width: 100%;
+            max-width: 1170px;
+            margin: 40px auto;
+            padding: 10px 15px;
         }
-        
-        .contact-info-grid {
-            grid-template-columns: 1fr;
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
-    }
-</style>
+
+        .contact-header h1 {
+            color: var(--color-primary);
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contact-header p {
+            color: var(--color-dark-gray);
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(70, 82, 142, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info h3 {
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item i {
+            color: var(--color-primary);
+            font-size: 24px;
+        }
+
+        .info-details h4 {
+            color: var(--white);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .info-details p {
+            color: var(--color-dark-gray);
+        }
+
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form h3 {
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid rgba(219, 221, 231, 0.3);
+            background-color: rgba(30, 39, 81, 0.8);
+            color: var(--white);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(247, 145, 61, 0.3);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--color-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: var(--color-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .google-form-embed {
+            margin-top: 30px;
+        }
+
+        .border {
+            position: relative;
+            width: 100%;
+            height: 8px;
+            background-color: var(--color-brown);
+            margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .form-group {
+                width: 100%;
+            }
+            
+            .contact-wrapper {
+                flex-direction: column;
+            }
+        }
+
+        /* Social media icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .social-icon i {
+            color: var(--white);
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<div class="contact-container">
-    <!-- Social Media Feeds -->
-    <div class="social-section">
-        <h2 class="section-title">Follow Us</h2>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <input type="checkbox" id="main-navigation-toggle" class="btn btn--close" title="Toggle main navigation" />
+        <label for="main-navigation-toggle">
+            <span></span>
+        </label>
+        <nav id="main-navigation" class="nav-main">
+            <div class="logo">
+                <img src="images\logo-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="language-toggle">
+                <button class="lang-btn" id="langToggle" aria-label="Toggle language">
+                    <span class="lang-text">English</span>
+                    <span class="lang-separator">/</span>
+                    <span class="lang-text">ಕನ್ನಡ</span>
+                </button>
+            </div>
+      
+            <ul class="menu">
+              <li class="menu__item">
+                <a class="menu__link" href="index.html">Home</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="story.html">Story</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="courses.html">Classes</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="events.html">Events</a>
+              </li>
+              <li class="menu__item">
+                <a class="menu__link" href="contactus.html">Contact</a>
+              </li>
+            </ul>
+        </nav>
+    </header>
+    <br><br>
+    <div class="border"></div>
+    
+    <div class="container">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>Have a question or want to get in touch? We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
+        </div>
         
-        <div class="social-feeds">
-            <div class="social-feed">
-                <div class="feed-header">
-                    <div class="feed-icon">f</div>
-                    <div class="feed-title">Facebook</div>
-                </div>
-                <div class="feed-content">
-                    <!-- Facebook Page Plugin -->
-                    <!-- Replace this comment with: -->
-                    <!-- <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FRaghuleelaMusicSchool&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> -->
-                    <img src="/api/placeholder/400/400" alt="Facebook feed placeholder">
-                </div>
-                <div class="feed-footer">
-                    <a href="https://www.facebook.com/RaghuleelaMusicSchool" target="_blank" class="btn-social">Visit Facebook</a>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                
+                <div class="info-item">
+    <i class="fas fa-map-marker-alt"></i>
+    <div class="info-details">
+        <h4>Location</h4>
+        <p>426, 9th Main, Swimming Pool Road, Opp to Karnataka Housing Board Office, Saraswathipuram, Mysuru - 570009</p>
+    </div>
+</div>
+
+<div class="info-item">
+    <i class="fas fa-phone-alt"></i>
+    <div class="info-details">
+        <h4>Phone</h4>
+        <p>+91 89714 71829</p>
+    </div>
+</div>
+
+<div class="info-item">
+    <i class="fas fa-envelope"></i>
+    <div class="info-details">
+        <h4>Email</h4>
+        <p>reachrlsm@gmail.com</p>
+    </div>
+</div>
+
+<div class="info-item">
+    <i class="fas fa-clock"></i>
+    <div class="info-details">
+        <h4>Hours</h4>
+        <p>Monday - Friday: 9am - 5pm<br>Weekend: 10am - 2pm</p>
+    </div>
+</div>
+
+                
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
             
-            <div class="social-feed">
-                <div class="feed-header">
-                    <div class="feed-icon">ig</div>
-                    <div class="feed-title">Instagram</div>
-                </div>
-                <div class="feed-content">
-                    <!-- Instagram Feed -->
-                    <!-- Note: Instagram no longer provides simple embedding. You would need a third-party service or Instagram Basic Display API -->
-                    <img src="/api/placeholder/400/400" alt="Instagram feed placeholder">
-                </div>
-                <div class="feed-footer">
-                    <a href="https://www.instagram.com/raghuleelamusic" target="_blank" class="btn-social">Visit Instagram</a>
-                </div>
-            </div>
-            
-            <div class="social-feed">
-                <div class="feed-header">
-                    <div class="feed-icon">yt</div>
-                    <div class="feed-title">YouTube</div>
-                </div>
-                <div class="feed-content">
-                    <!-- YouTube Channel -->
-                    <!-- Replace this comment with: -->
-                    <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/?listType=user_uploads&list=RaghuleelaMusicSchool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                    <img src="/api/placeholder/400/400" alt="YouTube feed placeholder">
-                </div>
-                <div class="feed-footer">
-                    <a href="https://www.youtube.com/c/RaghuleelaMusicSchool" target="_blank" class="btn-social">Visit YouTube</a>
+            <div class="contact-form">
+                <h3>For Any Queries, Please Drop</h3>
+                
+               
+                <!-- Option 2: Google Form Embed -->
+                <div class="google-form-embed">
+                
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeOrngZhdnik31sYWXSuPRRkyyMHEk5wiVjzIyJEOzY9ajUfA/viewform?embedded=true" width="640" height="956" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>                    <div style="margin-top: 20px; background-color: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; text-align: center;">
+                        <p>Google Form would appear here</p>
+                        <p style="font-size: 14px; margin-top: 10px; color: var(--color-dark-gray);">Replace this with your Google Form embed code</p>
+                        <a href="https://forms.gle/YourFormLink" target="_blank" style="display: inline-block; margin-top: 15px; padding: 10px 20px; background-color: var(--color-secondary); color: var(--color-dark); text-decoration: none; border-radius: 5px; font-weight: 500;">Open Google Form</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Contact Information - Expanded -->
-    <div class="contact-info-section">
-        <div class="contact-card contact-details">
-            <h2>Get In Touch</h2>
-            
-            <div class="contact-info-grid">
-                <div class="contact-column">
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-text">
-                            <h3>Address</h3>
-                            <p>123 Music Avenue, Harmony District</p>
-                            <p>Mumbai, Maharashtra 400001</p>
-                            <p>India</p>
-                        </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                
+                <!-- Division 1: Logo and About -->
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Raghuleela School of Music Logo">
                     </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-text">
-                            <h3>Phone</h3>
-                            <p>+91 98765 43210</p>
-                            <p>+91 22 1234 5678</p>
+                    <p>Providing quality music education since 2005.</p>
+                </div>
+                
+                <!-- Division 2: Updated Quick Links with Redirects -->
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="quick-link">
+                        <li><a href="story.html">About us</a></li>
+                        <li><a href="courses.html">Learn with us</a></li>
+                        <li><a href="contactus.html">Collaborate with us</a></li>
+                        <li><a href="contactus.html">Work with us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Division 3: Updated Address & Contact Info -->
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <div class="contact-grid">
+                        <div class="contact-left">
+                            <p>
+                                426, 9th Main, Swimming Pool Road,<br>
+                                Opp to Karnataka Housing Board Office,<br>
+                                Saraswathipuram, Mysuru - 570009
+                            </p>
+                        </div>
+                        <div class="contact-right">
+                            <a href="tel:+918971471829">+91 8971471829</a>
+                            <a href="mailto:reachrlsm@gmail.com">reachrlsm@gmail.com</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-column">
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>info@raghuleela.com</p>
-                            <p>admissions@raghuleela.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
-                        <div class="contact-text">
-                            <h3>Hours</h3>
-                            <p>Monday - Friday: 9:00 AM - 7:00 PM</p>
-                            <p>Saturday: 9:00 AM - 5:00 PM</p>
-                            <p>Sunday: Closed</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
+    </footer>
     
-    <!-- Map Section -->
-    <div class="map-section">
-        <h2 class="section-title">Find Us</h2>
-        
-        <div class="map-container">
-            <!-- Google Maps Embed -->
-            <!-- Replace this comment with: -->
-            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.0123456789012!2d72.82345678901234!3d19.0123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAwJzQ0LjQiTiA3MsKwNDknMzQuNCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-            <img src="/api/placeholder/1200/450" alt="Map location">
-        </div>
-    </div>
-</div>
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-container">
-            
-            <!-- Division 1: Logo and About -->
-            <div class="footer-about">
-                <div class="footer-logo">
-                    <img src="images/logo.png" alt="Raghuleela School of Music Logo">
-                </div>
-                <p>Providing quality music education since 2005.</p>
-            </div>
-            
-            <!-- Division 2: Updated Quick Links with Redirects -->
-            <div class="footer-links">
-                <h4 class="footer-heading">Quick Links</h4>
-                <ul class="quick-link">
-                    <li><a href="story.html">About us</a></li>
-                    <li><a href="courses.html">Learn with us</a></li>
-                    <li><a href="contactus.html">Collaborate with us</a></li>
-                    <li><a href="contactus.html">Work with us</a></li>
-                </ul>
-            </div>
-            
-            <!-- Division 3: Updated Address & Contact Info -->
-            <div class="footer-contact">
-                <h4 class="footer-heading">Contact Info</h4>
-                <div class="contact-grid">
-                    <div class="contact-left">
-                        <p>
-                            426, 9th Main, Swimming Pool Road,<br>
-                            Opp to Karnataka Housing Board Office,<br>
-                            Saraswathipuram, Mysuru - 570009
-                        </p>
-                    </div>
-                    <div class="contact-right">
-                        <a href="tel:+918971471829">+91 8971471829</a>
-                        <a href="mailto:reachrlsm@gmail.com">reachrlsm@gmail.com</a>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</footer>
-
 </body>
+</html>
