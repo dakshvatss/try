@@ -1,13 +1,27 @@
+header::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6rem;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.25); /* translucent white */
+    backdrop-filter: blur(5px); /* soft blur effect */
+    z-index: 500; /* lower than .logo (1000) and .social-icons/.language-toggle (1001) */
+    pointer-events: none; /* ensures it doesn't block clicks */
+}
+
+
 /* Logo Styles */
 .logo img {
-    height: 100px;
+    height: 150px;
     width: auto;
     display: block;
 }
 
 .logo {
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: -30px;
     left: 20px;
     z-index: 1000;
 }
@@ -45,7 +59,7 @@
 .language-toggle {
     position: fixed;
     top: 1.8rem;
-    right: 12rem;
+    right: 16rem;
     z-index: 1001;
 }
 
