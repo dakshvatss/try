@@ -45,7 +45,7 @@
   .section-title {
     font-family: var(--font-display);
     color: var(--color-dark);
-    font-size: 40px;
+    font-size: 50px;
     margin-bottom: 15px;
     position: relative;
     display: inline-block;

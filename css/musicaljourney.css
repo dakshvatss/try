@@ -93,11 +93,12 @@
 
 /* Original title style (kept for reference) */
 .journey-title {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 30px;
   text-transform: uppercase;
+  padding-top: 80px;
   position: relative;
 }
 

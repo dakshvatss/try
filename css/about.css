@@ -23,7 +23,7 @@
 /* Image column adjustments */
 .about-section .image-column .inner-column {
     position: relative;
-    max-width: 500px;
+    max-width: 480px;
     margin: 0 auto;
     padding: 30px;
 }
@@ -64,9 +64,10 @@
 
 /* Enhanced founder name styling */
 .founder-name {
-    font-size: 26px;
+    font-size: 28px;
     margin-bottom: 20px;
     padding-bottom: 12px;
+    color: var(--color-secondary)
 }
 
 .founder-name:after {
@@ -76,7 +77,7 @@
 
 /* Improved text readability */
 .school-history, .school-evolution {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
     margin-bottom: 20px;
 }
