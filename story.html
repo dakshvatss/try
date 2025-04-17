@@ -536,6 +536,78 @@
 .hero-video:hover::-webkit-media-controls {
     opacity: 1;
 }
+.container {
+    width: 100%;
+    max-width: 1300px; /* Increased from 1170px */
+    margin: 0 auto;
+    padding: 0;        /* Remove padding */
+}
+.content-section {
+   
+    display: grid;
+    grid-template-columns: 2fr 2fr; /* Change from 1fr 2fr to make left card more prominent */
+    gap: 30px;
+   
+}
+
+/* Make the left content card taller */
+.content-details {
+    padding: 30px; /* Increased padding */
+    min-height: 400px; /* Increased from 300px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Improve the cards grid layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Keep 2 cards but make them larger */
+    gap: 30px; /* Increased gap */
+}
+
+/* Make individual cards larger */
+.card {
+    height: 250px; /* Increased from 200px */
+    transition: all 0.3s ease;
+}
+
+/* Card details section improvements */
+.card-details-section {
+    padding: 30px; /* Increased padding */
+    margin-top: 30px; /* Add some space between cards and details */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .content-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .cards-grid {
+        order: -1;
+    }
+    
+    .card {
+        height: 220px; /* Slightly smaller on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .content-details {
+        min-height: 350px; /* Slightly smaller on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        height: 200px; /* Return to original size on mobile */
+    }
+}
 </style>
 </head>
 <body>
@@ -622,10 +694,7 @@
                         <img src="images/3.jpg" alt="Trust">
                         <div class="card-title">Trust</div>
                     </div>
-                    <div class="card" data-index="3" data-content="community">
-                        <img src="images/4.jpeg" alt="Community">
-                        <div class="card-title">Community</div>
-                    </div>
+                    
                 </div>
                 
                 <div class="card-details-section fade-in" id="cardDetailsSection">
@@ -838,17 +907,7 @@ trust: {
     ]
 }
 ,
-        community: {
-            title: "OUR COMMUNITY",
-            video: "videos/vid.mp4", // Replace with actual video path
-            posterImage: "images/4.jpeg",
-            heroTitle: "OUR COMMUNITY",
-            paragraphs: [
-                "Our vibrant community consists of dedicated educators, supportive parents, and enthusiastic students who work together to create a nurturing learning environment.",
-                "Regular community events, parent-teacher meetings, and alumni gatherings help strengthen the bond between all stakeholders and foster a sense of belonging.",
-                "Through various outreach programs, our community actively participates in social service activities, environmental conservation efforts, and cultural exchanges."
-            ]
-        }
+        
     };
     
     // All content keys array
