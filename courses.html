@@ -28,11 +28,7 @@
         }
         
         /* Use the main-content wrapper to push the footer down */
-        .main-content {
-            flex: 1 0 auto; /* This makes it expand to fill available space */
-            display: flex;
-            flex-direction: column;
-        }
+        
         h1, h2, h3, h4 {
             color: var(--color-primary);
             margin-bottom: 0.5rem;
@@ -86,16 +82,7 @@
         }
 
         /* Initial Selection - Fixed styling */
-        .course-type-selection {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 2rem;
-            background-color: var(--nav);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            text-align: center;
-            transition: all 0.5s ease;
-        }
+        
         
         .course-type-selection .course-type-tabs {
             display: flex;
@@ -135,18 +122,42 @@
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
-            min-height: auto;
             opacity: 0;
             visibility: hidden;
+            position: absolute; /* Change to absolute positioning when hidden */
             height: 0;
+            overflow: hidden;
             transition: opacity 0.5s ease, visibility 0.5s ease;
-            flex: 1; /* Add this to make it expand */
+            flex: 1;
         }
         
         .course-container.visible {
             opacity: 1;
             visibility: visible;
+            position: relative; /* Return to normal flow when visible */
             height: auto;
+            overflow: visible;
+        }
+        
+        /* Make sure the main-content has position relative to contain the absolute course-container */
+        .main-content {
+            position: relative;
+            flex: 1 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Initial selection should take up proper space */
+        .course-type-selection {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background-color: var(--nav);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: all 0.5s ease;
+            display: block; /* Ensure it's displayed properly */
         }
 
         /* Left Sidebar - Increased width */
@@ -803,71 +814,73 @@
             }
             
             // Initial selection handling
-            document.querySelectorAll('#initial-selection .type-tab').forEach(button => {
-                button.addEventListener('click', function() {
-                    const courseType = this.getAttribute('data-type');
-                    
-                    // Hide initial selection with transition
-                    initialSelection.style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        initialSelection.style.display = 'none';
-                        
-                        // Update active states for both initial and sidebar tabs
-                        document.querySelectorAll('.type-tab').forEach(tab => {
-                            if (tab.getAttribute('data-type') === courseType) {
-                                tab.classList.add('active');
-                            } else {
-                                tab.classList.remove('active');
-                            }
-                        });
-                        
-                        // Show the selected course type
-                        showCourseType(courseType);
-                        
-                        // Show course container with transition
-                        courseContainer.style.visibility = 'visible';
-                        courseContainer.style.height = 'auto';
-                        courseContainer.classList.add('visible');
-                        courseContainer.style.opacity = '1';
-                    }, 300);
-                });
+// Initial selection handling
+document.querySelectorAll('#initial-selection .type-tab').forEach(button => {
+    button.addEventListener('click', function() {
+        const courseType = this.getAttribute('data-type');
+        
+        // Hide initial selection with transition
+        initialSelection.style.opacity = '0';
+        
+        setTimeout(() => {
+            initialSelection.style.display = 'none';
+            
+            // Update active states for both initial and sidebar tabs
+            document.querySelectorAll('.type-tab').forEach(tab => {
+                if (tab.getAttribute('data-type') === courseType) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
             });
+            
+            // Show the selected course type
+            showCourseType(courseType);
+            
+            // Show course container with transition
+            courseContainer.style.visibility = 'visible';
+            courseContainer.style.height = 'auto'; // Add this line
+            courseContainer.classList.add('visible');
+            courseContainer.style.opacity = '1';
+        }, 300);
+    });
+});
             
             // Sidebar tab click handling
-            document.querySelectorAll('.sidebar .type-tab').forEach(button => {
-                button.addEventListener('click', function() {
-                    const isAlreadyActive = this.classList.contains('active');
-                    const courseType = this.getAttribute('data-type');
-                    
-                    if (isAlreadyActive) {
-                        // Only go back if clicking the already active tab
-                        
-                        // Hide course container
-                        courseContainer.style.opacity = '0';
-                        
-                        setTimeout(() => {
-                            courseContainer.style.visibility = 'hidden';
-                            courseContainer.classList.remove('visible');
-                            
-                            // Reset active states
-                            document.querySelectorAll('.type-tab').forEach(tab => {
-                                tab.classList.remove('active');
-                            });
-                            
-                            // Show initial selection
-                            initialSelection.style.display = 'block';
-                            setTimeout(() => {
-                                initialSelection.style.opacity = '1';
-                            }, 50);
-                        }, 300);
-                    } else {
-                        // Just switch between tabs without going back
-                        showCourseType(courseType);
-                    }
-                });
-            });
+    // Sidebar tab click handling
+document.querySelectorAll('.sidebar .type-tab').forEach(button => {
+    button.addEventListener('click', function() {
+        const isAlreadyActive = this.classList.contains('active');
+        const courseType = this.getAttribute('data-type');
+        
+        if (isAlreadyActive) {
+            // Only go back if clicking the already active tab
             
+            // Hide course container
+            courseContainer.style.opacity = '0';
+            courseContainer.style.height = '0'; // Add this line
+            
+            setTimeout(() => {
+                courseContainer.style.visibility = 'hidden';
+                courseContainer.classList.remove('visible');
+                
+                // Reset active states
+                document.querySelectorAll('.type-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Show initial selection
+                initialSelection.style.display = 'block';
+                setTimeout(() => {
+                    initialSelection.style.opacity = '1';
+                }, 50);
+            }, 300);
+        } else {
+            // Just switch between tabs without going back
+            showCourseType(courseType);
+        }
+    });
+});        
             // Course item click handling
             document.querySelectorAll('.course-list-item').forEach(item => {
                 item.addEventListener('click', function() {
