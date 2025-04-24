@@ -9,77 +9,137 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="nav.css">
     <style>
-       * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-        }
-        /* Define CSS variables */
-        
-        body {
-            background-color: var(--color-dark);
-            color: var(--color-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100%; /* Ensure full viewport height */
-        }
-        
-        /* Use the main-content wrapper to push the footer down */
-        
-        h1, h2, h3, h4 {
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
-        }
-        h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            padding: 1.5rem 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-        h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--color-secondary);
-            padding-bottom: 0.5rem;
-            margin: 2rem 0 1rem;
-        }
-        h3 {
-            font-size: 1.5rem;
-        }
-        p {
-            margin-bottom: 1rem;
-        }
-        ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
+  
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/classes.JPG') center/cover no-repeat;
-            background-color: var(--color-light);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0;
-            transition: all var(--td) var(--te);
-        }
-        .hero h1 {
-            color: white;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-        }
+/* Import fonts - add this to the HTML head */
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap');
+
+:root {
+    /* Colors */
+    --color-primary: #f7913d;     /* Orange accent color from the buttons/dots */
+    --color-secondary: #ffc857;   /* Yellow/gold color from the header/footer */
+    --color-dark: #1e2751;        /* Dark blue background */
+    --color-light: #f4f4f4;       /* Light color for text */
+    --color-dark-gray: #dbdde7;   /* Slightly lighter blue for contrast */
+    --color-brown: #c17e3f;       /* Brown color from the tabla drums */
+    --white: #ffffff;
+    --nav: #46528e;
+    
+    /* Transitions */
+    --td: 150ms;
+    --te: cubic-bezier(0.215, 0.61, 0.355, 1);
+    
+    /* Typography */
+    --font-heading: 'Akshar', sans-serif;
+    --font-body: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Using original font from your code */
+    --line-height: 1.6;
+}
+
+/* Reset typography and layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    line-height: var(--line-height);
+    overflow-x: hidden;
+    font-family: var(--font-body);
+}
+
+/* Body and main layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* Use the main-content wrapper to push the footer down */
+
+/* Typography settings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-body); /* Using original font from your code */
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 1.5rem 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 0.5rem;
+    margin: 2rem 0 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+p, li, a, span, div {
+    font-family: var(--font-body);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+button, .btn, input[type="button"], input[type="submit"] {
+    font-family: var(--font-body);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/classes.JPG') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0;
+    transition: all var(--td) var(--te);
+    margin-bottom: 0; /* Remove margin */
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+}
 
         /* Initial Selection - Fixed styling */
         
@@ -160,214 +220,235 @@
             display: block; /* Ensure it's displayed properly */
         }
 
-        /* Left Sidebar - Increased width */
-        .sidebar {
-            width: 350px; /* Increased from 300px */
-            background-color: var(--color-dark);
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-        }
+/* Left Sidebar */
+.sidebar {
+    width: 350px; /* Increased from 300px */
+    background-color: var(--color-dark);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
 
-        /* Course Type Tabs */
-        .course-type-tabs {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid var(--color-secondary);
-            padding-bottom: 1rem;
-        }
-        .type-tab {
-            padding: 0.75rem 1.25rem;
-            background-color: var(--color-dark);
-            color: var(--color-light);
-            border: 2px solid var(--color-primary);
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: all var(--td) var(--te);
-        }
-        .type-tab.active {
-            background-color: var(--color-primary);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .type-tab:hover {
-            background-color: var(--color-primary);
-        }
+/* Course Type Tabs */
+.course-type-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color-secondary);
+    padding-bottom: 1rem;
+}
 
-        /* Course List */
-        .course-list {
-            list-style: none;
-        }
-        .course-list-item {
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            background-color: var(--nav);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all var(--td) var(--te);
-            font-weight: bold;
-            position: relative;
-        }
-        .course-list-item:hover {
-            background-color: var(--nav);
-            transform: translateX(5px);
-        }
-        .course-list-item.active {
-            background-color: var(--color-primary);
-            color: white;
-        }
-        .course-list-item .course-level {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.8rem;
-            background-color: var(--color-secondary);
-            color: var(--color-dark);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-        }
-        .course-list-item.active .course-level {
-            background-color: white;
-            color: var(--color-primary);
-        }
+.type-tab {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all var(--td) var(--te);
+}
 
-        /* Course Type Sections */
-        .course-type-section {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .course-type-section.active {
-            display: block;
-            opacity: 1;
-        }
+.type-tab.active {
+    background-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
-        /* Right Content Area */
-        .course-details {
-            flex: 1;
-            padding: 2rem;
-            background-color: var(--color-dark);
-            box-shadow: -2px 0 10px rgba(0,0,0,0.05);
-            position: relative;
-            min-height: fit-content; /* Ensure it expands to fit content */
-        }
-        .course-detail {
-            display: none;
-            /* Removed absolute positioning to prevent layout issues */
-            /* position: absolute; */
-            width: 100%;
-            /* left: 100%; */
-            opacity: 0;
-            transition: opacity 0.4s ease-out;
-        }
-        /* Course Detail Content */
-        .course-detail.active {
-            display: block;
-            /* left: 0; */
-            opacity: 1;
-            position: relative; /* Keep relative for normal flow */
-            width: 100%;
-        }
+.type-tab:hover {
+    background-color: var(--color-primary);
+}
 
-        /* Course Detail Content */
-        .course-header {
-            background-color: var(--color-primary);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 8px 8px 0 0;
-            position: relative;
-            margin-bottom: 1rem;
-        }
-        .course-header h3 {
-            color: white;
-            margin: 0;
-            font-size: 2rem;
-        }
-        .course-type-label {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: var(--color-secondary);
-            color: var(--color-dark);
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-bottom-left-radius: 8px;
-        }
-        .course-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .course-objectives {
-            margin: 1.5rem 0;
-            background-color: var(--nav);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-        .course-fee {
-            background-color: var(--nav);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-        }
-        .course-batches {
-            margin-top: 1.5rem;
-            font-style: italic;
-            padding: 1rem;
-            border-left: 3px solid var(--color-secondary);
-        }
-        .course-description {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+/* Course List */
+.course-list {
+    list-style: none;
+    margin-left: 0;
+}
 
-        /* Footer */
-        footer {
-            background-color: var(--nav);
-            padding: 2rem 0;
-            margin-top: 5 rem; 
-            text-align: center;
-        }
-        /* Ensure html and body take full height and no margin/padding */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+.course-list-item {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--nav);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--td) var(--te);
+    font-weight: bold;
+    position: relative;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .course-container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-            .course-details {
-                box-shadow: none;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .course-type-selection .course-type-tabs {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .course-type-selection .type-tab {
-                width: 100%;
-            }
-        }
+.course-list-item:hover {
+    background-color: var(--nav);
+    transform: translateX(5px);
+}
+
+.course-list-item.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.course-list-item .course-level {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.course-list-item.active .course-level {
+    background-color: white;
+    color: var(--color-primary);
+}
+
+/* Course Type Sections */
+.course-type-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.course-type-section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Right Content Area */
+.course-details {
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--color-dark);
+    box-shadow: -2px 0 10px rgba(0,0,0,0.05);
+    position: relative;
+    min-height: fit-content; /* Ensure it expands to fit content */
+}
+
+.course-detail {
+    display: none;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+}
+
+.course-detail.active {
+    display: block;
+    opacity: 1;
+    position: relative; /* Keep relative for normal flow */
+    width: 100%;
+}
+
+/* Course Detail Content */
+.course-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.course-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.course-type-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-bottom-left-radius: 8px;
+}
+
+.course-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.course-description {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.course-objectives {
+    margin: 1.5rem 0;
+    background-color: var(--nav);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.course-fee {
+    background-color: var(--nav);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+.course-batches {
+    margin-top: 1.5rem;
+    font-style: italic;
+    padding: 1rem;
+    border-left: 3px solid var(--color-secondary);
+    margin-bottom: 0;
+}
+
+/* Learning outcomes and schedule section styling */
+.course-details ol {
+    list-style-position: inside;
+    margin-bottom: 20px;
+}
+
+/* Footer - ensure it sticks to the bottom without gaps */
+footer {
+    background-color: var(--nav);
+    padding: 2rem 0;
+    margin-top: 0; /* Remove space before footer */
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .course-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .course-details {
+        box-shadow: none;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .course-type-selection .course-type-tabs {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .course-type-selection .type-tab {
+        width: 100%;
+    }
+}
     </style>
 </head>
 <body>
