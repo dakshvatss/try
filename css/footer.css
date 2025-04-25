@@ -2,9 +2,10 @@
 footer {
    background-color: #223063;
     color: #f4efe4;
-    padding: 60px 0 30px;
+    padding: 25px 0 15px;
     position: relative;
     overflow: hidden;
+    max-height: 200px; /* Set maximum height */
 }
 
 footer::before {
@@ -13,7 +14,7 @@ footer::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 10px;
+    height: 5px;
     background: linear-gradient(to right, #9c3328, #e8b923, #9c3328);
 }
 
@@ -21,23 +22,27 @@ footer::before {
 .footer-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-bottom: 30px;
+    gap: 20px;
     align-items: start;
-    padding: 0 20px;
+    padding: 0 15px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px; /* Control container height */
 }
 
 /* Logo and About Section */
 .footer-about {
     text-align: center;
+    padding: 0 5px;
 }
 
 .footer-logo {
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
 .footer-logo img {
-    height: 100px;
+    height: 50px; /* Smaller logo */
     object-fit: contain;
     transition: transform 0.3s ease;
 }
@@ -48,29 +53,42 @@ footer::before {
 
 .footer-about p {
     color: #c8a27a;
-    font-size: 1rem;
-    padding: 0 10px;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    padding: 0 5px;
+    line-height: 1.2;
+    margin: 0;
 }
 
 /* Quick Links Section */
 .footer-links {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+/* Remove the heading */
+.footer-heading {
+    display: none;
 }
 
 .quick-link {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Compact spacing between links */
     list-style: none;
     padding: 0;
     margin: 0;
-    justify-items: center;
+    width: 100%;
+    align-items: center;
 }
 
 .quick-link li {
     width: 100%;
+    margin: 0;
+    line-height: 1;
 }
 
 .quick-link a {
@@ -78,8 +96,9 @@ footer::before {
     text-decoration: none;
     transition: all 0.3s ease;
     display: inline-block;
-    padding: 5px 0;
+    padding: 4px 0;
     position: relative;
+    font-size: 0.9rem;
 }
 
 .quick-link a:hover {
@@ -104,30 +123,31 @@ footer::before {
 /* Contact Info Section */
 .footer-contact {
     text-align: center;
+    padding: 5px 0;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: center;
 }
 
 /* Address in Three Lines */
 .contact-left p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #c8a27a;
-    line-height: 1.6;
-    text-align: left;
+    line-height: 1.3;
+    text-align: center;
 }
 
 /* Contact Links */
 .contact-right {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
+    gap: 8px;
+    align-items: center;
 }
 
 .contact-right a {
@@ -135,7 +155,9 @@ footer::before {
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
-    padding-left: 25px;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    margin: 0;
 }
 
 .contact-right a:hover {
@@ -149,6 +171,7 @@ footer::before {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+    font-size: 0.8rem;
 }
 
 /* Email icon */
@@ -158,45 +181,39 @@ footer::before {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-}
-
-/* Footer Headings */
-.footer-heading {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    font-family: 'Goudy Old Style', serif;
-    color: #e8b923;
-    text-align: center;
-    position: relative;
-    display: inline-block;
-}
-
-.footer-heading:after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 2px;
-    background-color: #c8a27a;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 0.8rem;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    footer {
+        max-height: none; /* Remove max height for mobile */
+        padding: 20px 0 15px;
+    }
+    
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 20px;
+        height: auto;
+    }
+    
+    .footer-logo img {
+        height: 45px;
     }
     
     .contact-grid {
         grid-template-columns: 1fr;
         justify-items: center;
+        gap: 10px;
     }
     
     .contact-left p {
         text-align: center;
+    }
+    
+    .quick-link {
+        gap: 6px;
     }
     
     .contact-right {

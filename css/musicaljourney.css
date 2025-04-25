@@ -104,7 +104,7 @@
 
 /* New smaller title style */
 .journey-title-smaller {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 20px;
@@ -203,7 +203,7 @@
 }
 
 .gallery-title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--white);
   display: inline-block;
   position: relative;
@@ -610,7 +610,7 @@
   }
   
   .journey-title-smaller {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .journey-description {
@@ -630,7 +630,7 @@
   }
   
   .community-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 }
 
@@ -640,7 +640,7 @@
   }
   
   .journey-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .journey-title-smaller {

@@ -8,8 +8,17 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-  
+  footer {
+   background-color: #223063;
+    color: #f4efe4;
+    padding: 25px 0 15px;
+    position: relative;
+    overflow: hidden;
+    max-height: 200px; /* Set maximum height */
+}
 /* Global Styles */
 * {
     margin: 0;
@@ -20,45 +29,8 @@
 /* Import fonts - add this to the HTML head */
 @import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&family=Amita:wght@400;700&display=swap');
 
-:root {
-    /* Colors */
-    --color-primary: #f7913d;     /* Orange accent color from the buttons/dots */
-    --color-secondary: #ffc857;   /* Yellow/gold color from the header/footer */
-    --color-dark: #1e2751;        /* Dark blue background */
-    --color-light: #f4f4f4;       /* Light color for text */
-    --color-dark-gray: #dbdde7;   /* Slightly lighter blue for contrast */
-    --color-brown: #c17e3f;       /* Brown color from the tabla drums */
-    --white: #ffffff;
-    --nav: #46528e;
-    
-    /* Transitions */
-    --td: 150ms;
-    --te: cubic-bezier(0.215, 0.61, 0.355, 1);
-    
-    /* Typography */
-    --font-heading: 'Akshar', sans-serif;
-    --font-body: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Using original font from your code */
-    --line-height: 1.6;
-}
 
 /* Reset typography and layout */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-dark);
-    color: var(--color-light);
-    line-height: var(--line-height);
-    overflow-x: hidden;
-    font-family: var(--font-body);
-}
-
-/* Body and main layout */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-}
 
 /* Use the main-content wrapper to push the footer down */
 
@@ -71,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
     padding: 1.5rem 0;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
@@ -515,19 +487,31 @@ footer {
     </header>
     <div class="main-content">
     <div class="hero" id="hero">
-        <h1>Experience the Rich Heritage of Kannada Light Music</h1>
+        <h1 style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);">Experience the Rich Heritage of Kannada Light Music</h1>
         <p>Join our specialized programs designed to cultivate musical excellence in students of all ages</p>
     </div>
 
    <!-- Initial full-width course type selection -->
 <div id="initial-selection" class="course-type-selection">
     <div class="course-type-tabs">
-        <button class="type-tab" data-type="online">Online Classes</button>
-        <button class="type-tab" data-type="offline">In-Person Classes</button>
+        <button class="type-tab" data-type="online" style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);">Online Classes</button>
+        <button class="type-tab" data-type="offline" style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);">In-Person Classes</button>
     </div>
     
     <div class="course-details" style="background-color: transparent; box-shadow: none; text-align: left; margin-top: 30px;">
-        <h3><strong>Learning Outcomes:</strong></h3>
+        <h3 style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);"><strong>Learning Outcomes:</strong></h3>
         <ol style="list-style-position: inside; margin-bottom: 20px;">
             <li><strong>Enhanced Musical Discipline:</strong> Develop a structured approach to music practice and performance.</li>
             <li><strong>Individual Corrections & Feedback:</strong> Personalized training sessions to refine skills.</li>
@@ -536,7 +520,10 @@ footer {
             <li><strong>Online & Offline Concert Opportunities:</strong> Showcase learning through periodic events.</li>
         </ol>
 
-        <h3><strong>Schedule:</strong></h3>
+        <h3 style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);"><strong>Schedule:</strong></h3>
         <ol style="list-style-position: inside; margin-bottom: 20px;">
             <li>One live class per week, totaling four classes per month.</li>
             <li>Classes available on Wednesday, Friday, or Saturday.</li>
@@ -544,7 +531,10 @@ footer {
             <li>One assignment to be submitted for feedback every month.</li>
         </ol>
 
-        <h3><strong>Content:</strong></h3>
+        <h3 style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);"><strong>Content:</strong></h3>
         <p>Light music genres covering:</p>
         <ol style="list-style-position: inside; margin-bottom: 20px;">
             <li>Bhavageethe</li>
@@ -554,14 +544,20 @@ footer {
             <li>Vachanas</li>
         </ol>
 
-        <h3><strong>Reference Materials:</strong></h3>
+        <h3 style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);"><strong>Reference Materials:</strong></h3>
         <ol style="list-style-position: inside; margin-bottom: 20px;">
             <li>Lyric sheets for easy learning.</li>
             <li>Audio & Video material with synchronized lyrics.</li>
             <li>Reference video demonstrating song presentation.</li>
         </ol>
 
-        <h3><strong>Guidelines:</strong></h3>
+        <h3 style="font-family: var(--font-heading);
+        margin-bottom: 1rem;
+        font-weight: 500;
+        color: var(--color-secondary);"><strong>Guidelines:</strong></h3>
         <ol style="list-style-position: inside; margin-bottom: 20px;">
             <li>Minimum attendance requirement of 75% to progress to the next learning stage.</li>
             <li>Classes held via Google Meet, and Google Classroom to be used for upload of reference materials, classwork, and assignment submissions.</li>
@@ -790,7 +786,7 @@ footer {
         </div>
     </div>
 <!-- Footer -->
-<footer>
+<footer style="background-color: #223063;">
     <div class="container">
         <div class="footer-container">
             
