@@ -59,7 +59,7 @@ header::before {
 .language-toggle {
     position: fixed;
     top: 1.8rem;
-    right: 16rem;
+    right: 22rem;
     z-index: 1001;
 }
 
