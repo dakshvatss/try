@@ -24,8 +24,8 @@
     --te: cubic-bezier(0.215, 0.61, 0.355, 1);
     
     /* Typography */
-    --font-heading: 'Akshar', sans-serif;
-    --font-body: 'Amita', serif;
+    --font-heading: 'Amita', sans-serif;
+    --font-body: 'Akshar', serif;
     --line-height: 1.7;
 }
 
