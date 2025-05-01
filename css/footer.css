@@ -15,7 +15,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(to right, #9c3328, #e8b923, #9c3328);
+    background:linear-gradient(to right, #9c3328, #e8b923, #9c3328);
 }
 
 /* Footer Layout */
