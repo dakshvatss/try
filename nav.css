@@ -242,6 +242,8 @@
     transform: translate(0, var(--pull));
 }
 
+
+
 @keyframes blink {
     50%, 100% {
         opacity: 0;

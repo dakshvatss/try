@@ -58,7 +58,7 @@
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
-                <a href="hhttps://www.youtube.com/@RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="YouTube">
+                <a href="https://www.youtube.com/@RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
@@ -94,16 +94,16 @@
                 <a class="menu__link" href="index.html">Home</a>
               </li>
               <li class="menu__item">
-                <a class="menu__link" href="story.html">Story</a>
+                <a class="menu__link" href="story.html">Our Story</a>
               </li>
               <li class="menu__item">
-                <a class="menu__link" href="courses.html">Classes</a>
+                <a class="menu__link" href="courses.html">Courses</a>
               </li>
               <li class="menu__item">
                 <a class="menu__link" href="events.html">Events</a>
               </li>
               <li class="menu__item">
-                <a class="menu__link" href="contactus.html">Contact</a>
+                <a class="menu__link" href="contactus.html">Contact Us</a>
               </li>
             </ul>
         </nav>
@@ -149,7 +149,7 @@
                 </div>
             </li>
         </ul>
-        <div class="scroll-arrow"></div>
+        <a href="#about" class="scroll-arrow"></a>
     </div>
     <div class="border"></div>
     
@@ -162,21 +162,21 @@
     </div> -->
 
     <!-- About Us Section -->
-    <section class="about-section">
+    <section class="about-section" id = "about">
         <div class="container">
             <div class="row clearfix">
                 <!--Content Column-->
                 <div class="content-column col-md-6 col-sm-12 col-xs-12">
                     <div class="inner-column">
-                        <!-- <div class="vision-statement">
+                        <div class="vision-statement">
                             Set with the vision of
-                        </div> -->
+                        </div>
                         <div class="founder-name" style="font-family: var(--font-heading);
                         margin-bottom: 1rem;
                         font-weight: 500;
                         color: var(--color-secondary); font-size: 3rem;
     line-height: 1.2;">
-                            Set With The Vision Of <br>
+                            
                             Dr. Sunitha Chandrakumar
                         </div>
                         <div class="school-history">
@@ -185,7 +185,7 @@
                         <div class="school-evolution">
                             Beginning with a modest focus on devotional and folk tunes—including the distinctive rhythms of Nagara Sankeerthane—the school has evolved to offer musical teaching that seamlessly blends traditional techniques with contemporary musical expressions.
                         </div>
-                        <a href="about.html" class="theme-btn btn-style-three">Read More</a>
+                        <a href="story.html" class="theme-btn btn-style-three">Read More</a>
                     </div>
                 </div>
                 <!--Image Column-->
@@ -422,206 +422,7 @@
 </footer>
 
     <script src="try.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    // CONFIGURATION - Updated for faster and smoother scrolling
-    // ------------------------------------------------
-    
-    // Define scroll stop points in vh units
-    const snapPoints = [0, 105, 213, 313, 410]; 
-    
-    // When scrolling up and within this range (in vh), snap back to the last stop point
-    const snapBackRange = {
-      min: 450, // Min vh to trigger snap back
-      max: 450, // Max vh to trigger snap back
-      target: 410 // Target vh to snap back to
-    };
-    
-    // Animation settings - Reduced for faster scrolling
-    const scrollDuration = 80; // Reduced from 150ms to 80ms for faster transitions
-    const debounceDelay = 150; // Reduced from 200ms to 100ms for more responsive scrolling
-    // ------------------------------------------------
-    
-    // First, ensure we start at the top on page load/refresh
-    window.scrollTo(0, 0);
-    
-    // Add custom smooth scroll behavior - using cubic-bezier for smoother acceleration/deceleration
-    const styleElement = document.createElement('style');
-    styleElement.textContent = `
-      html {
-        scroll-behavior: smooth;
-        --scroll-behavior-method: cubic-bezier(0.25, 0.1, 0.25, 1);
-      }
-    `;
-    document.head.appendChild(styleElement);
-    
-    // Scrolling variables
-    let isScrolling = false;
-    let currentSnapIndex = 0;
-    let debounceTimer = null;
-    let lastScrollDirection = 0;
-    let lastWheelTime = 0;
-    let wheelThreshold = 20; // Time in ms to consider consecutive wheel events as one
-    
-    // Get the last snap point value
-    const lastSnapPoint = snapPoints[snapPoints.length - 1];
-    
-    // Function to smoothly scroll to a position with performance optimizations
-    function smoothScrollTo(position) {
-      // Cancel any ongoing animations for better performance
-      if ('scrollBehavior' in document.documentElement.style) {
-        // Use native smooth scrolling with improved timing
-        window.scrollTo({
-          top: position,
-          behavior: 'smooth'
-        });
-      } else {
-        // Fallback for browsers without smooth scrolling
-        const startPosition = window.scrollY;
-        const distance = position - startPosition;
-        const startTime = performance.now();
-        
-        function step(currentTime) {
-          const elapsedTime = currentTime - startTime;
-          if (elapsedTime >= scrollDuration) {
-            window.scrollTo(0, position);
-            return;
-          }
-          
-          const progress = elapsedTime / scrollDuration;
-          // Use easeInOutQuad easing function for smoother acceleration/deceleration
-          const ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
-          window.scrollTo(0, startPosition + distance * ease);
-          requestAnimationFrame(step);
-        }
-        
-        requestAnimationFrame(step);
-      }
-    }
-    
-    // Function to find closest snap point index with improved performance
-    function findClosestSnapIndex(position) {
-      const positionVh = (position / window.innerHeight) * 100;
-      let closestIndex = 0;
-      let closestDistance = Math.abs(snapPoints[0] - positionVh);
-      
-      for (let i = 1; i < snapPoints.length; i++) {
-        const distance = Math.abs(snapPoints[i] - positionVh);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = i;
-        }
-      }
-      
-      return closestIndex;
-    }
-    
-    // Optimized scroll handler function with better performance
-    function handleScrollAction(direction) {
-      // Get current scroll position
-      const currentPosition = window.scrollY;
-      const currentVhPosition = (currentPosition / window.innerHeight) * 100;
-      
-      // Update current snap index based on position
-      currentSnapIndex = findClosestSnapIndex(currentPosition);
-      
-      // Prevent multiple scroll actions during animation
-      if (isScrolling) {
-        return;
-      }
-      
-      // Check if we're beyond the snap points (in free scroll mode)
-      if (currentVhPosition >= lastSnapPoint) {
-        // In free scrolling zone, let native scrolling work
-        // But check for snap back condition
-        if (direction < 0 && 
-            currentVhPosition >= snapBackRange.min && 
-            currentVhPosition <= snapBackRange.max) {
-          
-          // Snap back to the designated point
-          isScrolling = true;
-          const targetPosition = window.innerHeight * (snapBackRange.target / 100);
-          smoothScrollTo(targetPosition);
-          
-          // Reset scrolling lock after animation completes
-          setTimeout(() => {
-            isScrolling = false;
-          }, scrollDuration + 20); // Add a small buffer
-        }
-        // Otherwise let native scrolling happen
-      } else {
-        // In the snap zone - determine target snap index based on current index and direction
-        let targetIndex;
-        
-        if (direction > 0) {
-          // Scrolling down - go to next snap point
-          targetIndex = Math.min(currentSnapIndex + 1, snapPoints.length - 1);
-        } else {
-          // Scrolling up - go to previous snap point
-          targetIndex = Math.max(currentSnapIndex - 1, 0);
-        }
-        
-        // Set position to the target snap point
-        isScrolling = true;
-        const targetPosition = window.innerHeight * (snapPoints[targetIndex] / 100);
-        smoothScrollTo(targetPosition);
-        
-        // Reset the scrolling lock after animation completes
-        setTimeout(() => {
-          isScrolling = false;
-        }, scrollDuration + 20); // Add a small buffer
-      }
-    }
-    
-    // Improved wheel event handler with better responsiveness
-    window.addEventListener('wheel', function(e) {
-      // Get scroll direction
-      const scrollDirection = e.deltaY > 0 ? 1 : -1;
-      
-      // Update the last scroll direction
-      lastScrollDirection = scrollDirection;
-      
-      // Get current position
-      const currentPosition = window.scrollY;
-      const currentVhPosition = (currentPosition / window.innerHeight) * 100;
-      
-      // If we're in the snap zone, prevent default scrolling
-      if (currentVhPosition < lastSnapPoint || 
-         (scrollDirection < 0 && currentVhPosition >= snapBackRange.min && currentVhPosition <= snapBackRange.max)) {
-        e.preventDefault();
-      }
-      
-      // Throttle wheel events for more precise control
-      const now = performance.now();
-      if (now - lastWheelTime < wheelThreshold) {
-        // Too soon after last wheel event, just update direction
-        lastScrollDirection = scrollDirection;
-        return;
-      }
-      lastWheelTime = now;
-      
-      // Clear previous timer for more responsive feeling
-      clearTimeout(debounceTimer);
-      
-      // Set a new timer with reduced delay
-      debounceTimer = setTimeout(() => {
-        // Execute scroll action after debounce delay
-        handleScrollAction(lastScrollDirection);
-      }, debounceDelay);
-      
-    }, { passive: false }); // Set passive to false to allow preventDefault
-    
-    // Also handle the initial page position on load/refresh
-    window.addEventListener('load', function() {
-      window.scrollTo(0, 0);
-    });
-    
-    // Make sure to reset to top if user refreshes while scrolled down
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-});
-        </script>
+
 </body>
 </html>
 </html>
