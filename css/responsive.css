@@ -1,0 +1,109 @@
+
+/* Global Responsive Utilities */
+
+/* Ensure no horizontal overflow */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Container improvements */
+.container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Navigation responsiveness */
+@media (max-width: 768px) {
+    /* Hide navigation elements when hamburger menu should show */
+    .nav-main .language-toggle,
+    .nav-main .social-icons {
+        display: none;
+    }
+    
+    /* Show them in mobile menu */
+    .nav-main.active .language-toggle,
+    .nav-main.active .social-icons {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+    }
+}
+
+/* Text and spacing adjustments */
+@media (max-width: 576px) {
+    /* Reduce spacing for mobile */
+    section {
+        padding: 2rem 0;
+    }
+    
+    /* Improve button sizing */
+    .btn, button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust margins */
+    .border {
+        height: 6px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 5px;
+    }
+    
+    section {
+        padding: 1.5rem 0;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+    .islide {
+        height: 100vh;
+    }
+    
+    .slider .item div {
+        font-size: 0.9rem;
+        padding: 10px;
+        max-width: 95%;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase tap targets */
+    .social-icon {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .lang-btn {
+        min-height: 44px;
+        padding: 8px 12px;
+    }
+    
+    /* Remove hover effects that don't work on touch */
+    .social-icon:hover,
+    .lang-btn:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer, .social-icons, .language-toggle {
+        display: none;
+    }
+    
+    .islide {
+        height: auto;
+    }
+    
+    .background-video {
+        display: none;
+    }
+}
