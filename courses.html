@@ -106,15 +106,15 @@ button, .btn, input[type="button"], input[type="submit"] {
 }
 
         /* Initial Selection - Fixed styling */
-        
-        
+
+
         .course-type-selection .course-type-tabs {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .course-type-selection .type-tab {
             padding: 1rem 2rem;
             font-size: 1.2rem;
@@ -126,16 +126,16 @@ button, .btn, input[type="button"], input[type="submit"] {
             transition: all 0.3s ease;
             min-width: 200px;
         }
-        
+
         .course-type-selection .type-tab:hover {
             background-color: var(--color-primary);
             transform: translateY(-3px);
         }
-        
+
         .course-type-selection .type-tab.active {
             background-color: var(--color-primary);
         }
-        
+
         .course-type-selection p {
             font-size: 1.1rem;
             margin-top: 1rem;
@@ -154,7 +154,7 @@ button, .btn, input[type="button"], input[type="submit"] {
             transition: opacity 0.5s ease, visibility 0.5s ease;
             flex: 1;
         }
-        
+
         .course-container.visible {
             opacity: 1;
             visibility: visible;
@@ -162,7 +162,7 @@ button, .btn, input[type="button"], input[type="submit"] {
             height: auto;
             overflow: visible;
         }
-        
+
         /* Make sure the main-content has position relative to contain the absolute course-container */
         .main-content {
             position: relative;
@@ -170,7 +170,7 @@ button, .btn, input[type="button"], input[type="submit"] {
             display: flex;
             flex-direction: column;
         }
-        
+
         /* Initial selection should take up proper space */
         .course-type-selection {
             max-width: 800px;
@@ -387,32 +387,95 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .course-container {
-        flex-direction: column;
-    }
-    
-    .sidebar {
-        width: 100%;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    
-    .course-details {
-        box-shadow: none;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .course-type-selection .course-type-tabs {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .course-type-selection .type-tab {
-        width: 100%;
-    }
-}
+            .course-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .course-details {
+                box-shadow: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .course-type-selection .course-type-tabs {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .course-type-selection .type-tab {
+                width: 100%;
+            }
+        }
+
+        /* Scroll Arrow Styles */
+        .scroll-arrow {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-arrow::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 15px;
+            height: 15px;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            transform: translate(-50%, -50%) rotate(45deg);
+            margin-top: -4px;
+        }
+
+        .scroll-arrow:hover {
+            transform: translateY(-5px);
+            background-color: var(--color-secondary);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .scroll-arrow {
+            animation: bounce 2s infinite;
+        }
+
+        /* Hide scroll arrow when not needed */
+        @media (max-width: 480px) {
+            .scroll-arrow {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -445,7 +508,7 @@ footer {
                 </a>
                 <a href="https://www.youtube.com/@RaghuleelaSchoolofMusic" target="_blank" class="social-icon" aria-label="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 1 1 11.75a29 29 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                         <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
                     </svg>
                 </a>
@@ -493,7 +556,7 @@ footer {
             </ul>
         </nav>
     </header>
-    
+
     <div class="main-content">
     <div class="hero" id="hero">
         <h1 style="font-family: var(--font-heading);
@@ -501,6 +564,7 @@ footer {
         font-weight: 500;
         color: var(--color-secondary);">Experience the Rich Heritage of Kannada Light Music</h1>
         <p>Join our specialized programs designed to cultivate musical excellence in students of all ages</p>
+        <a href="#initial-selection" class="scroll-arrow" style="position: absolute; bottom: 1810px; left: 50%; transform: translateX(-50%); z-index: 10;"></a>
     </div>
 
    <!-- Initial full-width course type selection -->
@@ -515,7 +579,7 @@ footer {
         font-weight: 500;
         color: var(--color-secondary);">In-Person Classes</button>
     </div>
-    
+
     <div class="course-details" style="background-color: transparent; box-shadow: none; text-align: left; margin-top: 30px;">
         <h3 style="font-family: var(--font-heading);
         margin-bottom: 1rem;
@@ -584,7 +648,7 @@ footer {
                 <button class="type-tab" data-type="online" onclick="showCourseType('online')">Online Classes</button>
                 <button class="type-tab" data-type="offline" onclick="showCourseType('offline')">In-Person Classes</button>
             </div>
-            
+
             <!-- Online Courses List -->
             <div id="online-list" class="course-type-section">
                 <ul class="course-list">
@@ -602,7 +666,7 @@ footer {
                     </li>
                 </ul>
             </div>
-            
+
             <!-- Offline Courses List -->
             <div id="offline-list" class="course-type-section active">
                 <ul class="course-list">
@@ -621,7 +685,7 @@ footer {
                 </ul>
             </div>
         </div>
-        
+
         <!-- Right Content Area -->
         <div class="course-details">
             <!-- Empty State - Now hidden by default -->
@@ -629,7 +693,7 @@ footer {
                 <h3>Select a Course</h3>
                 <p>Click on any course from the left menu to view detailed information about it.</p>
             </div>
-            
+
             <!-- Course details sections -->
             <!-- Layathmboori Details -->
             <div id="layathmboori-detail" class="course-detail">
@@ -660,7 +724,7 @@ footer {
                     <p>Layathamboori 2 – for Female Maestros</p>
                 </div>
             </div>
-            
+
             <!-- Raagathamboori Details -->
             <div id="raagathamboori-detail" class="course-detail">
                 <div class="course-header">
@@ -690,7 +754,7 @@ footer {
                     <p>Raagathamboori 2 – for Female Maestros</p>
                 </div>
             </div>
-            
+
             <!-- Swarathamboori Details -->
             <div id="swarathamboori-detail" class="course-detail">
                 <div class="course-header">
@@ -716,7 +780,7 @@ footer {
                     <p>Recurring Fee: Monthly ₹1200 / Quarterly: ₹3500 (To be decided)</p>
                 </div>
             </div>
-            
+
             <!-- Naadathamboori Details -->
             <div id="naadathamboori-detail" class="course-detail active">
                 <div class="course-header">
@@ -741,7 +805,7 @@ footer {
                     <p>Recurring Fee: Monthly ₹750 / Quarterly: ₹2250 (To be decided)</p>
                 </div>
             </div>
-            
+
             <!-- Bhaavathamboori Details -->
             <div id="bhaavathamboori-detail" class="course-detail">
                 <div class="course-header">
@@ -766,7 +830,7 @@ footer {
                     <p>Recurring Fee: Monthly ₹1000 / Quarterly: ₹3000 (To be decided)</p>
                 </div>
             </div>
-            
+
             <!-- Jeevathamboori Details -->
             <div id="jeevathamboori-detail" class="course-detail">
                 <div class="course-header">
@@ -798,7 +862,7 @@ footer {
 <footer style="background-color: #223063;">
     <div class="container">
         <div class="footer-container">
-            
+
             <!-- Division 1: Logo and About -->
             <div class="footer-about">
                 <div class="footer-logo">
@@ -806,7 +870,7 @@ footer {
                 </div>
                 <p>Providing quality music education since 2005.</p>
             </div>
-            
+
             <!-- Division 2: Updated Quick Links with Redirects -->
             <div class="footer-links">
                 <h4 class="footer-heading">Quick Links</h4>
@@ -817,7 +881,7 @@ footer {
                     <li><a href="contactus.html">Work with us</a></li>
                 </ul>
             </div>
-            
+
             <!-- Division 3: Updated Address & Contact Info -->
             <div class="footer-contact">
                 <h4 class="footer-heading">Contact Info</h4>
@@ -835,7 +899,7 @@ footer {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </footer>
@@ -847,19 +911,19 @@ footer {
             const courseContainer = document.getElementById('course-container');
             courseContainer.style.opacity = '0';
             courseContainer.style.visibility = 'hidden';
-            
+
             const initialSelection = document.getElementById('initial-selection');
-            
+
             // Function to show course type (online/offline)
             function showCourseType(type) {
                 // Hide all course type sections
                 document.querySelectorAll('.course-type-section').forEach(section => {
                     section.classList.remove('active');
                 });
-                
+
                 // Show selected course type section
                 document.getElementById(type + '-list').classList.add('active');
-                
+
                 // Update active state for tabs in both places
                 document.querySelectorAll('.type-tab').forEach(tab => {
                     if (tab.getAttribute('data-type') === type) {
@@ -868,49 +932,49 @@ footer {
                         tab.classList.remove('active');
                     }
                 });
-                
+
                 // Show the first course in the selected type
                 const firstCourse = document.querySelector('#' + type + '-list .course-list-item');
                 if (firstCourse) {
                     showCourseDetail(firstCourse, firstCourse.getAttribute('data-course'));
                 }
             }
-            
+
             // Function to show course detail
             function showCourseDetail(element, courseId) {
                 // Hide all course details
                 document.querySelectorAll('.course-detail').forEach(detail => {
                     detail.classList.remove('active');
                 });
-                
+
                 // Show selected course detail
                 document.getElementById(courseId + '-detail').classList.add('active');
-                
+
                 // Update active state for course list items
                 document.querySelectorAll('.course-list-item').forEach(item => {
                     item.classList.remove('active');
                 });
                 element.classList.add('active');
-                
+
                 // Hide empty state if visible
                 const emptyState = document.getElementById('empty-state');
                 if (emptyState) {
                     emptyState.style.display = 'none';
                 }
             }
-            
+
             // Initial selection handling
 // Initial selection handling
 document.querySelectorAll('#initial-selection .type-tab').forEach(button => {
     button.addEventListener('click', function() {
         const courseType = this.getAttribute('data-type');
-        
+
         // Hide initial selection with transition
         initialSelection.style.opacity = '0';
-        
+
         setTimeout(() => {
             initialSelection.style.display = 'none';
-            
+
             // Update active states for both initial and sidebar tabs
             document.querySelectorAll('.type-tab').forEach(tab => {
                 if (tab.getAttribute('data-type') === courseType) {
@@ -919,10 +983,10 @@ document.querySelectorAll('#initial-selection .type-tab').forEach(button => {
                     tab.classList.remove('active');
                 }
             });
-            
+
             // Show the selected course type
             showCourseType(courseType);
-            
+
             // Show course container with transition
             courseContainer.style.visibility = 'visible';
             courseContainer.style.height = 'auto'; // Add this line
@@ -931,30 +995,30 @@ document.querySelectorAll('#initial-selection .type-tab').forEach(button => {
         }, 300);
     });
 });
-            
+
             // Sidebar tab click handling
     // Sidebar tab click handling
 document.querySelectorAll('.sidebar .type-tab').forEach(button => {
     button.addEventListener('click', function() {
         const isAlreadyActive = this.classList.contains('active');
         const courseType = this.getAttribute('data-type');
-        
+
         if (isAlreadyActive) {
             // Only go back if clicking the already active tab
-            
+
             // Hide course container
             courseContainer.style.opacity = '0';
             courseContainer.style.height = '0'; // Add this line
-            
+
             setTimeout(() => {
                 courseContainer.style.visibility = 'hidden';
                 courseContainer.classList.remove('visible');
-                
+
                 // Reset active states
                 document.querySelectorAll('.type-tab').forEach(tab => {
                     tab.classList.remove('active');
                 });
-                
+
                 // Show initial selection
                 initialSelection.style.display = 'block';
                 setTimeout(() => {
@@ -974,7 +1038,7 @@ document.querySelectorAll('.sidebar .type-tab').forEach(button => {
                     showCourseDetail(this, courseId);
                 });
             });
-            
+
             // Show offline courses by default in the course container
             // This ensures something is shown when the page loads
             document.getElementById('offline-list').classList.add('active');
@@ -985,6 +1049,18 @@ document.querySelectorAll('.sidebar .type-tab').forEach(button => {
                 if (firstCourseId) {
                     document.getElementById(firstCourseId + '-detail').classList.add('active');
                 }
+            }
+        });
+
+        // Add smooth scrolling for the scroll arrow
+        document.querySelector('.scroll-arrow').addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector('#initial-selection');
+            if (target) {
+                target.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     </script>

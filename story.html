@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,10 +94,90 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Stronger shadow */
             text-align: center;
             transition: all 0.5s ease;
-            z-index: 10;
+            
             width: 90%;
             max-width: 800px;
             font-family: var(--font-heading); /* Make sure hero text uses Akshar */
+        }
+
+        /* Enhanced Scroll Arrow Styles */
+        .scroll-arrow {
+            width: 60px;
+            height: 60px;
+            border: rgba(255, 255, 255, 0.9);
+            background-color: 3px solid #ff6b35;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999; /* Increased z-index */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .scroll-arrow::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 18px;
+            height: 18px;
+            border-bottom: 4px solid #ff6b35;
+            border-right: 4px solid #ff6b35;
+            transform: translate(-50%, -60%) rotate(45deg);
+        }
+
+        .scroll-arrow:hover {
+            transform: translateX(-50%) translateY(-8px);
+            background-color: #ff6b35;
+            border-color: white;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        .scroll-arrow:hover::before {
+            border-color: white;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-12px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-6px);
+            }
+        }
+
+        .scroll-arrow {
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow:hover {
+            animation: none; /* Stop bounce on hover */
+        }
+
+        /* Hide scroll arrow when not needed */
+        @media (max-width: 480px) {
+            .scroll-arrow {
+                bottom: 30px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .scroll-arrow::before {
+                width: 15px;
+                height: 15px;
+                border-width: 3px;
+            }
         }
 
         /* Content section layout */
@@ -481,6 +562,8 @@
     </style>
 </head>
 <body>
+            <a href="#content" class="scroll-arrow"></a>
+
     <div class="hero" id="heroSection">
         <!-- Video will be dynamically inserted here -->
     </div>
@@ -563,7 +646,7 @@
     </header>
     
     
-    <div class="container">
+    <div class="container" id="content">
         <div class="content-section">
             <div class="content-details fade-in" id="contentDetails">
                 <!-- Content will be dynamically updated -->
