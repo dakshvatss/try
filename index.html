@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/musicalcommunity.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="nav.css"> 
     <style>
 
@@ -94,7 +95,7 @@
                 <a class="menu__link" href="index.html">Home</a>
               </li>
               <li class="menu__item">
-                <a class="menu__link" href="story.html">About us</a>
+                <a class="menu__link" href="story.html">Our Story</a>
               </li>
               <li class="menu__item">
                 <a class="menu__link" href="courses.html">Courses</a>
@@ -113,7 +114,7 @@
         <div class="overlay"></div>
         <ul class="slider">
             <li class="item active" data-image="/api/placeholder/1200/800">
-                <img src="images/demo.jpg" alt="Heritage of Colors">
+                <img src="images/1.jpg" alt="Heritage of Colors">
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; font-family: 'Georgia', serif; font-size: 1.3rem; line-height: 1.4; color: white; max-width: 800px; padding: 20px; z-index: 2; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); background-color: rgba(0,0,0,0.5); border-radius: 8px;">
                     <p>
                         Step into a vibrant world where <span style="color: #FFD700; font-weight: 600;">tradition meets passion</span>. Based in Mysuru and with a rich history of over two decades, 
@@ -149,6 +150,13 @@
                 </div>
             </li>
         </ul>
+        <div class="slide-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+        </div>
+        
         <a href="#about" class="scroll-arrow"></a>
     </div>
     <div class="border"></div>
@@ -211,7 +219,7 @@
                 margin-bottom: 1rem;
                 font-weight: 500;
                 color: var(--color-secondary);font-size: 3rem;
-    line-height: 1.2;">Learn With Us</h2>
+    line-height: 1.2;">LEARN WITH US</h2>
                 <p class="section-subtitle">Whether you’re a beginner eager to explore or a seasoned musician looking to deepen your craft, we invite you to join our musical family and celebrate the timeless art of melody and rhythm.</p>
             </div>
             
@@ -288,7 +296,7 @@
                 color: var(--color-secondary); font-size: 3rem;
     line-height: 1.2;">Experience Our Musical Journey</span></h2>
             <p class="journey-description">
-                <span style="font-size: 26px;">Delve into the vibrant world of Raghuleela School of Music's creation.</span><br>Catch a glimpse of our moments from classes, recitals, and events, reflecting our dedication to preserving Kannada music traditions.
+                <span style="font-size: 26px;">Delve into the vibrant world of Raghuleela School of Music.</span><br>Catch a glimpse of our moments from classes, recitals, and events, reflecting our dedication to preserving Kannada music traditions.
             </p>
             
         </div>
@@ -422,6 +430,91 @@
 </footer>
 
     <script src="try.js"></script>
+    
+    <script>
+        class AutoSlider {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.item');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.totalSlides = this.slides.length;
+                this.autoSlideInterval = null;
+                
+                this.init();
+            }
+
+            init() {
+                // Set up indicator click events
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        this.goToSlide(index);
+                        this.resetAutoSlide();
+                    });
+                });
+
+                // Start auto sliding
+                this.startAutoSlide();
+
+                // Pause on hover
+                const slider = document.querySelector('.islide');
+                slider.addEventListener('mouseenter', () => this.pauseAutoSlide());
+                slider.addEventListener('mouseleave', () => this.startAutoSlide());
+            }
+
+            goToSlide(index) {
+                // Remove active class from current slide and indicator
+                this.slides[this.currentSlide].classList.remove('active');
+                this.indicators[this.currentSlide].classList.remove('active');
+
+                // Update current slide index
+                this.currentSlide = index;
+
+                // Add active class to new slide and indicator
+                this.slides[this.currentSlide].classList.add('active');
+                this.indicators[this.currentSlide].classList.add('active');
+            }
+
+            nextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(nextIndex);
+            }
+
+            startAutoSlide() {
+                this.autoSlideInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 5000); // Change slide every 5 seconds
+            }
+
+            pauseAutoSlide() {
+                if (this.autoSlideInterval) {
+                    clearInterval(this.autoSlideInterval);
+                    this.autoSlideInterval = null;
+                }
+            }
+
+            resetAutoSlide() {
+                this.pauseAutoSlide();
+                this.startAutoSlide();
+            }
+        }
+
+        // Initialize the slider when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new AutoSlider();
+        });
+
+        // Add smooth scrolling for the scroll arrow
+        document.querySelector('.scroll-arrow').addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector('#about');
+            if (target) {
+                target.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
