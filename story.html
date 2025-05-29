@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@
             box-sizing: border-box;
         }
 
-        
+
 
         body {
             background-color: var(--color-dark);
@@ -94,32 +93,30 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Stronger shadow */
             text-align: center;
             transition: all 0.5s ease;
-            
+
             width: 90%;
             max-width: 800px;
             font-family: var(--font-heading); /* Make sure hero text uses Akshar */
         }
 
-        /* Enhanced Scroll Arrow Styles */
+        /* Scroll Arrow Styles - matching other pages */
         .scroll-arrow {
-            width: 60px;
-            height: 60px;
-            border: rgba(255, 255, 255, 0.9);
-            background-color: 3px solid #ff6b35;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-primary);
             border-radius: 50%;
             position: absolute;
-            bottom: 40px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 999; /* Increased z-index */
+            z-index: 1000;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .scroll-arrow::before {
@@ -127,22 +124,17 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 18px;
-            height: 18px;
-            border-bottom: 4px solid #ff6b35;
-            border-right: 4px solid #ff6b35;
-            transform: translate(-50%, -60%) rotate(45deg);
+            width: 15px;
+            height: 15px;
+            border-bottom: 3px solid white;
+            border-right: 3px solid white;
+            transform: translate(-50%, -50%) rotate(45deg);
+            margin-top: -4px;
         }
 
         .scroll-arrow:hover {
-            transform: translateX(-50%) translateY(-8px);
-            background-color: #ff6b35;
-            border-color: white;
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-        }
-
-        .scroll-arrow:hover::before {
-            border-color: white;
+            transform: translateX(-50%) translateY(-5px);
+            background-color: var(--color-secondary);
         }
 
         @keyframes bounce {
@@ -150,10 +142,10 @@
                 transform: translateX(-50%) translateY(0);
             }
             40% {
-                transform: translateX(-50%) translateY(-12px);
+                transform: translateX(-50%) translateY(-10px);
             }
             60% {
-                transform: translateX(-50%) translateY(-6px);
+                transform: translateX(-50%) translateY(-5px);
             }
         }
 
@@ -161,22 +153,12 @@
             animation: bounce 2s infinite;
         }
 
-        .scroll-arrow:hover {
-            animation: none; /* Stop bounce on hover */
-        }
-
         /* Hide scroll arrow when not needed */
         @media (max-width: 480px) {
             .scroll-arrow {
-                bottom: 30px;
-                width: 50px;
-                height: 50px;
-            }
-            
-            .scroll-arrow::before {
-                width: 15px;
-                height: 15px;
-                border-width: 3px;
+                bottom: 20px;
+                width: 45px;
+                height: 45px;
             }
         }
 
@@ -474,7 +456,7 @@
             opacity: 0;
             transform: translateX(-20px);
         }
-        
+
         .fade-in {
             opacity: 1;
             transform: translateX(0);
@@ -490,11 +472,11 @@
             .content-section {
                 gap: 30px;
             }
-            
+
             .highlights-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
+
             .hero-text {
                 font-size: 2.8rem;
             }
@@ -504,11 +486,11 @@
             .content-section {
                 grid-template-columns: 1fr;
             }
-            
+
             .cards-grid {
                 order: -1;
             }
-            
+
             .hero-text {
                 font-size: 3rem;
             }
@@ -518,16 +500,16 @@
             .cards-grid, .highlights-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .hero-text {
                 font-size: 2.2rem;
             }
-            
+
             .content-details {
                 min-height: auto;
                 padding: 25px;
             }
-            
+
             .testimonial-content {
                 padding: 20px;
             }
@@ -537,24 +519,24 @@
             .cards-grid, .highlights-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero-text {
                 font-size: 1.8rem;
             }
-            
+
             .testimonial-author {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .testimonial-avatar {
                 margin: 0 0 10px 0;
             }
-            
+
             h2 {
                 font-size: 1.8rem;
             }
-            
+
             h3 {
                 font-size: 1.5rem;
             }
@@ -644,14 +626,14 @@
             </ul>
         </nav>
     </header>
-    
-    
+
+
     <div class="container" id="content">
         <div class="content-section">
             <div class="content-details fade-in" id="contentDetails">
                 <!-- Content will be dynamically updated -->
             </div>
-            
+
             <div class="cards-section">
                 <div class="cards-grid" id="founderCards">
                     <div class="card" data-index="1" data-content="school">
@@ -663,7 +645,7 @@
                         <div class="card-title">Trust</div>
                     </div>
                 </div>
-                
+
                 <div class="card-details-section fade-in" id="cardDetailsSection">
                     <h3>Discover More</h3>
                     <p>Click on any card above to explore different aspects of our institution. Each card contains unique videos and information about our school, trust, and community initiatives.</p>
@@ -687,7 +669,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="testimonials-section">
             <h2>What Our Students Say</h2>
             <div class="testimonials-carousel" id="testimonialsCarousel">
@@ -703,7 +685,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial">
                     <div class="testimonial-content">
                         <p>"I've been learning tabla for three years at Raghuleela, and the journey has been incredible. The personalized attention from my guru has helped me master complex rhythms."</p>
@@ -716,7 +698,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial">
                     <div class="testimonial-content">
                         <p>"The opportunities to perform at various events organized by the school have boosted my confidence tremendously. I'm grateful for this nurturing environment."</p>
@@ -730,14 +712,14 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="carousel-controls">
                 <button id="prevTestimonial" class="carousel-control">❮</button>
                 <button id="nextTestimonial" class="carousel-control">❯</button>
             </div>
         </div>
     </div>
-   
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -749,7 +731,7 @@
                     </div>
                     <p>Providing quality music education since 2005.</p>
                 </div>
-                
+
                 <!-- Division 2: Updated Quick Links with Redirects -->
                 <div class="footer-links">
                     <h4 class="footer-heading">Quick Links</h4>
@@ -760,7 +742,7 @@
                         <li><a href="contactus.html">Work with us</a></li>
                     </ul>
                 </div>
-                
+
                 <!-- Division 3: Updated Address & Contact Info -->
                 <div class="footer-contact">
                     <h4 class="footer-heading">Contact Info</h4>
@@ -790,7 +772,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.getElementById('heroSection');
     const cardsGrid = document.getElementById('founderCards');
     const cardDetailsSection = document.getElementById('cardDetailsSection');
-    
+
     // Content for each option, now with videos
     const contents = {
         founder: {
@@ -831,25 +813,25 @@ trust: {
 }
 
 ,
-        
+
     };
-    
+
     // All content keys array
     const contentKeys = Object.keys(contents);
-    
+
     // Start with founder content which is not visible in cards
     let currentContent = 'founder';
     let hiddenContent = currentContent; // Track which content type is currently hidden
-    
+
     // Initially update the UI
     updateHeroWithVideo(contents[currentContent]);
     updateContentDetails(contents[currentContent]);
-    
+
     // Function to update hero section with video
     function updateHeroWithVideo(content) {
         // Clear previous hero content
         heroSection.innerHTML = '';
-        
+
         // Create video element
         const videoEl = document.createElement('video');
         videoEl.className = 'hero-video';
@@ -862,91 +844,91 @@ trust: {
         videoEl.style.width = '100%';
         videoEl.style.height = '100%';
         videoEl.style.objectFit = 'cover';
-        
+
         // Add source
         const sourceEl = document.createElement('source');
         sourceEl.src = content.video;
         sourceEl.type = 'video/mp4';
-        
+
         // Create hero text overlay
         const textOverlay = document.createElement('div');
         textOverlay.className = 'hero-text';
         textOverlay.id = 'heroText';
         textOverlay.textContent = content.heroTitle;
-        
+
         // Append elements
         videoEl.appendChild(sourceEl);
         heroSection.appendChild(videoEl);
         heroSection.appendChild(textOverlay);
-        
+
         // Start playing the video
         videoEl.play().catch(error => {
             console.log('Auto-play was prevented:', error);
             // Show poster image as fallback
         });
     }
-    
+
     // Function to update content details
     function updateContentDetails(content) {
         // Update content details with fade effect
         contentDetails.classList.remove('fade-in');
         contentDetails.classList.add('fade-out');
-        
+
         setTimeout(() => {
             let html = `<h2>${content.title}</h2>`;
             content.paragraphs.forEach(paragraph => {
                 html += `<p>${paragraph}</p>`;
             });
             html += `<a href="#" class="content-btn">Learn more</a>`;
-            
+
             contentDetails.innerHTML = html;
-            
+
             contentDetails.classList.remove('fade-out');
             contentDetails.classList.add('fade-in');
         }, 300);
     }
-    
+
     // Function to handle card clicking
     function handleCardClick(cardElement) {
         const selectedContent = cardElement.getAttribute('data-content');
-        
+
         // Don't do anything if the same card is clicked again
         if (selectedContent === currentContent) return;
-        
+
         // Update the video and content display
         updateHeroWithVideo(contents[selectedContent]);
         updateContentDetails(contents[selectedContent]);
-        
+
         // Create a new card for the previously displayed content
         const newCard = createCard(hiddenContent);
-        
+
         // Replace the clicked card with the new card
         cardsGrid.replaceChild(newCard, cardElement);
-        
+
         // Update tracking variables
         hiddenContent = selectedContent;
         currentContent = selectedContent;
     }
-    
+
     // Function to create a card element
     function createCard(contentKey) {
         const card = document.createElement('div');
         card.className = 'card';
         card.setAttribute('data-content', contentKey);
-        
+
         card.innerHTML = `
             <img src="${contents[contentKey].posterImage}" alt="${contents[contentKey].title}">
             <div class="card-title">${contentKey.charAt(0).toUpperCase() + contentKey.slice(1)}</div>
         `;
-        
+
         // Add click event listener
         card.addEventListener('click', function() {
             handleCardClick(this);
         });
-        
+
         return card;
     }
-    
+
     // Initialize click events on existing cards
     const cards = cardsGrid.querySelectorAll('.card');
     cards.forEach(card => {
@@ -954,45 +936,45 @@ trust: {
             handleCardClick(this);
         });
     });
-    
+
     // Testimonials carousel functionality
     const testimonialsCarousel = document.getElementById('testimonialsCarousel');
     const testimonials = Array.from(testimonialsCarousel.querySelectorAll('.testimonial'));
     const prevBtn = document.getElementById('prevTestimonial');
     const nextBtn = document.getElementById('nextTestimonial');
     let currentTestimonial = 0;
-    
+
     // Initialize the first testimonial as active
     testimonials[currentTestimonial].classList.add('active');
-    
+
     // Function to show a specific testimonial
     function showTestimonial(index) {
         // Remove active class from all testimonials
         testimonials.forEach(testimonial => {
             testimonial.classList.remove('active');
         });
-        
+
         // Add active class to the current testimonial
         testimonials[index].classList.add('active');
-        
+
         // Scroll to the current testimonial
         testimonialsCarousel.scrollTo({
             left: testimonials[index].offsetLeft,
             behavior: 'smooth'
         });
     }
-    
+
     // Event listeners for carousel buttons
     nextBtn.addEventListener('click', function() {
         currentTestimonial = (currentTestimonial + 1) % testimonials.length;
         showTestimonial(currentTestimonial);
     });
-    
+
     prevBtn.addEventListener('click', function() {
         currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
         showTestimonial(currentTestimonial);
     });
-    
+
     // Auto rotate testimonials every 5 seconds
     setInterval(function() {
         currentTestimonial = (currentTestimonial + 1) % testimonials.length;
@@ -1000,6 +982,17 @@ trust: {
     }, 5000);
 });
 
+        // Add smooth scrolling for the scroll arrow
+        document.querySelector('.scroll-arrow').addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector('#content');
+            if (target) {
+                target.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     </script>
 </body>
 </html>

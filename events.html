@@ -1401,6 +1401,18 @@
                 }
             }
         });
+
+        // Add smooth scrolling for the scroll arrow
+        document.querySelector('.scroll-arrow').addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector('#content');
+            if (target) {
+                target.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     </script>
 </body>
 </html>
