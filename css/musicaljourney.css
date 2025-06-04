@@ -656,23 +656,28 @@
   }
   
   .vinyl-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+    max-width: 100%;
+    margin: 0 auto;
   }
   
   .vinyl-record {
     flex: 0 0 auto;
+    width: 140px;
   }
   
   .vinyl-album, .vinyl-cover {
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
   }
   
   .vinyl-disc {
-    width: 190px;
-    height: 190px;
+    width: 130px;
+    height: 130px;
   }
   
   .video-title {
