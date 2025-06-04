@@ -11,7 +11,6 @@ header::before {
     pointer-events: none; /* ensures it doesn't block clicks */
 }
 
-
 /* Logo Styles */
 .logo img {
     height: 150px;
@@ -120,36 +119,91 @@ header::before {
 }
 
 /* Responsive styles for navigation elements */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    /* Hide language toggle on tablets and smaller screens */
     .language-toggle {
-        right: 8.5rem;
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-icons {
+        right: 1rem;
+        gap: 0.8rem;
     }
     
-    .lang-btn {
-        padding: 5px 10px;
-        font-size: 0.8rem;
+    /* Ensure topbar is visible */
+    header::before {
+        height: 7rem; /* Increased height for better visibility */
     }
 }
 
 @media (max-width: 600px) {
     .social-icons {
-        right: 4.5rem;
+        right: 1rem;
         top: 1.3rem;
-        gap: 0.7rem;
+        gap: 0.6rem;
     }
-    
+        
     .social-icon {
         width: 32px;
         height: 32px;
     }
-    
+        
     .social-icon svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
     
-    .language-toggle {
-        right: 7.5rem;
-        top: 1.3rem;
+    /* Improve topbar visibility on mobile */
+    header::before {
+        height: 6.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        left: 10px;
+    }
+    
+    .logo img {
+        height: 120px;
+    }
+    
+    .social-icons {
+        right: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* Standard topbar visibility */
+    header::before {
+        height: 6rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .social-icons {
+        gap: 0.4rem;
+        right: 0.3rem;
+    }
+    
+    .social-icon {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .social-icon svg {
+        width: 14px;
+        height: 14px;
     }
 }
