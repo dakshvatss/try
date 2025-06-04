@@ -15,18 +15,35 @@ html, body {
 
 /* Navigation responsiveness */
 @media (max-width: 768px) {
-    /* Hide navigation elements when hamburger menu should show */
+    /* Keep header social icons visible */
+    header .social-icons {
+        display: flex !important;
+        position: fixed;
+        right: 1rem;
+        top: 1.8rem;
+        z-index: 1001;
+        gap: 0.8rem;
+    }
+    
+    /* Hide navigation elements inside hamburger menu */
     .nav-main .language-toggle,
     .nav-main .social-icons {
         display: none;
     }
     
-    /* Show them in mobile menu */
+    /* Show them in mobile menu when active */
     .nav-main.active .language-toggle,
     .nav-main.active .social-icons {
         display: flex;
         justify-content: center;
         margin: 1rem 0;
+    }
+    
+    /* Ensure hamburger button is properly positioned */
+    [id=main-navigation-toggle] ~ label {
+        right: 1rem;
+        top: 1rem;
+        z-index: 1002;
     }
 }
 
